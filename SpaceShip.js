@@ -1,8 +1,12 @@
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from 
+'three/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from 
+"https://cdn.skypack.dev/three@0.132.2/build/three.module.js";
 
 export default class SpaceShip {
     constructor(scene) {
         this.scene = scene;
+        this.yAxis = new THREE.Vector3(0, 1, 0); 
         this.loadModel();
     }
 
@@ -25,7 +29,20 @@ export default class SpaceShip {
             }
         );
     }
-    rotate() {
-        this.model.rotation.y += 0.01; 
+    moveForward(speed) {
+        this.model.translateZ(+speed);
     }
+
+    moveBackward(speed) {
+        this.model.translateZ(-speed);
+    }
+
+    turnLeft(speed) {
+        this.model.rotateOnAxis(this.yAxis, speed); 
+    }
+
+    turnRight(speed) {
+        this.model.rotateOnAxis(this.yAxis, -speed); 
+    }
+    
 }

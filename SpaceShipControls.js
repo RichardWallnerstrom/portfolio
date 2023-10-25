@@ -1,7 +1,7 @@
 export default class SpaceShipControls {
     constructor(spaceShip, initialSpeed) {
         this.spaceShip = spaceShip;
-        this.speed = initialSpeed || 0.1;
+        this.speed = initialSpeed || 10;
         this.keys = {
             KeyW: false,
             KeyA: false,
@@ -12,15 +12,12 @@ export default class SpaceShipControls {
         document.addEventListener('keydown', (event) => this.onKeyDown(event), false);
         document.addEventListener('keyup', (event) => this.onKeyUp(event), false);
     }
-
     onKeyDown(event) {
         this.keys[event.code] = true;
     }
-
     onKeyUp(event) {
         this.keys[event.code] = false;
     }
-
     update() {
         if (this.keys['KeyW']) {
             this.spaceShip.moveForward(this.speed);
@@ -29,10 +26,10 @@ export default class SpaceShipControls {
             this.spaceShip.moveBackward(this.speed);
         }
         if (this.keys['KeyA']) {
-            this.spaceShip.rotateLeft(this.speed);
+            this.spaceShip.turnLeft(0.1);
         }
         if (this.keys['KeyD']) {
-            this.spaceShip.rotateRight(this.speed);
+            this.spaceShip.turnRight(0.1);
         }
     }
 }

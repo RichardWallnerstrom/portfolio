@@ -5,18 +5,21 @@ import SpaceShip from './SpaceShip.js';
 import Earth from './Earth.js';
 import Mars from './Mars.js';
 import SpaceShipControls from "./SpaceShipControls.js";
+import CameraController from './CameraController.js';
 
 //// Audio ////
 const audio = new Audio('audio/warneverchanges.mp3');
 audio.loop = true;
 audio.play();
 
-const renderer = new THREE.WebGLRenderer() // Renderer
+//// Renderer ////
+const renderer = new THREE.WebGLRenderer() 
 renderer.setSize(innerWidth, innerHeight)
 renderer.setPixelRatio(devicePixelRatio)
 document.body.appendChild(renderer.domElement)
 
-const camera = new THREE.PerspectiveCamera( /// Camera
+//// Camera ////
+const camera = new THREE.PerspectiveCamera(
   75, innerWidth / innerHeight, 0.1, 9999
 )
 camera.position.set(25, 10, 25);
@@ -48,24 +51,13 @@ const spaceShip = new SpaceShip(scene);
 const earth = new Earth(scene);
 const mars = new Mars(scene);
 const spaceShipControls = new SpaceShipControls(spaceShip);
-
-function updateCameraPosition() {
-  const trailingOffset = new THREE.Vector3(0, 10, 20);
-  const behindShipVector = new THREE.Vector3(0, 0, 1);
-  behindShipVector.applyQuaternion(spaceShip.model.quaternion);
-  behindShipVector.multiplyScalar(trailingOffset.z);
-  const cameraPosition = spaceShip.model.position.clone().add(behindShipVector);
-  camera.position.copy(cameraPosition);
-  spaceShip.model.getWorldQuaternion(camera.quaternion);
-}
-
-
+const cameraController = new CameraController(spaceShip, camera);
 
 // Animations
 function animate() {
   requestAnimationFrame(animate)
   spaceShipControls.update();
-  updateCameraPosition();
+  cameraController.updateCameraPosition();
   renderer.render(scene, camera)
   earth.rotate();
   mars.rotate();

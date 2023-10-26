@@ -1,10 +1,11 @@
 import { GLTFLoader } from 
 'three/examples/jsm/loaders/GLTFLoader.js';
-import * as THREE from 
-"https://cdn.skypack.dev/three@0.132.2/build/three.module.js";
+import * as THREE from 'three';
+
 
 export default class SpaceShip {
     constructor(scene) {
+        this.model; 
         this.scene = scene;
         this.yAxis = new THREE.Vector3(0, 1, 0); 
         this.loadModel();
@@ -13,12 +14,12 @@ export default class SpaceShip {
     loadModel() {
         const loader = new GLTFLoader();
         loader.load(
-            'assets/space_ship/scene.gltf',
+            '/assets/space_ship/scene.gltf',
             (gltf) => {
                 this.model = gltf.scene;
-                this.model.scale.set(0.01, 0.01, 0.01);
-                this.model.position.set(20, -1, 1);
-                this.model.rotation.set(0, 11, 0);
+                this.model.scale.set(0.001, 0.001, 0.001);
+                this.model.position.set(0, 0, 0);
+                this.model.rotation.set(0, -2, 0);
                 this.scene.add(this.model);
             },
             (xhr) => {

@@ -1,4 +1,5 @@
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from 
+'three/examples/jsm/loaders/GLTFLoader.js';
 
 export default class Earth {
     constructor(scene) {
@@ -13,7 +14,7 @@ export default class Earth {
             (gltf) => {
                 this.model = gltf.scene;
                 this.model.scale.set(0.1, 0.1, 0.1);
-                this.model.position.set(200, 10, 100);
+                this.model.position.set(20, -100, 10);
                 this.model.rotation.set(0, 20, 10);
                 this.scene.add(this.model);
             },
@@ -27,7 +28,6 @@ export default class Earth {
     }
     rotate() {
         this.model.rotation.y += 0.01; 
-        this.model.rotation.z += 0.0; 
 
     }
 }

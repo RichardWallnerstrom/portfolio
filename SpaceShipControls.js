@@ -26,10 +26,16 @@ export default class SpaceShipControls {
             this.spaceShip.moveBackward(this.speed);
         }
         if (this.keys['KeyA']) {
-            this.spaceShip.turnLeft(0.1);
+            this.spaceShip.turnLeft(0.03);
         }
         if (this.keys['KeyD']) {
-            this.spaceShip.turnRight(0.1);
+            this.spaceShip.turnRight(0.03);
+        }
+        if (this.keys['KeyQ']) {
+            this.spaceShip.barrelLeft(0.03);
+        }
+        if (this.keys['KeyE']) {
+            this.spaceShip.barrelRight(0.03);
         }
     }
 }

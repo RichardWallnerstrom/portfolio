@@ -6,6 +6,10 @@ import Earth from './Earth.js';
 import Mars from './Mars.js';
 import SpaceShipControls from "./SpaceShipControls.js";
 
+//// Audio ////
+const audio = new Audio('audio/warneverchanges.mp3');
+audio.loop = true;
+audio.play();
 
 const renderer = new THREE.WebGLRenderer() // Renderer
 renderer.setSize(innerWidth, innerHeight)
@@ -36,9 +40,8 @@ const light = new THREE.DirectionalLight(0xfffffff, 1)
 light.position.set(5, 10, 5)
 scene.add(light)
 // Ambient light
-const ambientLight = new THREE.AmbientLight(0xffffff, 1); 
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.1); 
 scene.add(ambientLight);
-
 
 //// Objects /////
 const spaceShip = new SpaceShip(scene);
@@ -47,12 +50,11 @@ const mars = new Mars(scene);
 const spaceShipControls = new SpaceShipControls(spaceShip);
 
 function updateCameraPosition() {
-   const trailingOffset = new THREE.Vector3(0, 10, 20); // Adjust the offset as needed
+  const trailingOffset = new THREE.Vector3(0, 10, 20);
   const behindShipVector = new THREE.Vector3(0, 0, 1);
   behindShipVector.applyQuaternion(spaceShip.model.quaternion);
   behindShipVector.multiplyScalar(trailingOffset.z);
   const cameraPosition = spaceShip.model.position.clone().add(behindShipVector);
-  
   camera.position.copy(cameraPosition);
   spaceShip.model.getWorldQuaternion(camera.quaternion);
 }

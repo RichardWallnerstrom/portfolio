@@ -13,9 +13,9 @@ export default class Earth {
             'assets/earth/scene.gltf',
             (gltf) => {
                 this.model = gltf.scene;
-                this.model.scale.set(0.1, 0.1, 0.1);
-                this.model.position.set(20, -100, 10);
-                this.model.rotation.set(0, 20, 10);
+                this.model.scale.set(0.3, 0.3, 0.3);
+                this.model.position.set(4000, -100, -200);
+                this.model.rotation.set(0, 20, 0);
                 this.scene.add(this.model);
             },
             (xhr) => {
@@ -27,7 +27,7 @@ export default class Earth {
         );
     }
     rotate() {
-        this.model.rotation.y += 0.01; 
+        this.model.rotation.y += 0.001; 
 
     }
 }

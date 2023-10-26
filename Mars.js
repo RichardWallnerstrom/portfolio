@@ -13,8 +13,8 @@ export default class Mars {
             'assets/mars/scene.gltf',
             (gltf) => {
                 this.model = gltf.scene;
-                this.model.scale.set(0.5, 0.5, 0.5);
-                this.model.position.set(20, -150, 10);
+                this.model.scale.set(40, 40, 40);
+                this.model.position.set(900, -250, -180);
                 this.model.rotation.set(0, 20, 10);
                 this.scene.add(this.model);
             },
@@ -27,7 +27,7 @@ export default class Mars {
         );
     }
     rotate() {
-        this.model.rotation.y += 0.01; 
+        this.model.rotation.y += 0.001; 
 
     }
 }

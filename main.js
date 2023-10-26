@@ -23,7 +23,11 @@ const camera = new THREE.PerspectiveCamera(
   75, innerWidth / innerHeight, 0.1, 9999
 )
 camera.position.set(25, 10, 25);
-
+////  HUD ////
+fetch('earth.html')
+  .then(response => response.text())
+  .then(data => document.getElementById('hud').innerHTML = data)
+  .catch(error => console.error('Error fetching HUD content:', error));
 // Scene 
 const scene = new THREE.Scene()
 const loader = new THREE.CubeTextureLoader();
@@ -61,6 +65,7 @@ function animate() {
   renderer.render(scene, camera)
   earth.rotate();
   mars.rotate();
+  const distance = spaceShip.model.position.distanceTo(earth.model.position);
 
 
 }

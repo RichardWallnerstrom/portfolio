@@ -23,11 +23,8 @@ const camera = new THREE.PerspectiveCamera(
   75, innerWidth / innerHeight, 0.1, 9999
 )
 camera.position.set(25, 10, 25);
-////  HUD ////
-fetch('earth.html')
-  .then(response => response.text())
-  .then(data => document.getElementById('hud').innerHTML = data)
-  .catch(error => console.error('Error fetching HUD content:', error));
+
+
 // Scene 
 const scene = new THREE.Scene()
 const loader = new THREE.CubeTextureLoader();
@@ -56,7 +53,25 @@ const earth = new Earth(scene);
 const mars = new Mars(scene);
 const spaceShipControls = new SpaceShipControls(spaceShip);
 const cameraController = new CameraController(spaceShip, camera);
-
+////  HUD ////
+function displayHud() {
+  const distanceToEarth = spaceShip.model.position.distanceTo(earth.model.position);
+  const distanceToMars = spaceShip.model.position.distanceTo(mars.model.position); 
+  const hudDiv = document.getElementById('hud');
+  if (distanceToEarth < 1200 || distanceToMars < 700) {
+      const fetchUrl = distanceToEarth < distanceToMars ? 'earth.html' : 'mars.html';       
+      fetch(fetchUrl)
+      .then(response => response.text())
+      .then(data => {
+        hudDiv.innerHTML = data;
+        hudDiv.style.display = 'block'; 
+      })
+      .catch(error => console.error('Error fetching HUD content:', error));
+  } 
+  else {
+    hudDiv.style.display = 'none';
+  }
+}
 // Animations
 function animate() {
   requestAnimationFrame(animate)
@@ -65,8 +80,8 @@ function animate() {
   renderer.render(scene, camera)
   earth.rotate();
   mars.rotate();
-  const distance = spaceShip.model.position.distanceTo(earth.model.position);
-
+  displayHud();
+  
 
 }
 animate()

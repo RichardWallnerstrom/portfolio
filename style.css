@@ -1,7 +1,7 @@
 #hud {
   position: fixed; 
   margin: 50px;
-  width: 100%;
+  width: 80%;
   color: rgb(255, 233, 215);
   background-color: rgba(124, 252, 166, 0.15); 
   font-size: 1.3em;

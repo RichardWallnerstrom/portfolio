@@ -27,7 +27,7 @@ export default class Mars {
         );
     }
     rotate() {
-        this.model.rotation.y += 0.001; 
+        this.model.rotation.y += 0.0001; 
 
     }
 }

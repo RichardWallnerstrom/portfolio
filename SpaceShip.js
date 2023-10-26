@@ -12,9 +12,6 @@ export default class SpaceShip {
         this.zAxis = new THREE.Vector3(0, 0, 1); 
         this.loadModel();
     }
-    setCamera(camera) {
-        this.camera = camera;
-    }
     loadModel() {
         const loader = new GLTFLoader();
         loader.load(
@@ -23,7 +20,7 @@ export default class SpaceShip {
                 this.model = gltf.scene;
                 this.model.scale.set(0.001, 0.001, 0.001);
                 this.model.position.set(0, 0, 0);
-                this.model.rotation.set(0, -2, 0);
+                this.model.rotation.set(0, 0, 0);
                 this.scene.add(this.model);
             },
             (xhr) => {
@@ -52,5 +49,12 @@ export default class SpaceShip {
     barrelRight(speed) {
         this.model.rotateOnAxis(this.zAxis, -speed); 
     }
+    pitchUp(speed) {
+        this.model.rotateOnAxis(this.xAxis, speed); 
+    }
+    pitchDown(speed) {
+        this.model.rotateOnAxis(this.xAxis, -speed); 
+    }
+
     
 }

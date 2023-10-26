@@ -3,6 +3,7 @@ import * as THREE from 'three';
 
 import SpaceShip from './SpaceShip.js';
 import Earth from './Earth.js';
+import Mars from './Mars.js';
 import SpaceShipControls from "./SpaceShipControls.js";
 
 
@@ -42,30 +43,18 @@ scene.add(ambientLight);
 //// Objects /////
 const spaceShip = new SpaceShip(scene);
 const earth = new Earth(scene);
+const mars = new Mars(scene);
 const spaceShipControls = new SpaceShipControls(spaceShip);
 
 function updateCameraPosition() {
-  const trailingOffset = new THREE.Vector3(0, 10, -20); 
-
-  const offsetVector = new THREE.Vector3(0, 0, 1);
-  // Apply the ship's rotation to the offset vector
-  offsetVector.applyQuaternion(spaceShip.model.quaternion); 
-  // Multiply the offset vector by the trailing offset to position the camera behind the ship
-  offsetVector.multiplyScalar(-trailingOffset.z);
-  const offsetPosition = spaceShip.model.position.clone().add(offsetVector);
-  // Create a vector pointing from the offset position back towards the ship's position
-  const behindShipVector = spaceShip.model.position.clone().sub(offsetPosition);
-
-  // Normalize the vector to get a unit direction and then multiply it by a desired distance
-  behindShipVector.normalize();
-  behindShipVector.multiplyScalar(25); // Adjust the distance from the ship as needed
-
-  // Calculate the final position for the camera
+   const trailingOffset = new THREE.Vector3(0, 10, 20); // Adjust the offset as needed
+  const behindShipVector = new THREE.Vector3(0, 0, 1);
+  behindShipVector.applyQuaternion(spaceShip.model.quaternion);
+  behindShipVector.multiplyScalar(trailingOffset.z);
   const cameraPosition = spaceShip.model.position.clone().add(behindShipVector);
-
-  // Set the camera position and make it look at the ship's position
+  
   camera.position.copy(cameraPosition);
-  camera.lookAt(spaceShip.model.position);
+  spaceShip.model.getWorldQuaternion(camera.quaternion);
 }
 
 
@@ -77,6 +66,7 @@ function animate() {
   updateCameraPosition();
   renderer.render(scene, camera)
   earth.rotate();
+  mars.rotate();
 
 
 }

@@ -18,11 +18,11 @@ export default class SpaceShipControls {
     onKeyUp(event) {
         this.keys[event.code] = false;
     }
-    update() {
-        if (this.keys['KeyW']) {
+    update() {  
+        if (this.keys['KeyC']) {
             this.spaceShip.moveForward(this.speed);
         }
-        if (this.keys['KeyS']) {
+        if (this.keys['KeyF']) {
             this.spaceShip.moveBackward(this.speed);
         }
         if (this.keys['KeyA']) {
@@ -36,6 +36,12 @@ export default class SpaceShipControls {
         }
         if (this.keys['KeyE']) {
             this.spaceShip.barrelRight(0.03);
+        }
+        if (this.keys['KeyW']) {
+            this.spaceShip.pitchUp(0.005);
+        }
+        if (this.keys['KeyS']) {
+            this.spaceShip.pitchDown(0.005);
         }
     }
 }

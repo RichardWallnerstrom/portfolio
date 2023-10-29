@@ -1,15 +1,41 @@
-#hud {
+#bigHud {
   position: fixed; 
+  top: 0;
   margin: 50px;
   width: 80%;
-  color: rgb(255, 233, 215);
+  color: rgba(255, 174, 0, 0.85);
+  background-color: rgba(252, 192, 124, 0.15); 
+  font-size: 1.3em;
+  text-shadow: 2px 2px 2px rgba(0,0,0, 0.7),
+  -2px -2px 2px rgba(0,0,0, 0.7),
+   2px -2px 2px rgba(0,0,0, 0.7),
+    -2px 2px 2px rgba(0,0,0, 0.7);   
+  border: 4px solid rgba(105, 68, 0, 0.25); 
+  box-shadow: 5px 5px 50px 5px rgba(221, 118, 0, 0.7);
+  border-radius: 38%;
+  padding: 0px 0px 30px 50px;
+  
+}
+#smallHud {
+  position: fixed; 
+  top: 0;
+  margin: 50px;
+  width: 80%;
+  color: rgba(255, 174, 0, 0.85);
   background-color: rgba(124, 252, 166, 0.15); 
   font-size: 1.3em;
-  text-shadow: 3px 3px 2px rgb(0, 0, 0);
-  padding-left: 66px;
+  text-shadow: 2px 2px 2px rgba(0,0,0, 0.7),
+  -2px -2px 2px rgba(0,0,0, 0.7),
+   2px -2px 2px rgba(0,0,0, 0.7),
+    -2px 2px 2px rgba(0,0,0, 0.7);   
   border: 4px solid rgba(0, 105, 0, 0.25); 
   box-shadow: 5px 5px 50px 5px rgba(0, 218, 54, 0.7);
-  border-radius: 23%;
+  border-radius: 38%;
+  padding: 0px 0px 30px 50px;
+  
+}
+.animate__animated.animate__zoomIn {
+  --animate-duration: 0.5s;
 }
 
 :root {
@@ -47,8 +73,14 @@ body {
 
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+  line-height: 0;
   text-align: center;
+  color: rgb(163, 79, 0);
+  text-shadow: 2px 2px 2px #000,
+   -2px -2px 2px #000,
+    2px -2px 2px #000,
+     -2px 2px 2px #000;  
+
 }
 
 #app {

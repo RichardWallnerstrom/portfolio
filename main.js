@@ -1,11 +1,11 @@
 import * as THREE from 'three';
 
 
-import SpaceShip from './SpaceShip.js';
-import Earth from './Earth.js';
-import Mars from './Mars.js';
-import SpaceShipControls from "./SpaceShipControls.js";
-import CameraController from './CameraController.js';
+import SpaceShip from './script/SpaceShip.js';
+import Planet from './script/Planet.js';
+import SpaceShipControls from "./script/SpaceShipControls.js";
+import CameraController from './script/CameraController.js';
+import HudController from './script/HudController.js';
 
 //// Audio ////
 const audio = new Audio('audio/warneverchanges.mp3');
@@ -27,8 +27,8 @@ camera.position.set(25, 10, 25);
 
 // Scene 
 const scene = new THREE.Scene()
-const loader = new THREE.CubeTextureLoader();
-const spaceTexture = loader.load([  // Skymap image converted from wikipedia 6000x3000 mily way
+const cubeTextureLoader = new THREE.CubeTextureLoader();
+const spaceTexture = cubeTextureLoader.load([  // Skymap image converted from wikipedia 6000x3000 mily way
   '../images/px.png', 
   '../images/nx.png', 
   '../images/py.png', 
@@ -49,29 +49,23 @@ scene.add(ambientLight);
 
 //// Objects /////
 const spaceShip = new SpaceShip(scene);
-const earth = new Earth(scene);
-const mars = new Mars(scene);
+
+const earth = new Planet(
+  scene, 
+  "earth", 
+  0.6, // Size
+  [4000, -100, -200] // coordinates
+); 
+const mars = new Planet(
+  scene, 
+  "mars", 
+  40, // Size
+  [900, -250, -180] // coordinates
+); 
+const hud = new HudController(spaceShip, earth, mars);
 const spaceShipControls = new SpaceShipControls(spaceShip);
 const cameraController = new CameraController(spaceShip, camera);
-////  HUD ////
-function displayHud() {
-  const distanceToEarth = spaceShip.model.position.distanceTo(earth.model.position);
-  const distanceToMars = spaceShip.model.position.distanceTo(mars.model.position); 
-  const hudDiv = document.getElementById('hud');
-  if (distanceToEarth < 1200 || distanceToMars < 700) {
-      const fetchUrl = distanceToEarth < distanceToMars ? 'earth.html' : 'mars.html';       
-      fetch(fetchUrl)
-      .then(response => response.text())
-      .then(data => {
-        hudDiv.innerHTML = data;
-        hudDiv.style.display = 'block'; 
-      })
-      .catch(error => console.error('Error fetching HUD content:', error));
-  } 
-  else {
-    hudDiv.style.display = 'none';
-  }
-}
+
 // Animations
 function animate() {
   requestAnimationFrame(animate)
@@ -80,7 +74,7 @@ function animate() {
   renderer.render(scene, camera)
   earth.rotate();
   mars.rotate();
-  displayHud();
+  hud.DisplayHud();
   
 
 }

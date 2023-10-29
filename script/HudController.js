@@ -8,23 +8,27 @@ export default class HudController {
 
 
     }
-    DisplayHud() {
-        const distanceToEarth = this.spaceShip.model.position.distanceTo(this.earth.model.position);
-        const distanceToMars = this.spaceShip.model.position.distanceTo(this.mars.model.position); 
-        if (distanceToEarth < 1200 || distanceToMars < 700) {
-            const fetchUrl = (distanceToEarth < distanceToMars) 
-            ? '../pages/earth.html' : '../pages/mars.html';       
-
-            fetch(fetchUrl)
-            .then(page => page.text())
+    UpdateHud(fetchedUrl) {
+        fetch(fetchedUrl).then(page => page.text())
             .then(text => {
               this.smallHud.innerHTML = text;
               this.smallHud.style.display = 'block'; 
             })
-            .catch(error => console.error('Error fetching HUD content:', error));
+    }
+    DisplayHud() {
+        const distanceToEarth = this.spaceShip.model.position.distanceTo(
+            this.earth.model.position);
+        const distanceToMars = this.spaceShip.model.position.distanceTo(
+            this.mars.model.position); 
+        const fetchedUrl = (distanceToEarth < distanceToMars) 
+            ? '../pages/earth.html' : '../pages/mars.html'; 
+        if (distanceToEarth < 1200 || distanceToMars < 700) {
+            this.bigHud.style.display = 'none';
+            this.UpdateHud(fetchedUrl);
         } 
         else {
-          this.smallHud.style.display = 'none';
+            this.bigHud.style.display = 'block';
+            this.smallHud.style.display = 'none';
         }
       }
 }

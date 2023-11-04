@@ -3,4 +3,7 @@ export default class AudioManager {
       this.audio = new Audio(audioPath);
       this.audio.loop = true;
     }
+    playMusic() {
+      this.audio.play()
+    }
 }

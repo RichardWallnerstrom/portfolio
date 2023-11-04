@@ -7,6 +7,8 @@ body {
   height: 100%;
   width: 100%;
   font-family: 'Iceland', cursive;
+  cursor: default;
+
 
 }
 footer {
@@ -16,6 +18,7 @@ footer {
 }
 footer a {
   padding: 0px 10px;
+  cursor: pointer;
 }
 /* create a frame and place three js inside it */
 #frame-hud {
@@ -80,6 +83,7 @@ footer a {
   border: 4px solid rgba(0, 105, 0, 0.25); 
   box-shadow: 5px 5px 50px 5px rgba(0, 218, 54, 0.7);
   border-radius: 1%;
+  z-index: 999;
 }
 .grid-item {
   text-align: center;
@@ -152,11 +156,11 @@ footer a {
   -webkit-text-size-adjust: 100%;
 }
 p, h1, h2 {
-  cursor: default;
+  /* cursor: pointer; */
   padding: 0px 1vw;
 }
 p:hover{
-  /* font-size: 1.4vw; */
+  color: rgb(226, 187, 139);
 }
 h1 {
   font-size: 3vw;
@@ -181,7 +185,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: rgba(255, 174, 0, 0.85);
+  color: rgba(93, 5, 207, 0.85);
 }
 
 
@@ -233,16 +237,5 @@ a:hover {
     border: 4px solid rgba(0, 105, 0, 0.25); 
     box-shadow: 5px 5px 50px 5px rgba(0, 218, 54, 0.7);
     border-radius: 1%;
-  }}
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: rgba(255, 174, 0, 0.85);
-  }
-  button {
-    background-color: #f9f9f9;
   }
 }

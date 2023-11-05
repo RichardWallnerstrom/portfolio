@@ -16,8 +16,8 @@ export default class SpaceWorld {
     this.audioManager = new AudioManager('audio/warneverchanges.mp3')    
     this.lightController = new LightController(this.spaceScene.scene)
     this.spaceShipControls = new SpaceShipControls(this.spaceShip)
-    this.cameraController = new CameraController(this.spaceShip)
     this.loadPlanets()
+    this.cameraController = new CameraController(this.spaceShip, this.earth, this.mars)
     this.hud = new HudController(this.spaceShip, this.earth, this.mars)
 
   }
@@ -32,12 +32,12 @@ export default class SpaceWorld {
       this.spaceScene.scene, 
       "mars", 
       40, // Size
-      [900, -250, -180] // coordinates
+      [-6000, -250, -180] // coordinates
     ); 
   }
   animate() {
-    this.spaceShipControls.update();
-    this.cameraController.updateCameraPosition();
+    this.spaceShipControls.update()
+    this.cameraController.lookAtObject()
     this.renderer.renderer.render(this.spaceScene.scene, this.cameraController.camera)
     this.earth.rotate();
     this.mars.rotate();

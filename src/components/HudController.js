@@ -8,10 +8,10 @@ export default class HudController {
     }
     DisplayHud() {
         this.CalculateDistances(); 
-        const fetchedUrl = (this.distanceToEarth < this.distanceToMars) 
+        const fetchedUrl = (this.spaceShip.distanceToEarth < this.spaceShip.distanceToMars) 
             ? '../pages/earth.html' 
             : '../pages/mars.html'; 
-        if (this.distanceToEarth < 1200 || this.distanceToMars < 700) {
+        if (this.spaceShip.distanceToEarth < 1200 || this.spaceShip.distanceToMars < 700) {
             this.bigHud.style.display = 'none';
             this.UpdateHud(fetchedUrl, this.smallHud);
         } 
@@ -28,9 +28,9 @@ export default class HudController {
             })
     }
     CalculateDistances() {
-        this.distanceToEarth = this.spaceShip.model.position.distanceTo(
+        this.spaceShip.distanceToEarth = this.spaceShip.model.position.distanceTo(
             this.earth.model.position);
-        this.distanceToMars = this.spaceShip.model.position.distanceTo(
+        this.spaceShip.distanceToMars = this.spaceShip.model.position.distanceTo(
             this.mars.model.position); 
     }
     

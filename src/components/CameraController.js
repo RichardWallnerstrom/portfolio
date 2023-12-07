@@ -18,6 +18,7 @@ export default class CameraController {
             this.farClipDistance
           )
         this.camera.position.set(25, 10, 25)
+        
         const marsText = document.getElementById('mars-text')
         const earthText = document.getElementById('earth-text')
         
@@ -46,18 +47,27 @@ export default class CameraController {
     }
 
     placeCameraBehindShip() {
-        const trailingOffset = new THREE.Vector3(20, 20, -20)    
-        const behindShipVector = new THREE.Vector3(0, 0, -1)    // Create a new vector (0, 0, -1) representing a direction behind the ship   
-        behindShipVector.applyQuaternion(this.spaceShip.model.quaternion) // Apply the ship's quaternion to the behindShipVector
-        behindShipVector.multiplyScalar(-trailingOffset.z)     // Multiply the vector by the negative of the z-component of the trailing offset
-        const cameraPosition = this.spaceShip.model.position.clone().add(behindShipVector)
+        // const cameraTarget = new THREE.Vector3(0, 0, -20)    
+        // const bowVector = new THREE.Vector3(0, 10, 1)
+        // bowVector.applyQuaternion(this.spaceShip.model.quaternion) // Apply the ship's quaternion to the behindShipVector
+        // bowVector.multiplyScalar(cameraTarget.z)    // Multiply the vector by the negative of the z-component of the trailing offset
+        const trailingOffset = new THREE.Vector3(0, 0, 20)    
+        const sternVector = new THREE.Vector3(0, 0, -1)    // Create a new vector (0, 0, -1) representing a direction behind the ship   
+
+        sternVector.applyQuaternion(this.spaceShip.model.quaternion) // Apply the ship's quaternion to the sternVector
+        sternVector.multiplyScalar(-trailingOffset.z)   
+        
+        const cameraPosition = this.spaceShip.model.position.clone().add(sternVector)
         this.camera.position.copy(cameraPosition)
-        this.spaceShip.model.getWorldQuaternion(this.camera.quaternion) // Set camera quaternion
+        this.camera.quaternion.copy(this.spaceShip.model.quaternion);       // Set camera quaternion
+        // this.spaceShip.model.getWorldQuaternion(this.camera.quaternion)  // Not sure what the diff is between these two.
+        
+        
     }
     lookAtObject() {
         if (this.isMouseOverEarth) {
             this.camera.lookAt(this.earth.model.position);
-            this.camera.updateProjectionMatrix(); // Update the camera's projection matrix
+            this.camera.updateProjectionMatrix(); 
         } else if (this.isMouseOverMars) {
             this.camera.lookAt(this.mars.model.position);
             this.camera.updateProjectionMatrix(); 

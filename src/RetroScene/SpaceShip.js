@@ -19,7 +19,7 @@ export default class SpaceShip {
             (gltf) => {
                 this.model = gltf.scene;
                 this.model.scale.set(0.001, 0.001, 0.001);
-                this.model.position.set(0,0,0);
+                this.model.position.set(0, 0, 0);
                 this.model.rotation.set(0, 0, 0);
                 this.scene.add(this.model);
             },
@@ -54,6 +54,9 @@ export default class SpaceShip {
     }
     pitchDown(speed) {
         this.model.rotateOnAxis(this.xAxis, -speed); 
+    }
+    teleport(location) {
+        this.model.position.set(location.x - 700, location.y, location.z - 700);
     }
 
     

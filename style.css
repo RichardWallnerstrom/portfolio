@@ -1,6 +1,5 @@
 body {
-  display: flex;
-  justify-content: center;
+
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
@@ -8,8 +7,6 @@ body {
   width: 100%;
   font-family: 'Iceland', cursive;
   cursor: default;
-
-
 }
 footer {
   display: flex;
@@ -39,10 +36,8 @@ footer a {
 #app {
 
 }
-#bigHud {
+#mainContainer {
   position: fixed; 
-  display: flex;
-  flex-direction: column;
   top: 0;
   margin: 50px;
   padding: 0px 0px 30px 0px;
@@ -96,12 +91,12 @@ footer a {
   justify-content: center;
   align-items: center;
   margin: 9vh 0 0 0;
+  background-color: #fff;
 
 }
 .bottomContainer {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  
 }
 .bottomContainer > div {
   border: 2px solid #c75001;
@@ -110,9 +105,15 @@ footer a {
   margin: 0 1vw;
   box-shadow: 0px 0px 23px 3px rgba(0, 0, 0, 0.9);
 }
-.leftContainer {
+#menuContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
 }
-.rightContainer {
+#contentContainer {
+    border: 2px solid #c75001;
+        margin: 0 auto;
 }
 .soundcloudContainer {
   font-size: 10px; 
@@ -168,14 +169,14 @@ h1 {
   width: 23vw;
   font-size: 3vw;
   line-height: 0;
-  height: 50px;
+  height: 1vh;
   text-align: center;
   justify-content: center;
   color: rgba(0, 0, 0, 0.925);
   text-shadow: 2px 2px 2px #ccc,
-   -2px -2px 2px #ccc,
-    2px -2px 2px #ccc,
-     -2px 2px 2px #ccc;  
+              -2px -2px 2px #ccc,
+                2px -2px 2px #ccc,
+              -2px 2px 2px #ccc;  
   box-shadow: 2px 2px 8px 8px #ccc;
   background-color: #242424;
 }
@@ -184,6 +185,29 @@ h2 {
   margin: 0 1vw 1vw 1vw;
   text-align: center;
   font-family: 'Iceland', cursive;
+}
+h3 {
+  width: 23vw;
+  font-size: 1.7em;
+  line-height: 0;
+  height: 0.7vh;
+  text-align: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.925);
+  text-shadow: 2px 2px 2px #ccc,
+    -2px -2px 2px #ccc,
+    2px -2px 2px #ccc,
+    -2px 2px 2px #ccc;
+  box-shadow: 2px 2px 8px 8px #ccc;
+  background-color: #242424;
+}
+h3:hover {
+  color: rgba(0, 0, 0, 1);
+  text-shadow: 2px 2px 2px #ff7300,
+    -2px -2px 2px #ff7300,
+    2px -2px 2px #ff7300,
+    -2px 2px 2px #ff7300;
+  box-shadow: 2px 2px 8px 8px #3cff00;
 }
 a {
   font-weight: 500;

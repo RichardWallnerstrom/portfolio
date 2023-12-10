@@ -91,7 +91,6 @@ footer a {
   justify-content: center;
   align-items: center;
   margin: 9vh 0 0 0;
-  background-color: #fff;
 
 }
 .bottomContainer {
@@ -169,7 +168,7 @@ h1 {
   width: 23vw;
   font-size: 3vw;
   line-height: 0;
-  height: 1vh;
+  height: 0.5vh;
   text-align: center;
   justify-content: center;
   color: rgba(0, 0, 0, 0.925);
@@ -177,7 +176,6 @@ h1 {
               -2px -2px 2px #ccc,
                 2px -2px 2px #ccc,
               -2px 2px 2px #ccc;  
-  box-shadow: 2px 2px 8px 8px #ccc;
   background-color: #242424;
 }
 h2 {

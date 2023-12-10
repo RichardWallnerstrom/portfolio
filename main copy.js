@@ -36,8 +36,6 @@ function updateEventListeners(container) {
         musicElement.addEventListener('click', function() {
             updateContent('pages/music.html', 'contentContainer');
         });
-
-
         workElement.addEventListener('click', function() {
             updateContent('pages/workExperience.html', 'contentContainer');
         });
@@ -57,7 +55,7 @@ function updateEventListeners(container) {
 }
 document.addEventListener("DOMContentLoaded", function() {
     // Menu div on the left
-    const parentElement = document.getElementById("menuContainer")
+    // const parentElement = document.getElementById("menuContainer")
     const projectsElement = document.getElementById("projects-text")
     const aboutElement = document.getElementById("about-text")
 

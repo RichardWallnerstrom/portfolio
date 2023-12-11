@@ -45,10 +45,8 @@ body {
 }
 #mainContainer {
   position: fixed; 
-  display: flex;
-  flex-direction: column;
   top: 0;
-  margin: 6vh 4vw;
+  margin: 13vh 3vw;
   padding: 0px 0px 30px 0px;
   width: 95%;
   min-width: 95%;
@@ -102,34 +100,31 @@ body {
 }
 .bottomContainer {
   display: flex;
-  justify-content: center;
-  flex-direction: row;
-
 }
 .bottomContainer > div {
   /* border: 2px solid #c75001; */
   width: 5vw;
   min-width: 45vw;
   margin: 0 1vw;
-  margin: 2vh 1vw;
   /* box-shadow: 0px 0px 23px 3px rgba(0, 0, 0, 0.9); */
 }
 #menuContainer {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 0;
+  margin: 0 auto;
 }
 #menuContainer div {
   /* border: 2px solid black; */
   display: flex;
   flex-direction: column;
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;
 }
 
 
 #contentContainer {
+    /* border: 2px solid #c75001; */
+  margin: 0 auto;
 }
 .soundcloudContainer {
   font-size: 10px; 
@@ -166,8 +161,6 @@ h1, h2 {
   font-family: 'Iceland', 'Times New Roman', sans-serif;
 }
 h3, h4, h5, h6 {
-  margin: 2vh;
-  padding: 0;
   font-family: 'Iceland', 'Times New Roman', sans-serif;
   cursor: pointer;
 }
@@ -223,11 +216,11 @@ h4:hover {
 }
 h5:hover {
   color: rgba(0, 0, 0, 1);
-    text-shadow: 2px 2px 2px #ff7300,
-      -2px -2px 2px #ff7300,
-      2px -2px 2px #ff7300,
-      -2px 2px 2px #ff7300;
-    box-shadow: 2px 2px 8px 8px #0d00ff;
+  text-shadow: 2px 2px 2px #380046,
+    -2px -2px 2px #380046,
+    2px -2px 2px #380046,
+    -2px 2px 2px #380046;
+  box-shadow: 2px 2px 8px 8px #1281ff;
 }
 a {
   font-weight: 500;
@@ -241,7 +234,7 @@ a:hover {
 footer {
   display: flex;
   margin: 2.3vw;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 footer a {

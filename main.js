@@ -1,7 +1,7 @@
 import { runSpaceWorld } from './src/spaceScene/PlaySpaceScene.js';
 
 
-function updateMenu(url, container) {
+function updateMenu(url, container) { // Only for left side menu
     fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -19,7 +19,7 @@ function updateMenu(url, container) {
         })
 }
 
-async function loadContent(page, container) {
+async function loadContent(page, container) {   // Only for right side content
     try {
         const response = await fetch(page);
         if (!response.ok) {
@@ -34,7 +34,6 @@ async function loadContent(page, container) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Event listeners for static elements that are present initially
     const projectsElement = document.getElementById("projects-text");
     const aboutElement = document.getElementById("about-text");
     const reloadButton = document.getElementById('reloadPage'); 
@@ -42,10 +41,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     projectsElement.addEventListener('click', function() {
         updateMenu('pages/menuProjects.html', 'menuContainer');
+        projectsElement.style.display = 'none';
+        aboutElement.style.display = 'block';
     });
 
     aboutElement.addEventListener('click', function() {
         updateMenu('pages/menuAbout.html', 'menuContainer');
+        aboutElement.style.display = 'none';
+        projectsElement.style.display = 'block';
     });
     reloadButton.addEventListener('click', function() {
         window.location.reload();

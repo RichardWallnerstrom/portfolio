@@ -27,9 +27,4 @@ const runSpaceWorld = () => {
   return animationId;
 };
 
-const stopSpaceWorld = (animationId) => {
-  cancelAnimationFrame(animationId); // Cancel the animation loop
-  // Additional cleanup or actions upon stopping the space world
-};
-
-export { runSpaceWorld, stopSpaceWorld };
+export { runSpaceWorld};

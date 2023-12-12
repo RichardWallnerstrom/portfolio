@@ -3,7 +3,7 @@ import { GLTFLoader } from
 import * as THREE from 'three';
 
 
-export default class SpaceShip {
+export default class Player {
     constructor(scene) {
         this.model; 
         this.scene = scene;

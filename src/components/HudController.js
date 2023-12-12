@@ -12,11 +12,11 @@ export default class HudController {
             ? '../pages/earth.html' 
             : '../pages/mars.html'; 
         if (this.spaceShip.distanceToEarth < 1200 || this.spaceShip.distanceToMars < 700) {
-            this.bigHud.style.display = 'none';
+            // this.bigHud.style.display = 'none';
             this.UpdateHud(fetchedUrl, this.smallHud);
         } 
         else {
-            this.bigHud.style.display = 'block';
+            // this.bigHud.style.display = 'block';
             this.smallHud.style.display = 'none';
         }
       }

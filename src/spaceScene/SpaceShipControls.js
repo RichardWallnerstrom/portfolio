@@ -19,12 +19,12 @@ export default class SpaceShipControls {
     }
     onKeyDown(event) {
         this.keys[event.code] = true;
-        this.rocketSound.play();
+        // this.rocketSound.play();
     }
     onKeyUp(event) {
         this.keys[event.code] = false;
-        this.rocketSound.pause();
-        this.rocketSound.currentTime = 0;
+        // this.rocketSound.pause();
+        // this.rocketSound.currentTime = 0;
     }
     update() {  
         if (this.keys['KeyS']) {

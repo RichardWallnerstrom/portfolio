@@ -37,6 +37,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // Event listeners for static elements that are present initially
     const projectsElement = document.getElementById("projects-text");
     const aboutElement = document.getElementById("about-text");
+    const reloadButton = document.getElementById('reloadPage'); 
+
 
     projectsElement.addEventListener('click', function() {
         updateMenu('pages/menuProjects.html', 'menuContainer');
@@ -44,6 +46,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     aboutElement.addEventListener('click', function() {
         updateMenu('pages/menuAbout.html', 'menuContainer');
+    });
+    reloadButton.addEventListener('click', function() {
+        window.location.reload();
     });
 
     // Dynamic content loading

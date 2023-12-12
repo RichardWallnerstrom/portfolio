@@ -17,15 +17,15 @@ export default class SpaceShipControls {
         document.addEventListener('keydown', (event) => this.onKeyDown(event), false);
         document.addEventListener('keyup', (event) => this.onKeyUp(event), false);
     }
-    onKeyDown(event) {
-        this.keys[event.code] = true;
-        this.rocketSound.play();
-    }
-    onKeyUp(event) {
-        this.keys[event.code] = false;
-        this.rocketSound.pause();
-        this.rocketSound.currentTime = 0;
-    }
+    // onKeyDown(event) {
+    //     this.keys[event.code] = true;
+    //     this.rocketSound.play();
+    // }
+    // onKeyUp(event) {
+    //     this.keys[event.code] = false;
+    //     this.rocketSound.pause();
+    //     this.rocketSound.currentTime = 0;
+    // }
     update() {  
         if (this.keys['KeyS']) {
             this.spaceShip.moveForward(this.speed);

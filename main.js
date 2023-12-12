@@ -1,3 +1,6 @@
+import { runSpaceWorld } from './src/spaceScene/PlaySpaceScene.js';
+
+
 function updateMenu(url, container) {
     fetch(url)
         .then(response => {
@@ -61,7 +64,16 @@ function updateEventListeners() {
         spaceElement.addEventListener('click', function() {
             loadContent('pages/space.html', 'contentContainer');
         });
+
     }
+    if (spaceButton) {
+            spaceButton.addEventListener('click', runSpaceWorld 
+            
+        );
+
+    }
+
+
 
     if (retroElement) {
         retroElement.addEventListener('click', function() {

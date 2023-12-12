@@ -53,7 +53,6 @@ export default class CameraController {
         // bowVector.multiplyScalar(cameraTarget.z)    // Multiply the vector by the negative of the z-component of the trailing offset
         const trailingOffset = new THREE.Vector3(0, 0, 20)    
         const sternVector = new THREE.Vector3(0, 0, -1)    // Create a new vector (0, 0, -1) representing a direction behind the ship   
-        console.log(this.spaceShip.model + "model name")
         sternVector.applyQuaternion(this.spaceShip.model.quaternion) // Apply the ship's quaternion to the sternVector
         sternVector.multiplyScalar(-trailingOffset.z)   
         

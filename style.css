@@ -23,8 +23,36 @@
 body {
 
 }
+#profileDiv {
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  position: fixed;
+  width: 14vw;
+  top: 15vh;
+  left: 11vw;
+  box-shadow: 1px 1px 23px 7px #000;
+}
+#profilePicture {
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+}
+/* Create vignette for profile pic */
+#profileDiv:after {  
+  top: 0;
+  left: 0;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.487) 80%, rgba(0, 0, 0, 0.953) 100%);
+  border-radius: 50%;
+ 
+}
 
-/* create a frame and place three js inside it */
+/* create a like a picture frame and place three js inside it */
 #frame-hud {
   position: fixed;
   display: flex;
@@ -40,7 +68,9 @@ body {
 }
 
 #app {
-
+  /* margin: 3vw; */
+  margin: 0;
+  padding: 0;
 }
 #mainContainer {
   position: fixed; 
@@ -53,7 +83,7 @@ body {
   min-width: 95%;
   min-height: 80%;
   font-size: 1.3vw;
-  background-color: rgba(121, 121, 121, 0.95); 
+  background-color: rgba(77, 77, 77, 0.95); 
   color: rgba(255, 255, 255, 0.85);
   text-shadow: 2px 2px 2px rgba(0,0,0, 1),
   -2px -2px 2px rgba(0,0,0, 1),
@@ -116,6 +146,7 @@ body {
   justify-content: center;
   flex-direction: column;
   position: fixed;
+  top: 13vh;
   left: 6.3vw;
   padding: 0;
   width: 20%;
@@ -129,10 +160,18 @@ body {
   margin: 0;
   padding: 0;
 }
+#menuContainer p {
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 2.9vw;
+  padding: 0;
+}
 
 
 #contentContainer {
   position: fixed;
+    top: 13vh;
   right: 6.3vw;
   width: 58%;
   box-sizing: border-box;
@@ -143,9 +182,6 @@ body {
   flex-direction: row;
   align-items: left;
   justify-content: left;
-    align-items: flex-start;
-      /* Change align-items to flex-start */
-      justify-content: flex-start;
 }
 .skillsPage div {
   display: flex;
@@ -168,24 +204,50 @@ body {
 }
 
 
+
 .grid-item {
   text-align: center;
 }
 
+/* Animate.css settings */
 
 .animate__animated.animate__zoomIn {
-  --animate-duration: 5s;
+  --animate-duration: 0.9s;
 }
 .animate__animated.animate__zoomInDown {
-  --animate-duration: 0.6s;
+  --animate-duration: 0.3s;
 }
 .animate__animated.animate__zoomInUp {
-  --animate-duration: 0.3s;
+  --animate-duration: 0.2s;
+}
+.animate__animated.animate__zoomInRight {
+  --animate-duration: 0.5s;
 }
 .animate__animated.animate__fadeIn {
   --animate-duration: 0.7s;
 }
+.animate__animated.animate__flipInX {
+  --animate-duration: 5s;
+}
+.animate__animated.animate__fadeInRight {
+  --animate-duration: 0.3s;
+}
+.animate__animated.animate__slideInRight {
+  --animate-duration: 0.7s;
+}
 
+.animate__animated.custom-delay-1 {animation-delay: 0.1s;}
+.animate__animated.custom-delay-2 {animation-delay: 0.2s;}
+.animate__animated.custom-delay-3 {animation-delay: 0.3s;}
+.animate__animated.custom-delay-4 {animation-delay: 0.4s;}
+.animate__animated.custom-delay-5 {animation-delay: 0.5s;}
+.animate__animated.custom-delay-6 {animation-delay: 0.55s;}
+.animate__animated.custom-delay-7 {animation-delay: 0.6s;}
+.animate__animated.custom-delay-8 {animation-delay: 0.65s;}
+.animate__animated.custom-delay-9 {animation-delay: 0.7s;}
+.animate__animated.custom-delay-10 {animation-delay: 0.73s;}
+
+/* headers */
 h1, h2 {
   padding: 0px 1vw;
   font-family: 'Iceland', 'Times New Roman', sans-serif;
@@ -211,6 +273,7 @@ h3, h4, h5, h6 {
   background-color: #242424;
 }
 h1 {
+  margin: 23vh 0 0 0;
   width: 23vw;
   font-size: 3vw;
   line-height: 0;
@@ -226,12 +289,9 @@ h1 {
 h2 {
   color: rgb(255, 255, 255);
   font-size: 2vw;
-  margin: 0 0.5vw 0.5vh 0.5vw;
+  margin: 13vh 0.5vw 0.5vh 0.5vw;
   text-align: center;
   font-family: 'Iceland', cursive;
-}
-h3, h4, h5, h6 {
-
 }
 h3:hover {
   color: rgba(0, 0, 0, 1);
@@ -290,14 +350,17 @@ footer a {
 @media only screen and (max-width: 1000px) {
   p, li, a{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 2vw; 
-    line-height: 2.1vh;
+    font-size: 2.3vw; 
+    line-height: 1.6vh;
   }
   footer {
     margin: 1vw 0 0 30vw;
   }
   h2 {
     line-height: 2.3vh;
+  }
+  h3, h4, h5, h6 {
+    font-size: 3.2vw;
   }
   .right-div {
     display: none;

@@ -11,20 +11,23 @@
   </head>
   <body>
     <div id="frame-hud">
-      <h5 id="projects-text">Projects and skills</h5>
-      <h4 id="about-text">CV and personal info</h5>
+      <h5 id="projectsMenu">Projects and skills</h5>
+      <h4 id="aboutMenu">CV and personal info</h5>
       <h5 id="reloadPage" style="display: none">Back to Site</h5>
     </div>
     <div id="app"></div> <!-- Canvas will be drawn here -->
 
     <div id="mainContainer" >
       <div class="headerContainer">
-        <h1 class="hello animate__animated animate__zoomIn">
+        <h1 id="hello" class="animate__animated animate__zoomIn custom-delay-10">
           Hi. I'm Richard!
         </h1>
       </div>
+      <div id="profileDiv" class="animate__animated animate__lightSpeedInRight">
+        <img id="profilePicture" src="images/profilepic.jpg" alt="profilepicture" class="animate__animated animate__zoomIn" />
+      </div>
       <div class="midContainer">
-        <h2 id="magicLine animate__animated animate__fadeIn">
+        <h2 id="magicLine" class="animate__animated animate__lightSpeedInLeft">
           I'm a full-stack developer with focus on the back-end. 
         </h2>
       </div>
@@ -33,13 +36,13 @@
         <div id="contentContainer">       </div>
       </div>
         <footer>
-          <a href="https://www.linkedin.com/in/richard-wallnerstrom" target="_blank">
+          <a href="https://www.linkedin.com/in/richard-wallnerstrom" target="_blank" class="animate__animated animate__flipInX">
             <span aria-hidden="true">&#xF472; LinkedIn</span>
           </a>
-          <a href="https://github.com/RichardWallnerstrom" target="_blank">
+          <a href="https://github.com/RichardWallnerstrom" target="_blank" class="animate__animated animate__flipInX custom-delay-4">
             <span aria-hidden="true">&#x1F4BB; GitHub</span>
           </a>
-          <a href="https://soundcloud.com/normanbeatsmotel" target="_blank">
+          <a href="https://soundcloud.com/normanbeatsmotel" target="_blank" class="animate__animated animate__flipInX custom-delay-10">
             <span aria-hidden="true">&#x1F3B5; SoundCloud</span>
           </a>
         </footer>

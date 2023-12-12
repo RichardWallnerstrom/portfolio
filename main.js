@@ -12,7 +12,7 @@ function updateMenu(url, container) { // Only for left side menu
         .then(data => {
             console.log("Fetched data:", data)
             document.getElementById(container).innerHTML = data
-            updateEventListeners(container)
+            updateEventListeners()
         })
         .catch(error => {
             console.error("Failed to fetch content", error)
@@ -34,85 +34,78 @@ async function loadContent(page, container) {   // Only for right side content
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    const projectsElement = document.getElementById("projects-text");
-    const aboutElement = document.getElementById("about-text");
+    const projectsMenuElement = document.getElementById("projectsMenu");  // work menu
+    const aboutMenuElement = document.getElementById("aboutMenu");         // about menu
     const reloadButton = document.getElementById('reloadPage'); 
+    const helloMessage = document.getElementById("hello");
+    const fullstackMessage = document.getElementById("magicLine");
+    const profilePicture = document.getElementById("profileDiv");
 
-
-    projectsElement.addEventListener('click', function() {
+    projectsMenuElement.addEventListener('click', function() {
         updateMenu('pages/menuProjects.html', 'menuContainer');
-        projectsElement.style.display = 'none';
-        aboutElement.style.display = 'block';
+        projectsMenuElement.style.display = 'none';
+        aboutMenuElement.style.display = 'block';
+        helloMessage.style.display = 'none';
+        fullstackMessage.style.display = 'none';
+        profilePicture.style.display = 'none';
     });
-
-    aboutElement.addEventListener('click', function() {
+    aboutMenuElement.addEventListener('click', function() {
         updateMenu('pages/menuAbout.html', 'menuContainer');
-        aboutElement.style.display = 'none';
-        projectsElement.style.display = 'block';
+        aboutMenuElement.style.display = 'none';
+        projectsMenuElement.style.display = 'block';
+        helloMessage.style.display = 'none';
+        fullstackMessage.style.display = 'none';
+        profilePicture.style.display = 'none';
     });
     reloadButton.addEventListener('click', function() {
         window.location.reload();
     });
-
-    // Dynamic content loading
-    // updateEventListeners(); // Attach initial event listeners for dynamic content
 });
 function updateEventListeners() {
-    const spaceElement = document.getElementById("space-text");
-    const spaceButton = document.getElementById("playSpaceEngine");
+    const spaceElement = document.getElementById("fullStackLink");
 
-    const retroElement = document.getElementById("retro-text");
-    const musicElement = document.getElementById("music-text");
+    const retroElement = document.getElementById("backEndLink");
+    const musicElement = document.getElementById("musicLink");
     const workElement = document.getElementById("work-text");
     const educationElement = document.getElementById("education-text");
     const skillsElement = document.getElementById("skills-text");
     const aboutElement = document.getElementById("about-text");
+    const spaceButton = document.getElementById("playSpaceEngine");
 
+
+    if (spaceButton) {
+            spaceButton.addEventListener('click', runSpaceWorld);
+    }
     if (spaceElement) {
         spaceElement.addEventListener('click', function() {
-            loadContent('pages/space.html', 'contentContainer');
+            loadContent('pages/fullstack.html', 'contentContainer');
         });
-
     }
-    if (spaceButton) {
-            spaceButton.addEventListener('click', runSpaceWorld 
-            
-        );
-
-    }
-
-
-
     if (retroElement) {
         retroElement.addEventListener('click', function() {
-            loadContent('pages/retro.html', 'contentContainer');
+            loadContent('pages/backend.html', 'contentContainer');
         });
     }
-
     if (musicElement) {
         musicElement.addEventListener('click', function() {
             loadContent('pages/music.html', 'contentContainer');
         });
     }
-
     if (workElement) {
         workElement.addEventListener('click', function() {
             loadContent('pages/workExperience.html', 'contentContainer');
         });
     }
-
     if (educationElement) {
         educationElement.addEventListener('click', function() {
             loadContent('pages/education.html', 'contentContainer');
         });
     }
-
     if (skillsElement) {
         skillsElement.addEventListener('click', function() {
             loadContent('pages/skills.html', 'contentContainer');
         });
     }
-
     if (aboutElement) {
         aboutElement.addEventListener('click', function() {
             loadContent('pages/about.html', 'contentContainer');

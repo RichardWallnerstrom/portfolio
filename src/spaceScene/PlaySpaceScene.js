@@ -1,5 +1,5 @@
 
-import SpaceWorld from './src/spaceScene/SpaceWorld.js'
+import SpaceWorld from './SpaceWorld.js';
 
 const spaceWorld =  new SpaceWorld()
 spaceWorld.audioManager.playMusic()

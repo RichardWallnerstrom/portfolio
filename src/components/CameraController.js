@@ -19,30 +19,30 @@ export default class CameraController {
           )
         this.camera.position.set(25, 10, 25)
         
-        const marsText = document.getElementById('mars-text')
-        const earthText = document.getElementById('earth-text')
+        // const marsText = document.getElementById('mars-text')
+        // const earthText = document.getElementById('earth-text')
         
-        const handlePlanetMouseHover = (planet) => { // Create master event for mouse overs
+        // const handlePlanetMouseHover = (planet) => { // Create master event for mouse overs
             
-            return {
-                mouseover: () => {
-                    (planet.planet == "earth")
-                    ? this.isMouseOverEarth = true 
-                    : this.isMouseOverMars = true
+        //     return {
+        //         mouseover: () => {
+        //             (planet.planet == "earth")
+        //             ? this.isMouseOverEarth = true 
+        //             : this.isMouseOverMars = true
 
-                },
-                mouseout: () => {
-                    this.isMouseOverEarth = false 
-                    this.isMouseOverMars = false
-                }
-            }
-        }
+        //         },
+        //         mouseout: () => {
+        //             this.isMouseOverEarth = false 
+        //             this.isMouseOverMars = false
+        //         }
+        //     }
+        // }
         
-        marsText.addEventListener('mouseover', handlePlanetMouseHover(this.mars).mouseover)
-        marsText.addEventListener('mouseout', handlePlanetMouseHover(this.mars).mouseout)
+        // marsText.addEventListener('mouseover', handlePlanetMouseHover(this.mars).mouseover)
+        // marsText.addEventListener('mouseout', handlePlanetMouseHover(this.mars).mouseout)
         
-        earthText.addEventListener('mouseover', handlePlanetMouseHover(this.earth).mouseover)
-        earthText.addEventListener('mouseout', handlePlanetMouseHover(this.earth).mouseout)
+        // earthText.addEventListener('mouseover', handlePlanetMouseHover(this.earth).mouseover)
+        // earthText.addEventListener('mouseout', handlePlanetMouseHover(this.earth).mouseout)
         
     }
 

@@ -24,7 +24,7 @@ async function loadContent(page, container) {
         }
         const html = await response.text();
         document.getElementById(container).innerHTML = html;
-        updateEventListeners(container); // Reattach event listeners after loading content
+        updateEventListeners(); 
     } catch (error) {
         console.error('Error loading content:', error);
     }
@@ -44,10 +44,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Dynamic content loading
-    updateEventListeners('contentContainer'); // Attach initial event listeners for dynamic content
+    // updateEventListeners(); // Attach initial event listeners for dynamic content
 });
-function updateEventListeners(container) {
+function updateEventListeners() {
     const spaceElement = document.getElementById("space-text");
+    const spaceButton = document.getElementById("playSpaceEngine");
+
     const retroElement = document.getElementById("retro-text");
     const musicElement = document.getElementById("music-text");
     const workElement = document.getElementById("work-text");

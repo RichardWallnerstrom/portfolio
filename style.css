@@ -83,7 +83,7 @@ body {
   min-width: 95%;
   min-height: 80%;
   font-size: 1.3vw;
-  background-color: rgba(77, 77, 77, 0.95); 
+  background-color: rgba(55, 55, 55, 0.95); 
   color: rgba(255, 255, 255, 0.85);
   text-shadow: 2px 2px 2px rgba(0,0,0, 1),
   -2px -2px 2px rgba(0,0,0, 1),
@@ -137,10 +137,9 @@ body {
   width: 100%;
 
 }
-.bottomContainer > div {
-  /* border: 2px solid #c75001; */
+/* .bottomContainer > div {
   margin: 2vh 1vw;
-}
+} */
 #menuContainer {
   display: flex;
   justify-content: center;
@@ -171,10 +170,44 @@ body {
 
 #contentContainer {
   position: fixed;
-    top: 13vh;
+  top: 13vh;
   right: 6.3vw;
+  height: 100%;
   width: 58%;
   box-sizing: border-box;
+
+}
+.fullStackPage {
+  /* border: 2px solid #00ff00; */
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  gap: 8.3vh;
+  height: 70vh;
+  box-sizing: border-box;
+}
+.fullStackPage h2 {
+  margin: 3vh 0 0 0;
+}
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+}
+#spaceGameDiv h2  {
+  display: inline-block;
+  
+}
+button {
+  display: inline-block;
+  width: 4vw;
+  height: 3vh;
+  background-color: #ff7300;
+  color: #fff;  
+  border: 1px solid #2980b9;
+  /* padding: 10px 20px; */
+  border-radius: 5px;
+  cursor: pointer;
 
 }
 .skillsPage {
@@ -205,9 +238,7 @@ body {
 
 
 
-.grid-item {
-  text-align: center;
-}
+
 
 /* Animate.css settings */
 
@@ -226,8 +257,11 @@ body {
 .animate__animated.animate__fadeIn {
   --animate-duration: 0.7s;
 }
-.animate__animated.animate__flipInX {
-  --animate-duration: 5s;
+.animate__animated.animate__flip {
+  --animate-duration: 0.7s;
+}
+.animate__animated.animate__flipInX { 
+  --animate-duration: 7s;
 }
 .animate__animated.animate__fadeInRight {
   --animate-duration: 0.3s;

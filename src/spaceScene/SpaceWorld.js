@@ -1,3 +1,4 @@
+import Ring from './Ring.js'
 import Planet from './Planet.js'
 import SpaceShip from './SpaceShip.js'
 import SpaceScene from './SpaceScene.js'
@@ -16,13 +17,13 @@ export default class SpaceWorld {
     this.audioManager = new AudioManager('audio/warneverchanges.mp3')    
     this.lightController = new LightController(this.spaceScene.scene)
     this.spaceShipControls = new SpaceShipControls(this.spaceShip)
-    this.loadPlanets()
+    this.createPlanets()
     this.createRings()
     this.cameraController = new CameraController(this.spaceShip, this.earth, this.mars)
     this.hud = new HudController(this.spaceShip, this.earth, this.mars, this.spaceShipControls)
 
   }
-  loadPlanets() {
+  createPlanets() {
     this.earth = new Planet(
       this.spaceScene.scene, 
       "earth", 
@@ -37,17 +38,30 @@ export default class SpaceWorld {
     ); 
   }
   createRings() {
-    const radius = 500; ///TODO: create ring class
-    const tubeRadius = 0.5;
-    const radialSegments = 15;
-    const tubularSegments = 100;
-    const ringGeometry = new THREE.TorusGeometry(radius, tubeRadius, radialSegments, tubularSegments);
-    const ringMaterial = new THREE.MeshBasicMaterial({ color: 0x555555, side: THREE.DoubleSide }); 
-    const ring = new THREE.Mesh(ringGeometry, ringMaterial);
-    ring.rotation.x = Math.PI / 2; 
-    ring.position.set(0, 2, 0); 
-    this.spaceScene.scene.add(ring);
-  }
+    const amountOfRings = 10;
+    const ringDiameter = 5;
+    this.listOfRings = [];
+    const coordinatesArray = [
+      [9000, -4500, -200],
+      [-9000, 4100, -600],
+      [7000, -3300, -1000],
+      [-7000, 5000, 1000],
+      [6000, 560, -1400],
+      [-6000, -750, 1800],
+      [2000, 100, -1800],
+      [2000, 100, -2200],
+      [2000, 100, -2600],
+      [1000, 150, -2600] 
+    ];
+    for (var i = 0; i <= amountOfRings; i++) {
+      const newRing = new Ring(
+        this.spaceScene.scene, 
+        ringDiameter,
+        coordinatesArray[i]
+      );
+      this.listOfRings.push(newRing); 
+    }
+  } 
   animate() {
     this.spaceShipControls.update()
     this.cameraController.lookAtObject()

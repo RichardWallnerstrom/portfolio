@@ -1,45 +1,27 @@
 import * as THREE from 'three';
 
 export default class Ring {
-    constructor(id, scene, size, coordinates) {
-        this.id = id;
+    constructor(scene, size, coordinates) {
         this.scene = scene;
-        this.planet = planet;
         this.size = size;
         this.coordinates = coordinates;
-        this.loadModel();
+        this.createModel();
     }
 
-    loadModel() {
-    const radius = 500; 
-    const tubeRadius = 0.5;
-    const radialSegments = 15;
-    const tubularSegments = 100;
-    const ringGeometry = new THREE.TorusGeometry(radius, tubeRadius, radialSegments, tubularSegments);
-    const ringMaterial = new THREE.MeshBasicMaterial({ color: 0x555555, side: THREE.DoubleSide }); 
-    const ring = new THREE.Mesh(ringGeometry, ringMaterial);
-    ring.rotation.x = Math.PI / 2; 
-    ring.position.set(0, 2, 0); 
-    this.spaceScene.scene.add(ring);        const {planet, size, coordinates} = this;
-        loader.load(
-            `../assets/${this.planet}/scene.gltf`,
-            (gltf) => {
-                this.model = gltf.scene;
-                this.model.scale.set(this.size, this.size, this.size);
-                this.model.position.set(coordinates[0], coordinates[1], coordinates[2]);                
-                this.model.rotation.set(0, 20, 0);
-                this.scene.add(this.model);
-            },
-            (xhr) => {
-                console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
-            },
-            (error) => {
-                console.error('ERROR: ', error);
-            }
-        );
-    }
-    rotate() {
-        this.model.rotation.y += 0.0001; 
-
+    createModel() {
+        const radius = 300; 
+        const tubeRadius = 5.5;
+        const radialSegments = 15;
+        const tubularSegments = 100;
+        const ringGeometry = new THREE.TorusGeometry(radius, tubeRadius, radialSegments, tubularSegments);
+        const ringMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFFF, side: THREE.DoubleSide }); 
+        this.model = new THREE.Mesh(ringGeometry, ringMaterial);
+        this.model.rotation.z = Math.PI / 2; 
+        if (this.coordinates && this.coordinates.length === 3) { // No idea why it breaks without this IF statement ???
+            this.model.position.set(this.coordinates[0], this.coordinates[1], this.coordinates[2]);
+            this.scene.add(this.model);
+        } else {
+            console.error("Invalid coordinates for creating the ring.");
+        }     
     }
 }

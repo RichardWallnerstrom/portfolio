@@ -17,6 +17,7 @@ export default class SpaceWorld {
     this.lightController = new LightController(this.spaceScene.scene)
     this.spaceShipControls = new SpaceShipControls(this.spaceShip)
     this.loadPlanets()
+    this.createRings()
     this.cameraController = new CameraController(this.spaceShip, this.earth, this.mars)
     this.hud = new HudController(this.spaceShip, this.earth, this.mars, this.spaceShipControls)
 
@@ -34,6 +35,18 @@ export default class SpaceWorld {
       40, // Size
       [-6000, -250, -180] // coordinates
     ); 
+  }
+  createRings() {
+    const radius = 500; ///TODO: create ring class
+    const tubeRadius = 0.5;
+    const radialSegments = 15;
+    const tubularSegments = 100;
+    const ringGeometry = new THREE.TorusGeometry(radius, tubeRadius, radialSegments, tubularSegments);
+    const ringMaterial = new THREE.MeshBasicMaterial({ color: 0x555555, side: THREE.DoubleSide }); 
+    const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+    ring.rotation.x = Math.PI / 2; 
+    ring.position.set(0, 2, 0); 
+    this.spaceScene.scene.add(ring);
   }
   animate() {
     this.spaceShipControls.update()

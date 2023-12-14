@@ -20,6 +20,9 @@ export default class SpaceShipControls {
     getSpeed() {
         return this.speed;
     }
+    setSpeed(speed) {
+        this.speed = speed;
+    }
     onKeyDown(event) {
         this.keys[event.code] = true;
         // this.rocketSound.play();
@@ -59,5 +62,10 @@ export default class SpaceShipControls {
         if (this.keys['KeyW']) {
             this.spaceShip.pitchDown(0.02);
         }
+        if (this.keys['KeyG']) {
+            this.speed = 0;
+        }
+
+
     }
 }

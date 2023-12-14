@@ -48,11 +48,13 @@ document.addEventListener("DOMContentLoaded", function() {
         updateMenu('pages/menuProjects.html', 'menuContainer');
         projectsMenuElement.style.display = 'none';
         aboutMenuElement.style.display = 'block';
-        helloMessage.classList.remove('animate__zoomIn');       ///TODO Make these into a nested function
+        helloMessage.classList.remove('animate__zoomIn');       ///TODO Intro/outro Make these into a nested function
         helloMessage.classList.remove('custom-delay-10');
-        helloMessage.classList.add('animate__hinge');
+        helloMessage.classList.add('animate__bounceOutDown');
         fullstackMessage.classList.remove('animate__lightSpeedInLeft');
-        fullstackMessage.classList.add('animate__zoomOut');
+        fullstackMessage.classList.remove('custom-delay-10');
+
+        fullstackMessage.classList.add('animate__hinge');
 
         // helloMessage.style.display = 'none';
         // fullstackMessage.style.display = 'none';

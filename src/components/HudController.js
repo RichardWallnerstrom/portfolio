@@ -29,8 +29,8 @@ export default class HudController {
         else {
             this.shipHud.style.display = 'block';
             this.smallHud.style.display = 'none';
-        }
       }
+        }
     UpdateHud(fetchedUrl, hud) {
         fetch(fetchedUrl).then(page => page.text())
             .then(text => {

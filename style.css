@@ -16,6 +16,10 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+nav {
+  display: flex;
+  flex-direction: row;
+}
 
 /* headers */
 h1, h2 {
@@ -93,6 +97,11 @@ h6:hover {
     2px -2px 2px #ff7300,
     -2px 2px 2px #ff7300;
   box-shadow: 2px 2px 8px 8px #ffd500;
+}
+#magicLine {
+  display: inline-block;
+  position: fixed;
+  left: 30%;
 }
 #app {  /* Three JS Canvas */
   /* margin: 3vw; */
@@ -346,17 +355,20 @@ footer a {
   padding: 0px 10px;
 }
 /* Animate.css settings */
-.animate__animated.animate__zoomIn { --animate-duration: 0.9s;}
+.animate__animated.animate__zoomIn { --animate-duration: 0.3s;}
 .animate__animated.animate__zoomInDown { --animate-duration: 0.3s;}
 .animate__animated.animate__zoomInUp { --animate-duration: 0.2s;}
 .animate__animated.animate__zoomInRight { --animate-duration: 0.5s;}
 .animate__animated.animate__fadeIn { --animate-duration: 0.7s;}
 .animate__animated.animate__flip { --animate-duration: 0.6s;}
-.animate__animated.animate__hinge { --animate-duration: 0.6s;}
+.animate__animated.animate__hinge { --animate-duration: 0.7s; animation-delay: 0.5s;}
 .animate__animated.animate__flipInX { --animate-duration: 7s;}
 .animate__animated.animate__flipOutX { --animate-duration: 1s:}
 .animate__animated.animate__fadeInRight { --animate-duration: 0.3s;}
 .animate__animated.animate__slideInRight { --animate-duration: 0.7s;}
+.animate__animated.animate__bounceOutDown {  --animate-duration: 0.7s;} 
+.animate__animated.animate__rollIn {  --animate-duration: 1.3s;}
+
 .animate__animated.custom-delay-1 { animation-delay: 0.1s;}
 .animate__animated.custom-delay-2 { animation-delay: 0.2s;}
 .animate__animated.custom-delay-3 { animation-delay: 0.3s;}

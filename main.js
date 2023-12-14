@@ -41,12 +41,21 @@ document.addEventListener("DOMContentLoaded", function() {
     const fullstackMessage = document.getElementById("magicLine");
     const profilePicture = document.getElementById("profileDiv");
 
+    const spaceButtonTest = document.getElementById("playSpaceEngineTest"); // Testing ONly
+    spaceButtonTest.addEventListener('click', runSpaceWorld);
+
     projectsMenuElement.addEventListener('click', function() {
         updateMenu('pages/menuProjects.html', 'menuContainer');
         projectsMenuElement.style.display = 'none';
         aboutMenuElement.style.display = 'block';
-        helloMessage.style.display = 'none';
-        fullstackMessage.style.display = 'none';
+        helloMessage.classList.remove('animate__zoomIn');       ///TODO Make these into a nested function
+        helloMessage.classList.remove('custom-delay-10');
+        helloMessage.classList.add('animate__hinge');
+        fullstackMessage.classList.remove('animate__lightSpeedInLeft');
+        fullstackMessage.classList.add('animate__zoomOut');
+
+        // helloMessage.style.display = 'none';
+        // fullstackMessage.style.display = 'none';
         profilePicture.style.display = 'none';
     });
     aboutMenuElement.addEventListener('click', function() {
@@ -66,11 +75,14 @@ function updateEventListeners() {
 
     const retroElement = document.getElementById("backEndLink");
     const musicElement = document.getElementById("musicLink");
-    const workElement = document.getElementById("work-text");
-    const educationElement = document.getElementById("education-text");
-    const skillsElement = document.getElementById("skills-text");
-    const aboutElement = document.getElementById("about-text");
+    const workElement = document.getElementById("workLink");
+    const educationElement = document.getElementById("educationLink");
+    const skillsElement = document.getElementById("skillsLink");
+    const aboutElement = document.getElementById("aboutLink");
     const spaceButton = document.getElementById("playSpaceEngine");
+
+
+
 
 
     if (spaceButton) {

@@ -18,7 +18,7 @@ export default class SpaceWorld {
     this.spaceShipControls = new SpaceShipControls(this.spaceShip)
     this.loadPlanets()
     this.cameraController = new CameraController(this.spaceShip, this.earth, this.mars)
-    this.hud = new HudController(this.spaceShip, this.earth, this.mars)
+    this.hud = new HudController(this.spaceShip, this.earth, this.mars, this.spaceShipControls)
 
   }
   loadPlanets() {

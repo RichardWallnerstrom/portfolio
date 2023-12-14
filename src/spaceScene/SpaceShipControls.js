@@ -1,7 +1,7 @@
 export default class SpaceShipControls {
     constructor(spaceShip, initialSpeed) {
         this.spaceShip = spaceShip;
-        this.speed = initialSpeed || 10;
+        this.speed = initialSpeed || 0;
         this.momentum = 0;
         this.keys = {
             KeyW: false,
@@ -17,6 +17,9 @@ export default class SpaceShipControls {
         document.addEventListener('keydown', (event) => this.onKeyDown(event), false);
         document.addEventListener('keyup', (event) => this.onKeyUp(event), false);
     }
+    getSpeed() {
+        return this.speed;
+    }
     onKeyDown(event) {
         this.keys[event.code] = true;
         // this.rocketSound.play();
@@ -27,11 +30,16 @@ export default class SpaceShipControls {
         // this.rocketSound.currentTime = 0;
     }
     update() {  
-        if (this.keys['KeyS']) {
-            this.spaceShip.moveForward(this.speed);
+        this.spaceShip.moveBackward(this.speed);
+
+        // if (this.keys['KeyS']) {
+        //     this.spaceShip.moveForward(this.speed);
+        // }
+        if (this.keys['KeyF']) {
+            this.speed += 0.3;
         }
-        if (this.keys['KeyW']) {
-            this.spaceShip.moveBackward(this.speed);
+        if (this.keys['KeyC']) {
+            this.speed -= 0.3;
         }
         if (this.keys['KeyA']) {
             this.spaceShip.turnLeft(0.02);
@@ -45,10 +53,10 @@ export default class SpaceShipControls {
         if (this.keys['KeyE']) {
             this.spaceShip.barrelRight(0.03);
         }
-        if (this.keys['KeyF']) {
+        if (this.keys['KeyS']) {
             this.spaceShip.pitchUp(0.02);
         }
-        if (this.keys['KeyC']) {
+        if (this.keys['KeyW']) {
             this.spaceShip.pitchDown(0.02);
         }
     }

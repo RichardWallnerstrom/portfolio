@@ -23,8 +23,11 @@
           Hi. I'm Richard!
         </h1>
       </div>
-      <div id="profileDiv" class="animate__animated animate__lightSpeedInRight">
-        <img id="profilePicture" src="images/profilepic.jpg" alt="profilepicture" class="animate__animated animate__flip" />
+                  <button type="button" id="playSpaceEngineTest">
+                    ▶
+                  </button>
+      <div id="profileDiv" class="animate__animated animate__flip">
+        <img id="profilePicture" src="images/profilepic.jpg" alt="Profile picture" class="" />
       </div>
       <div class="midContainer">
         <h2 id="magicLine" class="animate__animated animate__lightSpeedInLeft">
@@ -50,10 +53,18 @@
 
       </div> 
 
-    <div id="smallHud" 
-      class="animate__animated animate__zoomIn" 
-      style="display: none;"></div>
-    <!-- <script type="module" src="src/spaceScene/SpaceScene.js"></script> -->
+    <div id="smallHud" class="animate__animated animate__zoomIn" style="display: none;"></div>
+    <div id="shipHud" class="animate__animated animate__zoomIn" style="display: none;">
+      <p id="shipSpeed">
+        Speed:
+      </p>
+      <p id="shipDistanceToEarth">
+        Distance to Earth: 
+      </p>
+      <p id="shipDistanceToMars">
+        Distance to Mars:
+      </p>
+    </div>
     <script type="module" src="main.js"></script>
     <script type="module" src="/src/spaceScene/PlaySpaceScene.js"></script>
 

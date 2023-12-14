@@ -268,6 +268,11 @@ h6:hover {
   margin: 0 0 0 2.9vw;
   padding: 0;
 }
+#menuContainer h2 {
+
+  margin: 0 0 0 0;
+  padding: 0;
+}
 #contentContainer {
   position: fixed;
   top: 13vh;
@@ -321,10 +326,13 @@ button {
   align-items: left;
   justify-content: left;
 }
+.artsPage h2 {
+  margin: 0;
+}
 .soundcloudContainer {
-  font-size: 10px;
+  font-size: 1.3rem;
   color: #ff4800;
-  background-color: black;
+  background-color: rgba(55, 55, 55, 0.95);
   line-break: anywhere;
   word-break: normal;
   overflow: hidden;
@@ -368,6 +376,7 @@ footer a {
 .animate__animated.animate__slideInRight { --animate-duration: 0.7s;}
 .animate__animated.animate__bounceOutDown {  --animate-duration: 0.7s;} 
 .animate__animated.animate__rollIn {  --animate-duration: 1.3s;}
+.animate__animated.animate__rollOut {  --animate-duration: 1.3s;}
 
 .animate__animated.custom-delay-1 { animation-delay: 0.1s;}
 .animate__animated.custom-delay-2 { animation-delay: 0.2s;}

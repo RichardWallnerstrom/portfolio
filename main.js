@@ -44,21 +44,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const spaceButtonTest = document.getElementById("playSpaceEngineTest"); // Testing ONly
     spaceButtonTest.addEventListener('click', runSpaceWorld);
 
+
     projectsMenuElement.addEventListener('click', function() {
         updateMenu('pages/menuProjects.html', 'menuContainer');
         projectsMenuElement.style.display = 'none';
         aboutMenuElement.style.display = 'block';
-        helloMessage.classList.remove('animate__zoomIn');       ///TODO Intro/outro Make these into a nested function
-        helloMessage.classList.remove('custom-delay-10');
-        helloMessage.classList.add('animate__bounceOutDown');
-        fullstackMessage.classList.remove('animate__lightSpeedInLeft');
-        fullstackMessage.classList.remove('custom-delay-10');
-
-        fullstackMessage.classList.add('animate__hinge');
-
-        // helloMessage.style.display = 'none';
-        // fullstackMessage.style.display = 'none';
-        profilePicture.style.display = 'none';
+        removeWelcomeMessage();
     });
     aboutMenuElement.addEventListener('click', function() {
         updateMenu('pages/menuAbout.html', 'menuContainer');
@@ -71,12 +62,24 @@ document.addEventListener("DOMContentLoaded", function() {
     reloadButton.addEventListener('click', function() {
         window.location.reload();
     });
+    function removeWelcomeMessage() {
+        helloMessage.classList.remove('animate__zoomIn');       
+        helloMessage.classList.remove('custom-delay-10');
+        helloMessage.classList.add('animate__bounceOutDown');
+        fullstackMessage.classList.remove('animate__lightSpeedInLeft');
+        fullstackMessage.classList.remove('custom-delay-10');
+        fullstackMessage.classList.add('animate__hinge');
+        profilePicture.classList.remove('animate__rollIn');
+        profilePicture.classList.remove('custom-delay-10');
+        profilePicture.classList.add('animate__flipOutY');
+
+    }
 });
 function updateEventListeners() {
     const spaceElement = document.getElementById("fullStackLink");
 
     const retroElement = document.getElementById("backEndLink");
-    const musicElement = document.getElementById("musicLink");
+    const artsElement = document.getElementById("artsLink");
     const workElement = document.getElementById("workLink");
     const educationElement = document.getElementById("educationLink");
     const skillsElement = document.getElementById("skillsLink");
@@ -100,9 +103,9 @@ function updateEventListeners() {
             loadContent('pages/backend.html', 'contentContainer');
         });
     }
-    if (musicElement) {
-        musicElement.addEventListener('click', function() {
-            loadContent('pages/music.html', 'contentContainer');
+    if (artsElement) {
+        artsElement.addEventListener('click', function() {
+            loadContent('pages/arts.html', 'contentContainer');
         });
     }
     if (workElement) {

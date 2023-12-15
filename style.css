@@ -118,7 +118,7 @@ h6:hover {
   position: fixed;
   width: 14vw;
   top: 15vh;
-  left: 11vw;
+  right: 11vw;
   box-shadow: 1px 1px 23px 7px #000;
 }
 #profilePicture {
@@ -163,7 +163,7 @@ h6:hover {
   min-width: 95%;
   min-height: 80%;
   font-size: 1.3vw;
-  background-color: rgba(55, 55, 55, 0.95);
+  background-color: rgba(55, 55, 55, 1);
   color: rgba(255, 255, 255, 0.85);
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 1),
     -2px -2px 2px rgba(0, 0, 0, 1),
@@ -332,7 +332,7 @@ button {
 .soundcloudContainer {
   font-size: 1.3rem;
   color: #ff4800;
-  background-color: rgba(55, 55, 55, 0.95);
+  background-color: rgba(55, 55, 55, 1);
   line-break: anywhere;
   word-break: normal;
   overflow: hidden;

@@ -7,6 +7,17 @@ export default class Renderer {
         this.renderer.setPixelRatio(devicePixelRatio)
         document.body.appendChild(this.renderer.domElement);
         this.renderer.setAnimationLoop(this.render);
+        window.addEventListener('resize', this.onWindowResize.bind(this), false);
     }
+
+    onWindowResize(){       ///TODO fix stretched image after resize
+
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        this.renderer.setSize(width, height);
+        this.renderer.setPixelRatio(window.devicePixelRatio);
+
+}
 }
 

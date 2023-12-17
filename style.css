@@ -329,6 +329,9 @@ button {
 .artsPage h2 {
   margin: 0;
 }
+.menuProjectsPage {
+  font-size: 1.45rem;
+}
 .soundcloudContainer {
   font-size: 1.3rem;
   color: #ff4800;

@@ -34,30 +34,39 @@ export default class SpaceWorld {
       this.spaceScene.scene, 
       "mars", 
       40, // Size
-      [-6000, -250, -180] // coordinates
+      [-36000, -250, -180] // coordinates
     ); 
   }
   createRings() {
-    const amountOfRings = 10;
+    const amountOfRings = 5;
     const ringDiameter = 5;
     this.listOfRings = [];
     const coordinatesArray = [
-      [9000, -4500, -200],
-      [-9000, 4100, -600],
-      [7000, -3300, -1000],
-      [-7000, 5000, 1000],
-      [6000, 560, -1400],
-      [-6000, -750, 1800],
-      [2000, 100, -1800],
-      [2000, 100, -2200],
-      [2000, 100, -2600],
-      [1000, 150, -2600] 
+      [4000, 1000, -200],
+      [-1000, 300, 1500],
+      [-6000, -1300, 1500],
+      [-11000, -3700, 2500],
+      [-36000, 750, -180],
+      [26000, 300, 1500],
+      [31000, 300, 1500],
+      [36000, 300, 1500],
+      [41000, 300, 1500],
+      [46000, 300, 1500]
     ];
+    const rotationsArray = [
+        [Math.PI / 2, Math.PI / 2, Math.PI / 2],
+        [Math.PI * 1.75, Math.PI / 2, Math.PI * 1.5],
+        [Math.PI * 2.5, Math.PI * 1.75, Math.PI * 2],
+        [Math.PI * 2.25, Math.PI * 2.5, Math.PI * 2.75],
+        [Math.PI * 2.25, Math.PI * 2.5, Math.PI * 2.75]
+    ];
+
     for (var i = 0; i <= amountOfRings; i++) {
       const newRing = new Ring(
         this.spaceScene.scene, 
         ringDiameter,
-        coordinatesArray[i]
+        coordinatesArray[i],
+        rotationsArray[i]
       );
       this.listOfRings.push(newRing); 
     }
@@ -69,9 +78,6 @@ export default class SpaceWorld {
     this.earth.rotate();
     this.mars.rotate();
     this.hud.DisplayHud();
-    
-  
-  }
-  
+  } 
 }
 

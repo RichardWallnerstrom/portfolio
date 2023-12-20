@@ -15,15 +15,16 @@ const runRetroWorld = () => {
 
 
 
- 
-  div.style.display = 'none';   // Hide website
+  div.style.zIndex = '99999';   // Hide website
+
+  // div.style.display = 'none';   // Hide website
   app2d.style.display = 'block';
-  app2d.style.zIndex = '9999'; // Set a high z-index value
+  app2d.style.zIndex = '0'; // Set a high z-index value
 
 
-  link1.style.display = 'none';
-  link2.style.display = 'none';
-  reloadButton.style.display = 'block';
+  // link1.style.display = 'none';
+  // link2.style.display = 'none';
+  // reloadButton.style.display = 'block';
   const retroWorld = new RetroWorld();
   retroWorld.update();
   // spaceWorld.audioManager.playMusic();

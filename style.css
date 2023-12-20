@@ -160,9 +160,8 @@ position: fixed;
   justify-content: center;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 9;
   background-size: cover;
-  color: #fff;
   text-align: center;
 }
 #mainContainer {
@@ -356,13 +355,18 @@ footer a {
 .animate__animated.custom-delay-10 { animation-delay: 0.73s;}
 
 /** Retro game */
-canvas {
+#background2d {
   position: absolute;
-    /* or relative, depending on your layout */
     top: 0;
     left: 0;
     z-index: 1;
-    /* adjust as needed */
+}
+#character2d {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  pointer-events: none;
 }
 /** Space game **/
 #smallHud {

@@ -16,6 +16,8 @@ export default class RetroWorld {
   }
 
   render() {
+    this.player.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
     this.canvas.clearCanvas();
     this.canvas.draw();
     this.player.update(this.canvas.ctx);

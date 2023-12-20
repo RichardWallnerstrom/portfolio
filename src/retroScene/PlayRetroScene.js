@@ -1,33 +1,41 @@
-import SpaceWorld from './SpaceWorld.js';
+import RetroWorld from './RetroWorld.js';
 
-const runSpaceWorld = () => {
+const runRetroWorld = () => {
   const div = document.getElementById('mainContainer'); 
   const link1 = document.getElementById('aboutMenu'); 
   const link2 = document.getElementById('projectsMenu');
   const reloadButton = document.getElementById('reloadPage'); 
   const shipHud = document.getElementById('shipHud'); 
   const app2d = document.getElementById('app2d'); 
+  // window.addEventListener('load', function() {
+  //   const canvas = document.getElementById('app2d');
+  //   canvas.width = window.innerWidth;
+  //   canvas.height = window.innerHeight;
+  // }); 
+
 
 
  
   div.style.display = 'none';   // Hide website
-  app2d.style.display = 'none';
-  shipHud.style.display = 'block';
+  app2d.style.display = 'block';
+  app2d.style.zIndex = '9999'; // Set a high z-index value
+
 
   link1.style.display = 'none';
   link2.style.display = 'none';
   reloadButton.style.display = 'block';
-
-
-  const spaceWorld = new SpaceWorld();
-  spaceWorld.audioManager.playMusic();
+  const retroWorld = new RetroWorld();
+  retroWorld.update();
+  // spaceWorld.audioManager.playMusic();
 
   const animate = () => {
     requestAnimationFrame(animate);
-    spaceWorld.animate();
+    retroWorld.update();
+
   };
 
   animate();
 };
 
-export { runSpaceWorld};
+export { runRetroWorld};
+

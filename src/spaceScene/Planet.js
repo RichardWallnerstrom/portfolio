@@ -14,7 +14,7 @@ export default class Planet {
         const loader = new GLTFLoader();
         const {planet, size, coordinates} = this;
         loader.load(
-            `../assets/${this.planet}/scene.gltf`,
+            `/assets/3d/${this.planet}/scene.gltf`,
             (gltf) => {
                 this.model = gltf.scene;
                 this.model.scale.set(this.size, this.size, this.size);

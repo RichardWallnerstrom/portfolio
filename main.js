@@ -1,4 +1,6 @@
 import { runSpaceWorld } from './src/spaceScene/PlaySpaceScene.js';
+import { runRetroWorld } from './src/retroScene/PlayRetroScene.js';
+
 
 
 function updateMenu(url, container) { // Only for left side menu
@@ -41,9 +43,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const fullstackMessage = document.getElementById("magicLine");
     const profilePicture = document.getElementById("profileDiv");
 
-    const spaceButtonTest = document.getElementById("playSpaceEngineTest"); // Testing ONly
-    spaceButtonTest.addEventListener('click', runSpaceWorld);
-
+    // const spaceButtonTest = document.getElementById("playSpaceEngineTest"); // Testing ONly
+    // spaceButtonTest.addEventListener('click', runRetroWorld);
+    runRetroWorld();
 
     projectsMenuElement.addEventListener('click', function() {
         updateMenu('pages/menuProjects.html', 'menuContainer');
@@ -72,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function() {
         profilePicture.classList.remove('animate__rollIn');
         profilePicture.classList.remove('custom-delay-10');
         profilePicture.classList.add('animate__flipOutY');
-
     }
 });
 function updateEventListeners() {
@@ -85,10 +86,6 @@ function updateEventListeners() {
     const skillsElement = document.getElementById("skillsLink");
     const aboutElement = document.getElementById("aboutLink");
     const spaceButton = document.getElementById("playSpaceEngine");
-
-
-
-
 
     if (spaceButton) {
             spaceButton.addEventListener('click', runSpaceWorld);

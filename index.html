@@ -17,7 +17,8 @@
         <h5 id="reloadPage" style="display: none">Back to Site</h5>
       </nav>
     </div>
-    <div id="app"></div> <!-- Canvas will be drawn here -->
+    <div id="app3d"></div> 
+    <canvas id="app2d"></canvas>
 
     <div id="mainContainer" >
       <div class="headerContainer">
@@ -25,9 +26,9 @@
           Hi. I'm Richard!
         </h1>
       </div>
-                  <button type="button" id="playSpaceEngineTest">
-                    ▶
-                  </button>
+        <button type="button" id="playSpaceEngineTest">
+          ▶
+        </button>
       <div id="profileDiv" class="animate__animated  animate__rollIn custom-delay-10">
         <img id="profilePicture" src="images/profilepic.jpg" alt="Profile picture" class="" />
       </div>
@@ -69,6 +70,8 @@
     </div>
     <script type="module" src="main.js"></script>
     <script type="module" src="/src/spaceScene/PlaySpaceScene.js"></script>
+    <script type="module" src="/src/retroScene/PlayRetroScene.js"></script>
+
 
 
   </body>

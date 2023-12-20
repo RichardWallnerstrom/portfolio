@@ -15,7 +15,7 @@ export default class SpaceShip {
     loadModel() {
         const loader = new GLTFLoader();
         loader.load(
-            '/assets/space_ship/scene.gltf',
+            '/assets/3d/space_ship/scene.gltf',
             (gltf) => {
                 this.model = gltf.scene;
                 this.model.scale.set(0.0007, 0.0007, 0.0007);

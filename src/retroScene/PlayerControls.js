@@ -5,7 +5,9 @@ export default class PlayerControls {
             KeyW: false,
             KeyA: false,
             KeyS: false,
-            KeyD: false
+            KeyD: false,
+            KeyF: false,
+
         }; 
 
         document.addEventListener('keydown', (event) => this.onKeyDown(event), false);
@@ -30,6 +32,9 @@ export default class PlayerControls {
         }
         if (this.keys['KeyS']) {
             this.player.slide();
+        }
+        if (this.keys['KeyF']) {
+            this.player.stab();
         }
     }
 }

@@ -25,7 +25,7 @@ async function loadContent(page, container) {   // Only for right side content
     try {
         const response = await fetch(page);
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error('Network response error');
         }
         const html = await response.text();
         document.getElementById(container).innerHTML = html;

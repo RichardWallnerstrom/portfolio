@@ -42,6 +42,15 @@ export default class Animation {
                 '/assets/2d/player/Slide.4.png',
                 '/assets/2d/player/Slide.5.png',
             ],
+            stab: [
+                '/assets/2d/player/Melee.1.png',
+                '/assets/2d/player/Melee.2.png',
+                '/assets/2d/player/Melee.3.png',
+                '/assets/2d/player/Melee.4.png',
+                '/assets/2d/player/Melee.5.png',
+                '/assets/2d/player/Melee.6.png',
+                '/assets/2d/player/Melee.7.png',
+            ],
         };
         this.currentAnimation = 'idle';
         this.currentFrameIndex = 0;
@@ -64,4 +73,5 @@ export default class Animation {
         this.image.src = this.animations[this.currentAnimation][this.currentFrameIndex];
         this.lastFrameTime = Date.now();
     }
+    
 }

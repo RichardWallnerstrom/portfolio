@@ -27,7 +27,7 @@ const runRetroWorld = () => {
   // reloadButton.style.display = 'block';
   const retroWorld = new RetroWorld();
   retroWorld.update();
-  // spaceWorld.audioManager.playMusic();
+  retroWorld.audioManager.playMusic();
 
   const animate = () => {
     requestAnimationFrame(animate);

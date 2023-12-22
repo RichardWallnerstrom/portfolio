@@ -1,13 +1,17 @@
 // RetroWorld.js
 import Canvas from './Canvas.js';
 import Player from './Player.js';
+import AudioManager from '../components/AudioManager.js';
 import PlayerControls from "./PlayerControls.js";
 
 export default class RetroWorld {
   constructor() {
     this.canvas = new Canvas();
     this.player = new Player(this.canvas.canvas);
+    this.audioManager = new AudioManager('/audio/silenthillinmajula.mp3');
     this.playerControls = new PlayerControls(this.player);
+    this.audioManager.playMusic();
+
   }
 
   update() {

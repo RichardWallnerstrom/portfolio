@@ -3,24 +3,38 @@ export default class Player {
     constructor() {
         this.animation = new Animation();
         this.image = this.animation.image;
-        this.canvas = document.getElementById('character2d');
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
-        this.ctx = this.canvas.getContext('2d');
+        this.setupCanvas()
         this.isFacingRight = true;
+        this.isColliding = {
+            left: false,
+            right: false,
+            down: false,
+        };
+        this.state = {
+            isFalling: false,
+            isGrounded: false,
+            hasJumped: false,
+        }
         this.position = {
             x: 50, 
-            y: 50, 
+            y: 50,
+            previousY: 50,
         };
         this.size = {
-            width: 288,
-            height: 244,
+            height: window.innerHeight * 0.2,
+            width: window.innerWidth  * 0.12,
         };
         this.velocity = {
             x: 0,
             y: 1,
         };
         this.gravity = 0.5;
+    }
+    setupCanvas() {
+        this.canvas = document.getElementById('character2d');
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+        this.ctx = this.canvas.getContext('2d');
     }
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -35,92 +49,46 @@ export default class Player {
         }
     }
     update() {
+        console.log(this.isColliding.down)
+
+        this.checkIfFalling(); 
+        this.checkIfGrounded(); 
         this.checkCollisionWithElements(); 
-        this.draw(this.ctx);
         this.applyGravity();
+        this.draw();
         this.position.x += this.velocity.x;
-        this.animation.animate() 
+        this.animation.animate();
         this.resetAnimation();
     }
+    checkIfFalling() {
+        if (this.position.y > this.position.previousY) {
+            this.state.isFalling = true;
+        } else {
+            this.state.isFalling = false;
+        }
+        this.position.previousY = this.position.y;
+    }
+    checkIfGrounded() {
+        this.state.isGrounded = this.isColliding.down || (this.position.y + this.size.height + this.velocity.y >= this.canvas.height);
+    }
     resetAnimation() {
-        if (this.velocity.x == 0 && this.isGrounded() && 
+        if (this.velocity.x == 0 && this.state.isGrounded && 
             this.animation.currentAnimation !== 'idle' &&
             this.animation.currentAnimation !== 'stab'
             )
             this.animation.changeAnimationState('idle')
     }
-    isGrounded() {
-        if (this.isColliding.down) return true;
-        return (this.position.y + this.size.height + this.velocity.y < this.canvas.height)
-            ? false
-            : true;
-    }
     applyGravity() {
         this.position.y += this.velocity.y;
-        if (!this.isGrounded()) {
+        if (!this.state.isGrounded ) {
             this.velocity.y += this.gravity;
         }
-        else {
+        else if (this.isColliding.down && this.state.isFalling || this.state.isGrounded) {
             this.velocity.y = 0;
+            this.state.hasJumped = false;
         }
     }
-checkCollisionWithElements() {
-    this.isColliding = {
-        left: false,
-        right: false,
-        down: false,
-    };
-
-    const collidables = document.querySelectorAll('.collidable');
-    const playerBox = {
-        x: this.position.x,
-        y: this.position.y,
-        width: this.size.width,
-        height: this.size.height
-    };
-
-    collidables.forEach(collidable => {
-        const collidableRect = collidable.getBoundingClientRect();
-
-        const collidableBox = {
-            x: collidableRect.left,
-            y: collidableRect.top,
-            width: collidableRect.width,
-            height: collidableRect.height
-        };
-
-        if (
-            playerBox.x < collidableBox.x + collidableBox.width &&
-            playerBox.x + playerBox.width > collidableBox.x &&
-            playerBox.y < collidableBox.y + collidableBox.height &&
-            playerBox.y + playerBox.height > collidableBox.y
-        ) {
-            // Collision detected
-            if (playerBox.x < collidableBox.x + collidableBox.width ||
-                playerBox.x + playerBox.width > collidableBox.x) {
-                this.isColliding.right = true;
-                if (this.animation.currentAnimation === 'stab') {
-                    // collidable.classList.remove('animate__zoomIn');       
-                    // collidable.classList.remove('custom-delay-10');
-                    // collidable.classList.add('animate__bounceOutDown'); 
-                    collidable.click();
-                    if (collidable.classList.contains('breakable'))
-                        collidable.classList.remove('collidable')
-                    
-                }
-                }
-            if (playerBox.y < collidableBox.y + collidableBox.height) {
-                this.isColliding.down = true;
-            }
-            else {
-                this.isColliding.down = false;
-                this.isColliding.left = false;
-                this.isColliding.right = false;
-            }
-        }
-    });
-}
-
+    ///Movement //////
     moveLeft() {
         this.isColliding.right = false;
         this.isFacingRight = false;
@@ -136,12 +104,14 @@ checkCollisionWithElements() {
             this.velocity.x += 2; 
         if (this.animation.currentAnimation !== 'run' && this.animation.currentAnimation !== 'jump') 
             this.animation.changeAnimationState('run')
-
     }
     jump() {
-        if (this.isGrounded()) {
-            this.velocity.y -= 19;
+        if (!this.state.hasJumped && this.state.isGrounded || 
+            !this.state.hasJumped && this.isColliding.down && this.state.isFalling) 
+            {
+            this.velocity.y -= 17;
             this.animation.changeAnimationState('jump')
+            this.state.hasJumped = true;
         }
     }
     slide() {
@@ -152,5 +122,51 @@ checkCollisionWithElements() {
     stab() {
         if (this.animation.currentAnimation !== 'stab') 
             this.animation.changeAnimationState('stab')
+    }
+    checkCollisionWithElements() {
+        const headOffset = 40;
+        const collisionOffset = 150;
+        const collidables = document.querySelectorAll('.collidable');
+        const playerBox = {
+            x: this.position.x,
+            y: this.position.y + headOffset,
+            width: this.size.width,
+            height: this.size.height 
+        };
+        let collisionDown = false; // instead of changing the global collision
+        collidables.forEach(collidable => {
+            const collidableRect = collidable.getBoundingClientRect();
+
+            const collidableBox = {
+                x: collidableRect.left,
+                y: collidableRect.top,
+                width: collidableRect.width,
+                height: collidableRect.height
+            };
+            if (playerBox.x < collidableBox.x + collidableBox.width &&
+                playerBox.x + playerBox.width > collidableBox.x &&
+                playerBox.y < collidableBox.y + collidableBox.height &&
+                playerBox.y + playerBox.height > collidableBox.y ) 
+                {
+                if (playerBox.x < collidableBox.x + collidableBox.width ||
+                    playerBox.x + playerBox.width > collidableBox.x) {
+                    if (this.animation.currentAnimation === 'stab') {
+                        // collidable.classList.remove('animate__zoomIn');       
+                        // collidable.classList.remove('custom-delay-10');
+                        // collidable.classList.add('animate__bounceOutDown'); 
+                        collidable.click();
+                        if (collidable.classList.contains('breakable'))
+                            collidable.classList.remove('collidable')           
+                    }
+                }
+                if (playerBox.y + collisionOffset < collidableBox.y + collidableBox.height) {
+                    collisionDown = true;
+                } 
+                else {
+                    collisionDown = false;
+                } 
+            }
+        });
+        this.isColliding.down = collisionDown;
     }
 }

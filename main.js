@@ -57,9 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
         updateMenu('pages/menuAbout.html', 'menuContainer');
         aboutMenuElement.style.display = 'none';
         projectsMenuElement.style.display = 'block';
-        helloMessage.style.display = 'none';
-        fullstackMessage.style.display = 'none';
-        profilePicture.style.display = 'none';
+        removeWelcomeMessage();
     });
     reloadButton.addEventListener('click', function() {
         window.location.reload();

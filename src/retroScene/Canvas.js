@@ -5,10 +5,10 @@ export default class Canvas {
         this.canvas.height = window.innerHeight;
         this.ctx = this.canvas.getContext('2d');
         this.backgroundImages = [
-        { src: '/assets/2d/background/parallax-forest-back-trees.png', speed: 0.1, x: 0, y: 0 },
-        { src: '/assets/2d/background/parallax-forest-middle-trees.png', speed: 0.3, x: 0, y: 0 },
-        { src: '/assets/2d/background/parallax-forest-front-trees.png', speed: 0.6, x: 0, y: 0 },
-        { src: '/assets/2d/background/parallax-forest-lights.png', speed: 0.8, x: 0, y: 0 }
+            { src: '/assets/2d/background/parallax-forest-back-trees.png', speed: 0.1, x: 0, y: 0 },
+            { src: '/assets/2d/background/parallax-forest-middle-trees.png', speed: 0.3, x: 0, y: 0 },
+            { src: '/assets/2d/background/parallax-forest-front-trees.png', speed: 0.6, x: 0, y: 0 },
+            { src: '/assets/2d/background/parallax-forest-lights.png', speed: 0.8, x: 0, y: 0 }
         ];
         this.loadImages();
     }

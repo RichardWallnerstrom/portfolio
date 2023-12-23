@@ -203,9 +203,6 @@ position: fixed;
   height: 60%;
   width: 100%;
 }
-/* .bottomContainer > div {
-  margin: 2vh 1vw;
-} */
 #menuContainer {
   display: flex;
   justify-content: center;
@@ -219,21 +216,18 @@ position: fixed;
   margin: 0 5vw 0 1vw;
 }
 #menuContainer div {
-  /* border: 2px solid black; */
   display: flex;
   flex-direction: column;
   margin: 0;
   padding: 0;
 }
 #menuContainer p {
-  /* border: 2px solid black; */
   display: flex;
   flex-direction: column;
   margin: 0 0 0 2.9vw;
   padding: 0;
 }
 #menuContainer h2 {
-
   margin: 0 0 0 0;
   padding: 0;
 }
@@ -246,7 +240,6 @@ position: fixed;
   box-sizing: border-box;
 }
 .fullStackPage {
-  /* border: 2px solid #00ff00; */
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
@@ -260,7 +253,6 @@ position: fixed;
 .grid-item {
   display: flex;
   flex-direction: column;
-  /* align-items: flex-start; */
 }
 .game-div h2 {
   display: inline-block;
@@ -274,7 +266,6 @@ button {
   text-shadow: 1px 1px 2px #853c00;
   box-shadow: -1px 1px 6px 1px #000;
   border: 1px solid #583800;
-  /* padding: 10px 20px; */
   border-radius: 5px;
   cursor: pointer;
 }
@@ -296,6 +287,13 @@ button {
 .menuProjectsPage {
   font-size: 1.45rem;
 }
+.menuParagraph {
+  height: 14vh;
+}
+.collidable {
+  background-color: #00bd00;
+}
+
 .soundcloudContainer {
   font-size: 1.3rem;
   color: #ff4800;

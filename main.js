@@ -1,9 +1,12 @@
 import { runSpaceWorld } from './src/spaceScene/PlaySpaceScene.js';
 import { runRetroWorld } from './src/retroScene/PlayRetroScene.js';
 
-
-
-function updateMenu(url, container) { // Only for left side menu
+let lastMenuUrl = '';
+let lastContentUrl = '';
+function updateMenu(url) { // Only for left side menu
+    console.log('lastmenu: ' + lastMenuUrl);
+    if (lastMenuUrl === url) return;
+    lastMenuUrl = url;
     fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -12,8 +15,7 @@ function updateMenu(url, container) { // Only for left side menu
             return response.text()
         })
         .then(data => {
-            console.log("Fetched data:", data)
-            document.getElementById(container).innerHTML = data
+            document.getElementById('menuContainer').innerHTML = data
             updateEventListeners()
         })
         .catch(error => {
@@ -21,17 +23,20 @@ function updateMenu(url, container) { // Only for left side menu
         })
 }
 
-async function loadContent(page, container) {   // Only for right side content
+async function loadContent(url) {   // Only for right side content
+    if (lastContentUrl === url) return;
+    lastContentUrl = url;
+
     try {
-        const response = await fetch(page);
+        const response = await fetch(url);
         if (!response.ok) {
             throw new Error('Network response error');
         }
         const html = await response.text();
-        document.getElementById(container).innerHTML = html;
+        document.getElementById('contentContainer').innerHTML = html;
         updateEventListeners(); 
     } catch (error) {
-        console.error('Error loading content:', error);
+        console.error('Error loading content: ', error);
     }
 }
 
@@ -48,13 +53,13 @@ document.addEventListener("DOMContentLoaded", function() {
     runRetroWorld();
 
     projectsMenuElement.addEventListener('click', function() {
-        updateMenu('pages/menuProjects.html', 'menuContainer');
+        updateMenu('pages/menuProjects.html');
         projectsMenuElement.style.display = 'none';
         aboutMenuElement.style.display = 'block';
         removeWelcomeMessage();
     });
     aboutMenuElement.addEventListener('click', function() {
-        updateMenu('pages/menuAbout.html', 'menuContainer');
+        updateMenu('pages/menuAbout.html');
         aboutMenuElement.style.display = 'none';
         projectsMenuElement.style.display = 'block';
         removeWelcomeMessage();
@@ -90,37 +95,37 @@ function updateEventListeners() {
     }
     if (spaceElement) {
         spaceElement.addEventListener('click', function() {
-            loadContent('pages/fullstack.html', 'contentContainer');
+            loadContent('pages/fullstack.html');
         });
     }
     if (retroElement) {
         retroElement.addEventListener('click', function() {
-            loadContent('pages/backend.html', 'contentContainer');
+            loadContent('pages/backend.html');
         });
     }
     if (artsElement) {
         artsElement.addEventListener('click', function() {
-            loadContent('pages/arts.html', 'contentContainer');
+            loadContent('pages/arts.html');
         });
     }
     if (workElement) {
         workElement.addEventListener('click', function() {
-            loadContent('pages/workExperience.html', 'contentContainer');
+            loadContent('pages/workExperience.html');
         });
     }
     if (educationElement) {
         educationElement.addEventListener('click', function() {
-            loadContent('pages/education.html', 'contentContainer');
+            loadContent('pages/education.html');
         });
     }
     if (skillsElement) {
         skillsElement.addEventListener('click', function() {
-            loadContent('pages/skills.html', 'contentContainer');
+            loadContent('pages/skills.html');
         });
     }
     if (aboutElement) {
         aboutElement.addEventListener('click', function() {
-            loadContent('pages/about.html', 'contentContainer');
+            loadContent('pages/about.html');
         });
     }
 }

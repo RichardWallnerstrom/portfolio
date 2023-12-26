@@ -133,6 +133,7 @@ export default class Player {
             width: this.size.width,
             height: this.size.height 
         };
+        this.lastCollidable;
         let collisionDown = false; // instead of changing the global collision
         collidables.forEach(collidable => {
             const collidableRect = collidable.getBoundingClientRect();
@@ -150,16 +151,17 @@ export default class Player {
                 {
                 if (playerBox.x < collidableBox.x + collidableBox.width ||
                     playerBox.x + playerBox.width > collidableBox.x) {
-                    if (this.animation.currentAnimation === 'stab') {
-                        // collidable.classList.remove('animate__zoomIn');       
-                        // collidable.classList.remove('custom-delay-10');
-                        // collidable.classList.add('animate__bounceOutDown'); 
-                        collidable.click();
-                        if (collidable.classList.contains('breakable'))
-                            collidable.classList.remove('collidable')           
-                    }
+
+                    // if (collidable.classList.contains('breakable'))
+                    //     collidable.classList.remove('collidable')           
+                    
                 }
                 if (playerBox.y + collisionOffset < collidableBox.y + collidableBox.height) {
+                    if (collidable !== this.lastCollidable) {
+                        console.log("collidable" + this.lastCollidable)
+                        this.lastCollidable = collidable 
+                        collidable.click();
+                    }
                     collisionDown = true;
                 } 
                 else {

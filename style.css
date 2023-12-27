@@ -18,7 +18,11 @@
 }
 nav {
   display: flex;
+  justify-content: space-evenly;
   flex-direction: row;
+  position: fixed; 
+  bottom: 2.3vh;
+  gap: 6rem;
 }
 
 /* headers */
@@ -270,16 +274,21 @@ button {
   cursor: pointer;
 }
 .skillsPage {
-  display: flex;
-  flex-direction: row;
-  align-items: left;
-  justify-content: left;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  gap: 8.3vh;
+  height: 70vh;
+  box-sizing: border-box;
 }
 .skillsPage div {
   display: flex;
   flex-direction: column;
   align-items: left;
   justify-content: left;
+}
+.skillsPage h2 {
+  margin: 0;
 }
 .artsPage h2 {
   margin: 0;
@@ -290,8 +299,12 @@ button {
 .menuParagraph {
   height: 14vh;
 }
-.collidable {
+/* .collidable {
   background-color: #00bd00;
+} */
+.hidden {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .soundcloudContainer {

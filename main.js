@@ -73,6 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	function removeWelcomeMessage() {
 		helloMessage.classList.remove("animate__zoomIn")
 		helloMessage.classList.remove("custom-delay-10")
+		if (helloMessage.classList.contains("animate__flip"))
+			helloMessage.classList.remove("animate__flip")
 		helloMessage.classList.add("animate__bounceOutDown")
 		fullstackMessage.classList.remove("animate__lightSpeedInLeft")
 		fullstackMessage.classList.remove("custom-delay-10")

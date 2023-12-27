@@ -60,8 +60,6 @@ export default class Player {
 		}
 	}
 	update() {
-		console.log(this.isColliding.down)
-
 		this.checkIfFalling()
 		this.checkIfGrounded()
 		this.checkCollisionWithElements()
@@ -177,12 +175,12 @@ export default class Player {
 					this.animation.currentAnimation === "stab" &&
 					collidable.classList.contains("breakable")
 				) {
-					collidable.classList.remove("animate__rollIn")
+					collidable.classList.remove("animate__flip")
 					collidable.classList.remove("animate__rollIn")
 
 					collidable.classList.remove("custom-delay-1")
 
-					collidable.classList.add("animate__flip")
+					collidable.classList.add("animate__rubberBand")
 				}
 
 				if (

@@ -1,83 +1,94 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Richard W's Portfolio</title>
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="node_modules/animate.css/animate.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Iceland&display=swap">
-  </head>
-  <body>
-    <div id="frame-hud">
-      <nav>
-        <h5 id="projectsMenu" class="collidable menu">Projects and skills</h5>
-        <h5 id="reloadPage">Back to Site</h5>
-        <h4 id="aboutMenu" class="collidable menu">CV and personal info</h5>
-      </nav>
-    </div>
-    <div id="app3d"></div> 
-    <div id="app2d">
-        <canvas id="background2d"></canvas>
-        <canvas id="character2d"></canvas>
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Richard W's Portfolio</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="node_modules/animate.css/animate.css" />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Iceland&display=swap" />
+	</head>
+	<body>
+		<div id="frame-hud">
+			<nav>
+				<h5 id="projectsMenu" class="collidable menu">Projects and skills</h5>
+				<h5 id="reloadPage">Back to Site</h5>
+				<h4 id="aboutMenu" class="collidable menu">CV and personal info</h4>
+			</nav>
+		</div>
+		<div id="app3d"></div>
+		<div id="app2d">
+			<canvas id="background2d"></canvas>
+			<canvas id="character2d"></canvas>
+		</div>
 
+		<div id="mainContainer">
+			<div class="headerContainer">
+				<h1
+					id="hello"
+					class="collidable breakable animate__animated animate__zoomIn custom-delay-1">
+					Hi. I'm Richard!
+				</h1>
+			</div>
+			<button type="button" id="playSpaceEngineTest">▶</button>
+			<div
+				id="profileDiv"
+				class="collidable breakable animate__animated animate__rollIn custom-delay-10">
+				<img
+					id="profilePicture"
+					src="images/profilepic.jpg"
+					alt="Profile picture" />
+			</div>
+			<div class="midContainer">
+				<h2
+					id="magicLine"
+					class="collidable animate__animated animate__lightSpeedInLeft custom-delay-10">
+					I'm a full-stack developer with focus on the back-end.
+				</h2>
+			</div>
+			<div class="bottomContainer">
+				<div id="menuContainer"></div>
+				<div id="contentContainer"></div>
+			</div>
+			<footer class="collidable">
+				<a
+					href="https://www.linkedin.com/in/richard-wallnerstrom"
+					target="_blank"
+					class="animate__animated animate__flipInX">
+					<span aria-hidden="true">&#xF472; LinkedIn</span>
+				</a>
+				<a
+					href="https://github.com/RichardWallnerstrom"
+					target="_blank"
+					class="animate__animated animate__flipInX custom-delay-4">
+					<span aria-hidden="true">&#x1F4BB; GitHub</span>
+				</a>
+				<a
+					href="https://soundcloud.com/normanbeatsmotel"
+					target="_blank"
+					class="animate__animated animate__flipInX custom-delay-10">
+					<span aria-hidden="true">&#x1F3B5; SoundCloud</span>
+				</a>
+			</footer>
+		</div>
 
-
-    <div id="mainContainer" >
-      <div class="headerContainer">
-        <h1 id="hello" class="collidable breakable animate__animated animate__zoomIn custom-delay-1">
-          Hi. I'm Richard!
-        </h1>
-      </div>
-        <button type="button" id="playSpaceEngineTest">
-          ▶
-        </button>
-      <div id="profileDiv" class="collidable breakable animate__animated  animate__rollIn custom-delay-10">
-        <img id="profilePicture" src="images/profilepic.jpg" alt="Profile picture"/>
-      </div>
-      <div class="midContainer">
-        <h2 id="magicLine" class="collidable animate__animated animate__lightSpeedInLeft custom-delay-10">
-          I'm a full-stack developer with focus on the back-end. 
-        </h2>
-      </div>
-      <div class="bottomContainer">
-        <div id="menuContainer">          </div>
-        <div id="contentContainer">       </div>
-      </div>
-        <footer class="collidable">
-          <a href="https://www.linkedin.com/in/richard-wallnerstrom" target="_blank" class="animate__animated animate__flipInX">
-            <span aria-hidden="true">&#xF472; LinkedIn</span>
-          </a>
-          <a href="https://github.com/RichardWallnerstrom" target="_blank" class="animate__animated animate__flipInX custom-delay-4">
-            <span aria-hidden="true">&#x1F4BB; GitHub</span>
-          </a>
-          <a href="https://soundcloud.com/normanbeatsmotel" target="_blank" class="animate__animated animate__flipInX custom-delay-10">
-            <span aria-hidden="true">&#x1F3B5; SoundCloud</span>
-          </a>
-        </footer>
-        </div>
-
-      </div> 
-
-    <div id="smallHud" class="animate__animated animate__zoomIn" style="display: none;"></div>
-    <div id="shipHud" class="animate__animated animate__zoomIn" style="display: none;">
-      <p id="shipSpeed">
-        Speed:
-      </p>
-      <p id="shipDistanceToEarth">
-        Distance to Earth: 
-      </p>
-      <p id="shipDistanceToMars">
-        Distance to Mars:
-      </p>
-    </div>
-    <script type="module" src="main.js"></script>
-    <script type="module" src="/src/spaceScene/PlaySpaceScene.js"></script>
-    <script type="module" src="/src/retroScene/PlayRetroScene.js"></script>
-
-
-
-  </body>
+		<div
+			id="smallHud"
+			class="animate__animated animate__zoomIn"
+			style="display: none"></div>
+		<div
+			id="shipHud"
+			class="animate__animated animate__zoomIn"
+			style="display: none">
+			<p id="shipSpeed">Speed:</p>
+			<p id="shipDistanceToEarth">Distance to Earth:</p>
+			<p id="shipDistanceToMars">Distance to Mars:</p>
+		</div>
+		<script type="module" src="main.js"></script>
+		<script type="module" src="/src/spaceScene/PlaySpaceScene.js"></script>
+		<script type="module" src="/src/retroScene/PlayRetroScene.js"></script>
+	</body>
 </html>

@@ -90,8 +90,6 @@ function updateEventListeners() {
 
 	const artsElement = document.getElementById("artsLink")
 	const workElement = document.getElementById("workLink")
-	const educationElement = document.getElementById("educationLink")
-	const skillsElement = document.getElementById("skillsLink")
 	const aboutElement = document.getElementById("aboutLink")
 	const spaceButton = document.getElementById("playSpaceEngine")
 
@@ -111,16 +109,6 @@ function updateEventListeners() {
 	if (workElement) {
 		workElement.addEventListener("click", function () {
 			loadContent("/pages/workExperience.html")
-		})
-	}
-	if (educationElement) {
-		educationElement.addEventListener("click", function () {
-			loadContent("/pages/education.html")
-		})
-	}
-	if (skillsElement) {
-		skillsElement.addEventListener("click", function () {
-			loadContent("/pages/skills.html")
 		})
 	}
 	if (aboutElement) {

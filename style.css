@@ -1,6 +1,6 @@
 :root {
-	font-family: "Times New Roman", "sans-serif", system-ui, Helvetica, Arial,
-		sans-serif;
+	font-family: "monospace", "Times New Roman", "sans-serif", system-ui,
+		Helvetica, Arial, sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	margin: 0;
@@ -71,6 +71,10 @@ h2 {
 	text-align: center;
 	font-family: "Iceland", cursive;
 }
+h2:hover {
+	letter-spacing: 10px;
+	transition-duration: 1s;
+}
 h3:hover {
 	color: rgba(0, 0, 0, 1);
 	text-shadow: 2px 2px 2px #ff7300, -2px -2px 2px #ff7300, 2px -2px 2px #ff7300,
@@ -94,6 +98,10 @@ h6:hover {
 	text-shadow: 2px 2px 2px #ff7300, -2px -2px 2px #ff7300, 2px -2px 2px #ff7300,
 		-2px 2px 2px #ff7300;
 	box-shadow: 2px 2px 8px 8px #ffd500;
+}
+.mouseEffects:hover {
+	letter-spacing: 0.6rem;
+	transition-duration: 1s;
 }
 #magicLine {
 	display: inline-block;
@@ -218,8 +226,9 @@ h6:hover {
 #menuContainer div {
 	display: flex;
 	flex-direction: column;
-	margin: 0;
+	margin: 7vh 0 0 0;
 	padding: 0;
+	gap: 4vh 0;
 }
 #menuContainer p {
 	display: flex;
@@ -250,6 +259,7 @@ h6:hover {
 	display: grid;
 	grid-template-columns: 50% 50%;
 	margin: 0;
+	font-size: 1.2rem;
 }
 
 .fullStackPage h2,

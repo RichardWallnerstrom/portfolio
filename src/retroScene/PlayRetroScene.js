@@ -1,4 +1,4 @@
-import RetroWorld from "./RetroWorld.js"
+import RetroWorld from "/src/retroScene/RetroWorld.js"
 
 const runRetroWorld = () => {
 	const div = document.getElementById("mainContainer")

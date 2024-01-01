@@ -1,11 +1,12 @@
-import { runSpaceWorld } from "./src/spaceScene/PlaySpaceScene.js"
-import { runRetroWorld } from "./src/retroScene/PlayRetroScene.js"
+import { runSpaceWorld } from "/src/spaceScene/PlaySpaceScene.js"
+import { runRetroWorld } from "/src/retroScene/PlayRetroScene.js"
+console.log("running main.js")
 
 let lastMenuUrl = ""
 let lastContentUrl = ""
 function updateMenu(url) {
 	// Only for left side menu
-	console.log("lastmenu: " + lastMenuUrl)
+
 	if (lastMenuUrl === url) return
 	lastMenuUrl = url
 	fetch(url)
@@ -56,13 +57,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	reloadButton.classList.add("hidden")
 
 	projectsMenuElement.addEventListener("click", function () {
-		updateMenu("pages/menuProjects.html")
+		updateMenu("/pages/menuProjects.html")
 		projectsMenuElement.classList.add("hidden")
 		aboutMenuElement.classList.remove("hidden")
 		removeWelcomeMessage()
 	})
 	aboutMenuElement.addEventListener("click", function () {
-		updateMenu("pages/menuAbout.html")
+		updateMenu("/pages/menuAbout.html")
 		aboutMenuElement.classList.add("hidden")
 		projectsMenuElement.classList.remove("hidden")
 		removeWelcomeMessage()
@@ -87,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
 function updateEventListeners() {
 	const spaceElement = document.getElementById("fullStackLink")
 
-	const retroElement = document.getElementById("backEndLink")
 	const artsElement = document.getElementById("artsLink")
 	const workElement = document.getElementById("workLink")
 	const educationElement = document.getElementById("educationLink")
@@ -100,37 +100,32 @@ function updateEventListeners() {
 	}
 	if (spaceElement) {
 		spaceElement.addEventListener("click", function () {
-			loadContent("pages/fullstack.html")
-		})
-	}
-	if (retroElement) {
-		retroElement.addEventListener("click", function () {
-			loadContent("pages/backend.html")
+			loadContent("/pages/fullstack.html")
 		})
 	}
 	if (artsElement) {
 		artsElement.addEventListener("click", function () {
-			loadContent("pages/arts.html")
+			loadContent("/pages/arts.html")
 		})
 	}
 	if (workElement) {
 		workElement.addEventListener("click", function () {
-			loadContent("pages/workExperience.html")
+			loadContent("/pages/workExperience.html")
 		})
 	}
 	if (educationElement) {
 		educationElement.addEventListener("click", function () {
-			loadContent("pages/education.html")
+			loadContent("/pages/education.html")
 		})
 	}
 	if (skillsElement) {
 		skillsElement.addEventListener("click", function () {
-			loadContent("pages/skills.html")
+			loadContent("/pages/skills.html")
 		})
 	}
 	if (aboutElement) {
 		aboutElement.addEventListener("click", function () {
-			loadContent("pages/about.html")
+			loadContent("/pages/about.html")
 		})
 	}
 }

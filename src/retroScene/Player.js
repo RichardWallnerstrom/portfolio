@@ -1,4 +1,4 @@
-import Animation from "./Animation.js"
+import Animation from "/src/retroScene/Animation.js"
 export default class Player {
 	constructor() {
 		this.animation = new Animation()

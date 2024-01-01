@@ -26,8 +26,8 @@ export default class HudController {
 			" AU"
 		const fetchedUrl =
 			this.spaceShip.distanceToEarth < this.spaceShip.distanceToMars
-				? "../pages/earth.html"
-				: "../pages/mars.html"
+				? "/pages/earth.html"
+				: "/pages/mars.html"
 		if (
 			this.spaceShip.distanceToEarth < 1200 ||
 			this.spaceShip.distanceToMars < 700

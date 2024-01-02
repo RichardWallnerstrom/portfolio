@@ -16,8 +16,8 @@ export default class Player {
 			hasJumped: false,
 		}
 		this.position = {
-			x: 50,
-			y: 50,
+			x: 850,
+			y: 400,
 			previousY: 50,
 		}
 		this.size = {

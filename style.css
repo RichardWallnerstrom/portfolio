@@ -1,6 +1,6 @@
 :root {
-	font-family: "Times New Roman", "sans-serif", system-ui, Helvetica, Arial,
-		sans-serif;
+	font-family: "monospace", "Times New Roman", "sans-serif", system-ui,
+		Helvetica, Arial, sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	margin: 0;
@@ -41,7 +41,7 @@ h6 {
 	font-family: "Iceland", "Times New Roman", sans-serif;
 	cursor: pointer;
 	border-radius: 40%;
-	width: 23vw;
+	width: 19vw;
 	font-size: 1.7vw;
 	line-height: 0;
 	height: 0.7vh;
@@ -71,6 +71,10 @@ h2 {
 	text-align: center;
 	font-family: "Iceland", cursive;
 }
+h2:hover {
+	letter-spacing: 10px;
+	transition-duration: 1s;
+}
 h3:hover {
 	color: rgba(0, 0, 0, 1);
 	text-shadow: 2px 2px 2px #ff7300, -2px -2px 2px #ff7300, 2px -2px 2px #ff7300,
@@ -94,6 +98,10 @@ h6:hover {
 	text-shadow: 2px 2px 2px #ff7300, -2px -2px 2px #ff7300, 2px -2px 2px #ff7300,
 		-2px 2px 2px #ff7300;
 	box-shadow: 2px 2px 8px 8px #ffd500;
+}
+.mouseEffects:hover {
+	letter-spacing: 0.6rem;
+	transition-duration: 1s;
 }
 #magicLine {
 	display: inline-block;
@@ -179,7 +187,7 @@ h6:hover {
 	min-width: 95%;
 	min-height: 80%;
 	font-size: 1.3vw;
-	background-color: rgba(55, 55, 55, 0.666);
+	background-color: rgba(55, 55, 55, 0.866);
 	color: rgba(255, 255, 255, 0.85);
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 1), -2px -2px 2px rgba(0, 0, 0, 1),
 		2px -2px 2px rgba(0, 0, 0, 1), -2px 2px 2px rgba(0, 0, 0, 1);
@@ -211,20 +219,21 @@ h6:hover {
 	top: 13vh;
 	left: 6.3vw;
 	padding: 0;
-	width: 20%;
+	width: 10%;
 	box-sizing: border-box;
-	margin: 0 5vw 0 1vw;
+	margin: 0 0 0 2vw;
 }
 #menuContainer div {
 	display: flex;
 	flex-direction: column;
-	margin: 0;
+	margin: 7vh 0 0 0;
 	padding: 0;
+	gap: 4vh 0;
 }
 #menuContainer p {
 	display: flex;
 	flex-direction: column;
-	margin: 0 0 0 2.9vw;
+	margin: 0 0 0 0;
 	padding: 0;
 }
 #menuContainer h2 {
@@ -240,15 +249,30 @@ h6:hover {
 	box-sizing: border-box;
 }
 .fullStackPage {
-	display: grid;
-	grid-template-columns: 50% 50%;
-	grid-template-rows: 50% 50%;
+	display: flex;
+	width: 100%;
 	gap: 8.3vh;
 	height: 70vh;
 	box-sizing: border-box;
 }
-.fullStackPage h2 {
-	margin: 3vh 0 0 0;
+.resumePage {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	margin: 0;
+	font-size: 1.2rem;
+}
+table {
+	width: 100%;
+	margin: 0;
+}
+td,
+th {
+	box-shadow: 2px 2px 2px 2px #00000055;
+	padding: 0.1rem 0.5rem;
+}
+.fullStackPage h2,
+.resumePage h2 {
+	margin: 0.1vh 0 0 0;
 }
 .grid-item {
 	display: flex;
@@ -293,6 +317,11 @@ button {
 }
 .skillsPage h2 {
 	margin: 0;
+}
+.artsPage {
+	margin: 0;
+	display: grid;
+	grid-template-columns: 55% 55%;
 }
 .artsPage h2 {
 	margin: 0;

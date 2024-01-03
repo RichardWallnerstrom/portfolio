@@ -1,5 +1,5 @@
-import { runSpaceWorld } from "/src/spaceScene/PlaySpaceScene.js"
-import { runRetroWorld } from "/src/retroScene/PlayRetroScene.js"
+import { runSpaceWorld } from "./src/spaceScene/PlaySpaceScene.js"
+import { runRetroWorld } from "./src/retroScene/PlayRetroScene.js"
 console.log("running main.js")
 
 let lastMenuUrl = ""
@@ -57,13 +57,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	reloadButton.classList.add("hidden")
 
 	projectsMenuElement.addEventListener("click", function () {
-		updateMenu("/pages/menuProjects.html")
+		updateMenu("./pages/menuProjects.html")
 		projectsMenuElement.classList.add("hidden")
 		aboutMenuElement.classList.remove("hidden")
 		removeWelcomeMessage()
 	})
 	aboutMenuElement.addEventListener("click", function () {
-		updateMenu("/pages/menuAbout.html")
+		updateMenu("./pages/menuAbout.html")
 		aboutMenuElement.classList.add("hidden")
 		projectsMenuElement.classList.remove("hidden")
 		removeWelcomeMessage()
@@ -98,22 +98,22 @@ function updateEventListeners() {
 	}
 	if (spaceElement) {
 		spaceElement.addEventListener("click", function () {
-			loadContent("/pages/fullstack.html")
+			loadContent("./pages/fullstack.html")
 		})
 	}
 	if (artsElement) {
 		artsElement.addEventListener("click", function () {
-			loadContent("/pages/arts.html")
+			loadContent("./pages/arts.html")
 		})
 	}
 	if (workElement) {
 		workElement.addEventListener("click", function () {
-			loadContent("/pages/workExperience.html")
+			loadContent("./pages/workExperience.html")
 		})
 	}
 	if (aboutElement) {
 		aboutElement.addEventListener("click", function () {
-			loadContent("/pages/about.html")
+			loadContent("./pages/about.html")
 		})
 	}
 }

@@ -1,7 +1,7 @@
 // RetroWorld.js
-import Canvas from "/src/retroScene/Canvas.js"
-import Player from "/src/retroScene/Player.js"
-import PlayerControls from "/src/retroScene/PlayerControls.js"
+import Canvas from "./Canvas.js"
+import Player from "./Player.js"
+import PlayerControls from "./PlayerControls.js"
 
 export default class RetroWorld {
 	constructor() {

@@ -1,4 +1,4 @@
-import SpaceWorld from "/src/spaceScene/SpaceWorld.js"
+import SpaceWorld from "./SpaceWorld.js"
 
 const runSpaceWorld = () => {
 	const div = document.getElementById("mainContainer")

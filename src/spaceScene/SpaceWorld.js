@@ -14,7 +14,7 @@ export default class SpaceWorld {
 		this.spaceScene = new SpaceScene()
 		this.renderer = new Renderer()
 		this.spaceShip = new SpaceShip(this.spaceScene.scene)
-		this.audioManager = new AudioManager("audio/warneverchanges.mp3")
+		this.audioManager = new AudioManager("../../audio/warneverchanges.mp3")
 		this.lightController = new LightController(this.spaceScene.scene)
 		this.spaceShipControls = new SpaceShipControls(this.spaceShip)
 		this.createPlanets()

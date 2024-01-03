@@ -1,6 +1,6 @@
-import RetroWorld from "/src/retroScene/RetroWorld.js"
+import RetroWorld from "./RetroWorld.js"
 
-const runRetroWorld = () => {
+function runRetroWorld() {
 	const div = document.getElementById("mainContainer")
 	const link1 = document.getElementById("aboutMenu")
 	const link2 = document.getElementById("projectsMenu")

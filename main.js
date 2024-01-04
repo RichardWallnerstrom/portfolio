@@ -1,6 +1,5 @@
 import { runSpaceWorld } from "./src/spaceScene/PlaySpaceScene.js"
 import { runRetroWorld } from "./src/retroScene/PlayRetroScene.js"
-console.log("running main.js")
 
 let lastMenuUrl = ""
 let lastContentUrl = ""
@@ -53,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// const spaceButtonTest = document.getElementById("playSpaceEngineTest"); // Testing ONly
 	// spaceButtonTest.addEventListener('click', runRetroWorld);
-	runRetroWorld()
 	reloadButton.classList.add("hidden")
 
 	projectsMenuElement.addEventListener("click", function () {
@@ -84,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		profilePicture.classList.remove("custom-delay-10")
 		profilePicture.classList.add("animate__flipOutY")
 	}
+	runRetroWorld()
 })
 function updateEventListeners() {
 	const spaceElement = document.getElementById("fullStackLink")

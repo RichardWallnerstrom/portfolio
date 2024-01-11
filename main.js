@@ -1,6 +1,5 @@
 import { runSpaceWorld } from "./src/spaceScene/PlaySpaceScene.js"
 import { runRetroWorld } from "./src/retroScene/PlayRetroScene.js"
-console.log("running main.js")
 
 let lastMenuUrl = ""
 let lastContentUrl = ""
@@ -24,12 +23,16 @@ function updateMenu(url) {
 			console.error("Failed to fetch content", error)
 		})
 }
-
+const cachedPages = new Map()
 async function loadContent(url) {
 	// Only for right side content
-	if (lastContentUrl === url) return
-	lastContentUrl = url
-
+	if (lastContentUrl === url) return ///Return if same url as last
+	else lastContentUrl = url
+	if (cachedPages.has(url)) {
+		document.getElementById("contentContainer").innerHTML = cachedPages.get(url)
+		updateEventListeners()
+		return
+	}
 	try {
 		const response = await fetch(url)
 		if (!response.ok) {
@@ -53,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// const spaceButtonTest = document.getElementById("playSpaceEngineTest"); // Testing ONly
 	// spaceButtonTest.addEventListener('click', runRetroWorld);
-	runRetroWorld()
 	reloadButton.classList.add("hidden")
 
 	projectsMenuElement.addEventListener("click", function () {
@@ -84,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		profilePicture.classList.remove("custom-delay-10")
 		profilePicture.classList.add("animate__flipOutY")
 	}
+	runRetroWorld()
 })
 function updateEventListeners() {
 	const spaceElement = document.getElementById("fullStackLink")

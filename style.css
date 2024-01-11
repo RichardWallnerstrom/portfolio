@@ -71,10 +71,6 @@ h2 {
 	text-align: center;
 	font-family: "Iceland", cursive;
 }
-h2:hover {
-	letter-spacing: 10px;
-	transition-duration: 1s;
-}
 h3:hover {
 	color: rgba(0, 0, 0, 1);
 	text-shadow: 2px 2px 2px #ff7300, -2px -2px 2px #ff7300, 2px -2px 2px #ff7300,
@@ -124,11 +120,8 @@ h6:hover {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.7);
-	/* Semi-transparent black background */
 	display: none;
-	/* Initially hidden */
-	z-index: 9999;
-	/* Ensure it's on top of other elements */
+	z-index: 999;
 }
 /* Profile Pic */
 #profileDiv {
@@ -244,7 +237,7 @@ h6:hover {
 	position: fixed;
 	top: 13vh;
 	right: 6.3vw;
-	height: 100%;
+	height: 70%;
 	width: 58%;
 	box-sizing: border-box;
 }
@@ -252,7 +245,7 @@ h6:hover {
 	display: flex;
 	width: 100%;
 	gap: 8.3vh;
-	height: 70vh;
+	height: 75vh;
 	box-sizing: border-box;
 }
 .resumePage {
@@ -265,7 +258,9 @@ table {
 	width: 100%;
 	margin: 0;
 }
-td,
+td {
+	padding: 0.1rem 0.5rem;
+}
 th {
 	box-shadow: 2px 2px 2px 2px #00000055;
 	padding: 0.1rem 0.5rem;
@@ -322,9 +317,51 @@ button {
 	margin: 0;
 	display: grid;
 	grid-template-columns: 55% 55%;
+	gap: 1%;
 }
 .artsPage h2 {
 	margin: 0;
+}
+#aboutPage {
+	font-size: 1.4rem;
+}
+#modelingDiv {
+	width: 100%;
+}
+#q3maps {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 50% 50%;
+	justify-content: center;
+	width: 90%;
+	gap: 3%;
+	padding: 3%;
+}
+.q3thumbnail {
+	max-width: 100%;
+}
+#soundcloudPlayers {
+	display: grid;
+	justify-content: center;
+	grid-template-columns: 14vw 14vw;
+	grid-template-rows: 23vh 23vh;
+	width: 90%;
+	margin: 0 0 0 0;
+	gap: 1rem;
+}
+iframe {
+	border: 3px solid rgb(159, 80, 0);
+	border-radius: 3%;
+	width: 100%; /* Occupy the full width of the grid cell */
+	height: 100%;
+}
+.q3thumbnail img {
+	border-radius: 3%;
+	border: 3px solid rgb(159, 80, 0);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	box-sizing: border-box; /* Optional: Include padding and border in the width calculation */
 }
 .menuProjectsPage {
 	font-size: 1.45rem;
@@ -332,9 +369,9 @@ button {
 .menuParagraph {
 	height: 14vh;
 }
-/* .collidable {
-  background-color: #00bd00;
-} */
+.collidable {
+	z-index: 999;
+}
 .hidden {
 	visibility: hidden;
 	pointer-events: none;
@@ -497,6 +534,16 @@ footer a {
 		border: 4px solid rgba(0, 105, 0, 0.25);
 		box-shadow: 5px 5px 50px 5px rgba(0, 218, 54, 0.7);
 		border-radius: 1%;
+	}
+	#q3maps {
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 13vh 13vh 13vh 13vh;
+	}
+	#soundcloudPlayers {
+		grid-template-columns: 100%;
+		grid-template-rows: 13vh 13vh 13vh 13vh;
+		gap: 0.5rem;
 	}
 }
 

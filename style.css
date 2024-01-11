@@ -258,7 +258,9 @@ table {
 	width: 100%;
 	margin: 0;
 }
-td,
+td {
+	padding: 0.1rem 0.5rem;
+}
 th {
 	box-shadow: 2px 2px 2px 2px #00000055;
 	padding: 0.1rem 0.5rem;

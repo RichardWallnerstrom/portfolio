@@ -23,12 +23,16 @@ function updateMenu(url) {
 			console.error("Failed to fetch content", error)
 		})
 }
-
+const cachedPages = new Map()
 async function loadContent(url) {
 	// Only for right side content
-	if (lastContentUrl === url) return
-	lastContentUrl = url
-
+	if (lastContentUrl === url) return ///Return if same url as last
+	else lastContentUrl = url
+	if (cachedPages.has(url)) {
+		document.getElementById("contentContainer").innerHTML = cachedPages.get(url)
+		updateEventListeners()
+		return
+	}
 	try {
 		const response = await fetch(url)
 		if (!response.ok) {

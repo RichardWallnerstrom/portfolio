@@ -470,13 +470,51 @@ footer a {
 		rgba(0, 0, 0, 0.1) 70%,
 		rgba(0, 0, 0, 0) 100%
 	);
-	font-size: 1.4vw;
+	font-size: 1.2rem;
 	text-shadow: 8px 8px 8px rgba(0, 0, 0, 1), -8px -8px 8px rgba(0, 0, 0, 1),
 		8px -8px 8px rgba(0, 0, 0, 1), -8px 8px 8px rgba(0, 0, 0, 1);
 	border: 4px solid rgba(0, 105, 0, 0.25);
 	box-shadow: 5px 5px 50px 5px rgba(0, 218, 54, 0.7);
 	border-radius: 1%;
 	z-index: 999;
+	padding: 1%;
+}
+#controlsHud {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	top: 15%;
+	left: 43.5%;
+	width: 14%;
+	height: 23%;
+	color: rgb(255, 255, 255);
+	background-color: rgba(124, 252, 166, 0.15);
+	background: radial-gradient(
+		circle,
+		rgba(0, 0, 0, 0.1) 1%,
+		rgba(0, 0, 0, 0.1) 70%,
+		rgba(0, 0, 0, 0) 100%
+	);
+	font-size: 1rem;
+	text-shadow: 8px 8px 8px rgba(0, 0, 0, 1), -8px -8px 8px rgba(0, 0, 0, 1),
+		8px -8px 8px rgba(0, 0, 0, 1), -8px 8px 8px rgba(0, 0, 0, 1);
+	border: 4px solid rgba(73, 0, 218, 0.25);
+	box-shadow: 5px 5px 50px 5px rgba(73, 0, 218, 0.7);
+	border-radius: 1%;
+	z-index: 999;
+}
+#controlsHud h2 {
+	color: #3535ff;
+	margin: 2.3% 0 0 0;
+}
+#controlsHud p {
+	margin: 6% 0 0 14%;
+	text-align: left;
+}
+#earthPage {
+	display: flex;
+	flex-direction: column;
 }
 /* Small Screen */
 @media only screen and (max-width: 1000px) {

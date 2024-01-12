@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	const fullstackMessage = document.getElementById("magicLine")
 	const profilePicture = document.getElementById("profileDiv")
 
-	// const spaceButtonTest = document.getElementById("playSpaceEngineTest"); // Testing ONly
-	// spaceButtonTest.addEventListener('click', runRetroWorld);
+	const spaceButtonTest = document.getElementById("playSpaceEngineTest") // Testing ONly
+	spaceButtonTest.addEventListener("click", runSpaceWorld)
 	reloadButton.classList.add("hidden")
 
 	projectsMenuElement.addEventListener("click", function () {
@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 	runRetroWorld()
 })
+// Dynamically update listeners
 function updateEventListeners() {
 	const spaceElement = document.getElementById("fullStackLink")
 

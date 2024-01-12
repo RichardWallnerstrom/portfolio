@@ -55,10 +55,28 @@ export default class Animation {
 		this.currentAnimation = "idle"
 		this.currentFrameIndex = 0
 		this.image = new Image()
-		this.image.src = "../../assets/2d/player/Idle.1.png"
+		this.image.src =
+			this.animations[this.currentAnimation][this.currentFrameIndex]
 		this.frameInterval = 50
 		this.lastFrameTime = Date.now()
+
+		this.preloadImages()
 	}
+
+	preloadImages() {
+		// Load all images into cache //TODO investigate why they disappear from cache
+		for (const animationKey in this.animations) {
+			///TODO remove and verify if statement
+
+			if (this.animations.hasOwnProperty(animationKey)) {
+				this.animations[animationKey].forEach((frameUrl) => {
+					const img = new Image()
+					img.src = frameUrl
+				})
+			}
+		}
+	}
+
 	animate() {
 		const currentTime = Date.now()
 		if (currentTime - this.lastFrameTime > this.frameInterval) {
@@ -70,6 +88,7 @@ export default class Animation {
 			this.lastFrameTime = currentTime
 		}
 	}
+
 	changeAnimationState(newState) {
 		this.currentAnimation = newState
 		this.currentFrameIndex = 0

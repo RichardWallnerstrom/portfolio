@@ -11,6 +11,7 @@ const runSpaceWorld = () => {
 	div.style.display = "none" // Hide website
 	app2d.style.display = "none"
 	shipHud.style.display = "block"
+	document.getElementById("controlsHud").style.display = "block"
 
 	link1.classList.add("hidden")
 	link2.classList.add("hidden")

@@ -3,6 +3,7 @@ export default class SpaceShipControls {
 		this.spaceShip = spaceShip
 		this.speed = initialSpeed || 0
 		this.momentum = 0
+		this.hasMoved = false
 		this.keys = {
 			KeyW: false,
 			KeyA: false,
@@ -47,6 +48,9 @@ export default class SpaceShipControls {
 
 		if (this.keys["KeyF"]) {
 			this.speed += 0.3 * speedModifier
+			if (this.hasMoved == false) {
+				document.getElementById("controlsHud").style.display = "none"
+			}
 		}
 		if (this.keys["KeyC"]) {
 			this.speed -= 0.3 * speedModifier

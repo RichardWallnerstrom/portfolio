@@ -39,7 +39,7 @@
 				class="collidable breakable animate__animated animate__rollIn custom-delay-10">
 				<img
 					id="profilePicture"
-					src="/images/profilepic.jpg"
+					src="./images/profilepic.jpg"
 					alt="Profile picture" />
 			</div>
 			<div class="midContainer">
@@ -86,6 +86,19 @@
 			<p id="shipSpeed">Speed:</p>
 			<p id="shipDistanceToEarth">Distance to Earth:</p>
 			<p id="shipDistanceToMars">Distance to Mars:</p>
+		</div>
+		<div
+			id="controlsHud"
+			class="animate__animated animate__zoomIn"
+			style="display: none">
+			<h2>Controls</h2>
+			<p>
+				W/S for pitch. <br />
+				A/D for turning <br />
+				Q/E for barrelling <br />
+				F/C for acceleration <br />
+				G for stopping
+			</p>
 		</div>
 		<script type="module" src="/main.js"></script>
 		<script type="module" src="/src/spaceScene/PlaySpaceScene.js"></script>

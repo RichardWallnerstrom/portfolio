@@ -17,7 +17,7 @@ export default class SpaceShip {
 			(gltf) => {
 				this.model = gltf.scene
 				this.model.scale.set(0.0007, 0.0007, 0.0007)
-				this.model.position.set(7700, -100, -200)
+				this.model.position.set(1000000, 0, 0)
 				this.model.rotation.set(0, 2.3, 0)
 				this.scene.add(this.model)
 			},

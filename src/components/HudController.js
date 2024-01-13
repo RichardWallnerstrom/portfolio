@@ -12,7 +12,7 @@ export default class HudController {
 		this.distanceToMars = document.getElementById("shipDistanceToMars")
 	}
 	DisplayHud() {
-		this.CalculateDistances()
+		// this.CalculateDistances()
 		//Update small hud elements
 		this.shipSpeed.innerHTML =
 			"Speed: " + this.spaceShipControls.getSpeed().toFixed(5) + " km/s"

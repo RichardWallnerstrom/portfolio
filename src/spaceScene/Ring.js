@@ -10,8 +10,8 @@ export default class Ring {
 	}
 
 	createModel() {
-		const radius = 300
-		const tubeRadius = 5.5
+		const radius = 250000
+		const tubeRadius = 10000
 		const radialSegments = 15
 		const tubularSegments = 100
 		const ringGeometry = new THREE.TorusGeometry(
@@ -22,7 +22,6 @@ export default class Ring {
 		)
 		const ringMaterial = new THREE.MeshBasicMaterial({
 			color: 0xfffffff,
-			side: THREE.DoubleSide,
 		})
 		this.model = new THREE.Mesh(ringGeometry, ringMaterial)
 		if (this.rotations && this.rotations.length === 3) {

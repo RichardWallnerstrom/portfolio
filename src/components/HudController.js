@@ -1,39 +1,43 @@
 export default class HudController {
-	constructor(spaceShip, earth, mars, spaceShipControls) {
+	constructor(spaceShip, planets, spaceShipControls) {
 		this.spaceShip = spaceShip
 		this.spaceShipControls = spaceShipControls
-		this.earth = earth
-		this.mars = mars
+		this.planets = planets
 		this.smallHud = document.getElementById("smallHud")
 		this.bigHud = document.getElementById("bigHud")
 		this.shipHud = document.getElementById("shipHud")
 		this.shipSpeed = document.getElementById("shipSpeed")
-		this.distanceToEarth = document.getElementById("shipDistanceToEarth")
-		this.distanceToMars = document.getElementById("shipDistanceToMars")
+		this.distanceToSun = document.getElementById("distanceToSun")
+		this.distanceToUranus = document.getElementById("distanceToUranus")
+
+		this.distancesToPlanets = {}
+		this.updateDistances()
 	}
+	updateDistances() {
+		for (const planet of this.planets) {
+			if (planet.model) {
+				this.distancesToPlanets[planet.name] =
+					this.spaceShip.model.position.distanceTo(planet.model.position)
+			}
+		}
+	}
+
 	DisplayHud() {
-		// this.CalculateDistances()
-		//Update small hud elements
+		const kilometers = 10
+		this.updateDistances()
+		const closestPlanet = Object.keys(this.distancesToPlanets).reduce((a, b) =>
+			this.distancesToPlanets[a] < this.distancesToPlanets[b] ? a : b
+		)
 		this.shipSpeed.innerHTML =
-			"Speed: " + this.spaceShipControls.getSpeed().toFixed(5) + " km/s"
-		this.distanceToEarth.innerHTML =
-			"Distance to Earth: " +
-			(this.spaceShip.distanceToEarth / 1000).toFixed(4) +
-			" AU"
-		this.distanceToMars.innerHTML =
-			"Distance to Mars: " +
-			(this.spaceShip.distanceToMars / 1000).toFixed(4) +
-			" AU"
-		const fetchedUrl =
-			this.spaceShip.distanceToEarth < this.spaceShip.distanceToMars
-				? "/pages/earth.html"
-				: "/pages/mars.html"
-		if (
-			this.spaceShip.distanceToEarth < 1200 ||
-			this.spaceShip.distanceToMars < 700
-		) {
+			"Speed: " +
+			this.spaceShipControls.getSpeed().toFixed(2) * kilometers +
+			" km/h"
+		this.distanceToSun.innerHTML = "Nearest body: " + closestPlanet
+		this.distanceToUranus.innerHTML =
+			"Distance: " + this.distancesToPlanets[closestPlanet] * kilometers + " km"
+		if (this.distancesToPlanets[closestPlanet] < 50000) {
 			this.shipHud.style.display = "none"
-			this.UpdateHud(fetchedUrl, this.smallHud)
+			this.UpdateHud(`/pages/space/${closestPlanet}.html`, this.smallHud)
 		} else {
 			this.shipHud.style.display = "block"
 			this.smallHud.style.display = "none"
@@ -46,13 +50,5 @@ export default class HudController {
 				hud.innerHTML = text
 				hud.style.display = "grid"
 			})
-	}
-	CalculateDistances() {
-		this.spaceShip.distanceToEarth = this.spaceShip.model.position.distanceTo(
-			this.earth.model.position
-		)
-		this.spaceShip.distanceToMars = this.spaceShip.model.position.distanceTo(
-			this.mars.model.position
-		)
 	}
 }

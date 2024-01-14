@@ -29,8 +29,7 @@ export default class SpaceWorld {
 		)
 		this.hud = new HudController(
 			this.spaceShip,
-			this.earth,
-			this.mars,
+			this.planets,
 			this.spaceShipControls
 		)
 	}
@@ -106,6 +105,17 @@ export default class SpaceWorld {
 			4924.4, // diameter
 			[45211797, 0, 0] //4.5b
 		)
+		this.planets = [
+			this.sun,
+			this.mercury,
+			this.venus,
+			this.earth,
+			this.mars,
+			this.jupiter,
+			this.saturn,
+			this.uranus,
+			this.neptune,
+		]
 	}
 	createRings() {
 		const amountOfRings = 8

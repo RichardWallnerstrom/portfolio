@@ -7,7 +7,7 @@ export default class Sun extends Planet {
 		super(name, scene, texturePath, size, coordinates)
 	}
 	createModel() {
-		const radius = this.size
+		const diameter = this.size
 		const segments = 32
 		const loader = new THREE.TextureLoader()
 		const texturePromise = new Promise((resolve, reject) => {
@@ -18,12 +18,12 @@ export default class Sun extends Planet {
 			.then((texture) => {
 				texture.generateMipmaps = true
 
-				texture.wrapS = texture.wrapT = THREE.RepeatWrapping
+				texture.wrapS = texture.wrapT = THREE.RepeatWrapping // Sphere wrapping trick
 				texture.magFilter = THREE.LinearFilter
 				texture.minFilter = THREE.LinearMipmapLinearFilter
 
 				const sphereGeometry = new THREE.SphereGeometry(
-					radius,
+					diameter,
 					segments,
 					segments
 				)

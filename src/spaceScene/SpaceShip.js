@@ -13,8 +13,8 @@ export default class SpaceShip {
 
 	createModel() {
 		// create two geometry objects and combine into space ship
-		const radius = 0.1
-		const height = 0.03
+		const radius = 0.01
+		const height = 0.003
 		const radialSegments = 6
 		const heightSegments = 1
 		const coneGeometry = new THREE.ConeGeometry(
@@ -23,8 +23,8 @@ export default class SpaceShip {
 			radialSegments,
 			heightSegments
 		)
-		const torusRadius = 0.09
-		const torusTube = 0.002
+		const torusRadius = 0.009
+		const torusTube = 0.0002
 		const torusRadialSegments = 6
 		const torusTubularSegments = 32
 

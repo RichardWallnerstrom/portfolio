@@ -5,7 +5,7 @@ export default class CameraController {
 		this.earth = earth
 		this.mars = mars
 		this.fov = 75
-		this.nearClipDistance = 0.1
+		this.nearClipDistance = 0.01
 		this.farClipDistance = 999999999
 		this.isMouseOverEarth
 		this.isMouseOverMars
@@ -24,7 +24,7 @@ export default class CameraController {
 		// const bowVector = new THREE.Vector3(0, 10, 1)
 		// bowVector.applyQuaternion(this.spaceShip.model.quaternion) // Apply the ship's quaternion to the behindShipVector
 		// bowVector.multiplyScalar(cameraTarget.z)    // Multiply the vector by the negative of the z-component of the trailing offset
-		const trailingOffset = new THREE.Vector3(0, 0, 0.5)
+		const trailingOffset = new THREE.Vector3(0, 0, 0.07)
 		const sternVector = new THREE.Vector3(0, 0, -1) // Create a new vector (0, 0, -1) representing a direction behind the ship
 		sternVector.applyQuaternion(this.spaceShip.model.quaternion) // Apply the ship's quaternion to the sternVector
 		sternVector.multiplyScalar(-trailingOffset.z)

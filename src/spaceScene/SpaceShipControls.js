@@ -10,9 +10,6 @@ export default class SpaceShipControls {
 			KeyS: false,
 			KeyD: false,
 		}
-		this.rocketSound = new Audio("audio/large-rocket-engine-86240.mp3")
-		this.rocketSound.loop = true
-		this.rocketSound.volume = 0.7
 
 		document.addEventListener(
 			"keydown",
@@ -32,15 +29,12 @@ export default class SpaceShipControls {
 			this.keys["KeyShift"] = true
 		}
 		this.keys[event.code] = true
-		// this.rocketSound.play();
 	}
 	onKeyUp(event) {
 		if (event.code === "ShiftLeft" || event.code === "ShiftRight") {
 			this.keys["KeyShift"] = false
 		}
 		this.keys[event.code] = false
-		// this.rocketSound.pause();
-		// this.rocketSound.currentTime = 0;
 	}
 	update() {
 		const speedModifier = this.keys["KeyShift"] ? 6 : 1

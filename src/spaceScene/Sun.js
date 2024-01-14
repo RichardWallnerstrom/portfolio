@@ -1,22 +1,15 @@
 import * as THREE from "three"
 
-export default class Planet {
-	constructor(name, scene, texturePath, size, coordinates) {
-		this.name = name
-		this.scene = scene
-		this.texturePath = texturePath
-		this.size = size
-		this.coordinates = coordinates
-		this.model = null
-		this.createModel()
-	}
+import Planet from "./Planet"
 
+export default class Sun extends Planet {
+	constructor(name, scene, texturePath, size, coordinates) {
+		super(name, scene, texturePath, size, coordinates)
+	}
 	createModel() {
 		const radius = this.size
 		const segments = 32
-
 		const loader = new THREE.TextureLoader()
-
 		const texturePromise = new Promise((resolve, reject) => {
 			loader.load(this.texturePath, resolve, undefined, reject)
 		})
@@ -34,10 +27,8 @@ export default class Planet {
 					segments,
 					segments
 				)
-				const sphereMaterial = new THREE.MeshStandardMaterial({
+				const sphereMaterial = new THREE.MeshBasicMaterial({
 					map: texture,
-					metalness: 0.1,
-					roughness: 0.5,
 				})
 				this.model = new THREE.Mesh(sphereGeometry, sphereMaterial)
 
@@ -55,11 +46,5 @@ export default class Planet {
 			.catch((error) => {
 				console.error("Error loading texture:", error)
 			})
-	}
-
-	rotate() {
-		if (this.model) {
-			this.model.rotation.y += 0.0001
-		}
 	}
 }

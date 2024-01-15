@@ -1,7 +1,8 @@
 import * as THREE from "three"
 
-export default class Ring {
-	constructor(scene, size, coordinates, rotations) {
+export default class PlanetText {
+	constructor(text, scene, size, coordinates, rotations) {
+		this.text = text
 		this.scene = scene
 		this.size = size
 		this.coordinates = coordinates
@@ -14,12 +15,16 @@ export default class Ring {
 		const tubeRadius = 10000
 		const radialSegments = 3
 		const tubularSegments = 8
-		const ringGeometry = new THREE.TorusGeometry(
-			radius,
-			tubeRadius,
-			radialSegments,
-			tubularSegments
-		)
+		const textGeometry = new THREE.TextGeometry(this.text, {
+			size: 20,
+			height: 5,
+			curveSegments: 12,
+			bevelEnabled: true,
+			bevelThickness: 2,
+			bevelSize: 1,
+			bevelOffset: 0,
+			bevelSegments: 5,
+		})
 		const ringMaterial = new THREE.MeshBasicMaterial({
 			color: 0xaa3323ff,
 		})

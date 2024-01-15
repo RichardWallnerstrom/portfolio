@@ -25,20 +25,25 @@ export default class HudController {
 	DisplayHud() {
 		const kilometers = 10
 		this.updateDistances()
-		const closestPlanet = Object.keys(this.distancesToPlanets).reduce((a, b) =>
+		const nearestPlanet = Object.keys(this.distancesToPlanets).reduce((a, b) =>
 			this.distancesToPlanets[a] < this.distancesToPlanets[b] ? a : b
 		)
-		// const planetRadius = this.planets[closestPlanet].size ///TODO fix dynamic interaction distance from radius
+		const nearestPlanetObject = this.planets.find(
+			(planet) => planet.name === nearestPlanet
+		) ///TODO fix dynamic interaction distance from radius
 		this.shipSpeed.innerHTML =
 			"Speed: " +
 			this.spaceShipControls.getSpeed().toFixed(2) * kilometers +
 			" km/h"
-		this.distanceToSun.innerHTML = "Nearest body: " + closestPlanet
+		this.distanceToSun.innerHTML = "Nearest body: " + nearestPlanet
 		this.distanceToUranus.innerHTML =
-			"Distance: " + this.distancesToPlanets[closestPlanet] * kilometers + " km"
-		if (this.distancesToPlanets[closestPlanet] < 25000) {
+			"Distance: " + this.distancesToPlanets[nearestPlanet] * kilometers + " km"
+		if (
+			this.distancesToPlanets[nearestPlanet] <
+			nearestPlanetObject.size * 2.5
+		) {
 			this.shipHud.style.display = "none"
-			this.UpdateHud(`/pages/space/${closestPlanet}.html`, this.smallHud)
+			this.UpdateHud(`/pages/space/${nearestPlanet}.html`, this.smallHud)
 		} else {
 			this.shipHud.style.display = "block"
 			this.smallHud.style.display = "none"

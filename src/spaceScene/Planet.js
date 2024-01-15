@@ -11,9 +11,9 @@ export default class Planet {
 		this.createModel()
 	}
 
-	createModel() {
+	async createModel() {
 		const radius = this.size
-		const segments = 32
+		const segments = 64
 
 		const loader = new THREE.TextureLoader()
 
@@ -36,8 +36,14 @@ export default class Planet {
 				)
 				const sphereMaterial = new THREE.MeshStandardMaterial({
 					map: texture,
-					metalness: 0.1,
+					opacity: 1,
+					metalness: 0.3,
 					roughness: 0.5,
+					// depthWrite: false,
+					side: THREE.FrontSide,
+					blending: THREE.NormalBlending,
+					emissive: 0x000000,
+					color: new THREE.Color(0xffffffff),
 				})
 				this.model = new THREE.Mesh(sphereGeometry, sphereMaterial)
 

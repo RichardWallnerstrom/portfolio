@@ -28,6 +28,7 @@ export default class HudController {
 		const closestPlanet = Object.keys(this.distancesToPlanets).reduce((a, b) =>
 			this.distancesToPlanets[a] < this.distancesToPlanets[b] ? a : b
 		)
+		// const planetRadius = this.planets[closestPlanet].size ///TODO fix dynamic interaction distance from radius
 		this.shipSpeed.innerHTML =
 			"Speed: " +
 			this.spaceShipControls.getSpeed().toFixed(2) * kilometers +
@@ -35,7 +36,7 @@ export default class HudController {
 		this.distanceToSun.innerHTML = "Nearest body: " + closestPlanet
 		this.distanceToUranus.innerHTML =
 			"Distance: " + this.distancesToPlanets[closestPlanet] * kilometers + " km"
-		if (this.distancesToPlanets[closestPlanet] < 50000) {
+		if (this.distancesToPlanets[closestPlanet] < 25000) {
 			this.shipHud.style.display = "none"
 			this.UpdateHud(`/pages/space/${closestPlanet}.html`, this.smallHud)
 		} else {

@@ -21,7 +21,7 @@ export default class Ring {
 			tubularSegments
 		)
 		const ringMaterial = new THREE.MeshBasicMaterial({
-			color: 0xffffffff,
+			color: 0xaa3323ff,
 		})
 		this.model = new THREE.Mesh(ringGeometry, ringMaterial)
 		if (this.rotations && this.rotations.length === 3) {

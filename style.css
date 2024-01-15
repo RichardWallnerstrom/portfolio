@@ -510,15 +510,13 @@ footer a {
 	margin: 6% 0 0 14%;
 	text-align: left;
 }
-#earthPage,
-#marsPage {
+#planetPage {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	width: 100%;
 }
-#earthPage > div:nth-of-type(2),
-#marsPage > div:nth-of-type(2) {
+#planetPage > div:nth-of-type(2) {
 	display: grid;
 	box-sizing: border-box;
 	gap: 7%;
@@ -527,10 +525,9 @@ footer a {
 	padding: 5%;
 	margin: 1% 1%;
 }
-#earthPage h2,
-#earthPage p,
-#marsPage h2,
-#marsPage p {
+
+#planetPage h2,
+#planetPage p {
 	margin: 1% 0 0 0;
 }
 /* Small Screen */

@@ -118,15 +118,12 @@ export default class SpaceWorld {
 		]
 	}
 	createRings() {
-		const amountOfRings = 8
+		const amountOfRings = 5
 		const ringDiameter = 500000
 		this.listOfRings = []
 		const coordinatesArray = [
-			this.mercury.coordinates,
-			this.venus.coordinates,
-
-			this.earth.coordinates,
 			this.mars.coordinates,
+
 			this.jupiter.coordinates,
 			this.saturn.coordinates,
 			this.uranus.coordinates,

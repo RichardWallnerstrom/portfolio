@@ -45,8 +45,8 @@ export default class SpaceShip {
 		})
 
 		this.model = new THREE.Mesh(shipGeometry, shipMaterial)
-		this.model.position.set(1000000, 0, 0)
-		this.model.rotation.set(0, 2.3, 0)
+		this.model.position.set(1495080, 5000, -5000)
+		this.model.rotation.set(0, 2.1, 0)
 
 		this.scene.add(this.model)
 	}

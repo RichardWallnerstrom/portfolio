@@ -37,35 +37,39 @@ export default class SpaceShipControls {
 		this.keys[event.code] = false
 	}
 	update() {
-		const speedModifier = this.keys["KeyShift"] ? 6 : 1
+		const speedModifier = this.keys["KeyShift"] ? 3 : 1
 		this.spaceShip.moveBackward(this.speed)
 
 		if (this.keys["KeyF"]) {
-			this.speed += 3 * speedModifier
+			if (this.speed < 70000) {
+				this.speed += 0.1 + this.speed * 0.1
+			}
 			if (this.hasMoved == false) {
 				document.getElementById("controlsHud").style.display = "none"
 			}
 		}
 		if (this.keys["KeyC"]) {
-			this.speed -= 3 * speedModifier
+			if (this.speed < 70000) {
+				this.speed -= 10
+			}
 		}
 		if (this.keys["KeyA"]) {
-			this.spaceShip.turnLeft(0.03 * (speedModifier / 3))
+			this.spaceShip.turnLeft(0.01 * speedModifier)
 		}
 		if (this.keys["KeyD"]) {
-			this.spaceShip.turnRight(0.03 * (speedModifier / 3))
+			this.spaceShip.turnRight(0.01 * speedModifier)
 		}
 		if (this.keys["KeyQ"]) {
-			this.spaceShip.barrelLeft(0.03 * (speedModifier / 3))
+			this.spaceShip.barrelLeft(0.02 * speedModifier)
 		}
 		if (this.keys["KeyE"]) {
-			this.spaceShip.barrelRight(0.03 * (speedModifier / 3))
+			this.spaceShip.barrelRight(0.02 * speedModifier)
 		}
 		if (this.keys["KeyS"]) {
-			this.spaceShip.pitchUp(0.03 * (speedModifier / 3))
+			this.spaceShip.pitchUp(0.01 * speedModifier)
 		}
 		if (this.keys["KeyW"]) {
-			this.spaceShip.pitchDown(0.03 * (speedModifier / 3))
+			this.spaceShip.pitchDown(0.01 * speedModifier)
 		}
 		if (this.keys["KeyG"]) {
 			this.speed = 0

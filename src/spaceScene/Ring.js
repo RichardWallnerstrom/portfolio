@@ -32,7 +32,7 @@ export default class Ring {
 			console.error("Invalid rotations for creating the ring.")
 		}
 		if (this.coordinates && this.coordinates.length === 3) {
-			// No idea why it breaks without this IF statement ???
+			// Breaks without IF. Because not created yet?
 			this.model.position.set(
 				this.coordinates[0],
 				this.coordinates[1],

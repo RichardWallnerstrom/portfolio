@@ -2,6 +2,7 @@
 import Ring from "./Ring.js"
 import Sun from "./Sun.js"
 import Earth from "./Earth.js"
+import Saturn from "./Saturn.js"
 import Planet from "./Planet.js"
 import SpaceShip from "./SpaceShip.js"
 import SpaceScene from "./SpaceScene.js"
@@ -84,12 +85,12 @@ export default class SpaceWorld {
 			14298.4, // diameter
 			[7780000, 0, 0] //778m
 		)
-		this.saturn = new Planet(
+		this.saturn = new Saturn(
 			"saturn",
 			this.spaceScene.scene,
 			"../../textures/space/8k_saturn.jpg",
 			12053.6, // diameter
-			[14211797.7165, 0, 0] //1.4b
+			[14211797, 0, 0] //1.4b
 		)
 		this.uranus = new Planet(
 			"uranus",
@@ -157,8 +158,9 @@ export default class SpaceWorld {
 			this.spaceScene.scene,
 			this.cameraController.camera
 		)
-		this.sun.rotate()
-		this.mercury.rotate()
+		for (const planet of this.planets) {
+			planet.rotate()
+		}
 		this.hud.DisplayHud()
 	}
 }

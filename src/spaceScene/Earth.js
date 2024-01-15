@@ -2,8 +2,8 @@ import Planet from "./Planet"
 import * as THREE from "three"
 
 export default class Earth extends Planet {
-	constructor(scene, texturePath, size, coordinates) {
-		super(scene, texturePath, size, coordinates)
+	constructor(name, scene, texturePath, size, coordinates) {
+		super(name, scene, texturePath, size, coordinates)
 	}
 
 	loadTexture(url) {

@@ -37,7 +37,7 @@ export default class SpaceShipControls {
 		this.keys[event.code] = false
 	}
 	update() {
-		const speedModifier = this.keys["KeyShift"] ? 3 : 1
+		const speedModifier = this.keys["KeyShift"] ? 5 : 1
 		this.spaceShip.moveBackward(this.speed)
 
 		if (this.keys["KeyF"]) {
@@ -54,22 +54,22 @@ export default class SpaceShipControls {
 			}
 		}
 		if (this.keys["KeyA"]) {
-			this.spaceShip.turnLeft(0.01 * speedModifier)
+			this.spaceShip.turnLeft(0.005 * speedModifier)
 		}
 		if (this.keys["KeyD"]) {
-			this.spaceShip.turnRight(0.01 * speedModifier)
+			this.spaceShip.turnRight(0.005 * speedModifier)
 		}
 		if (this.keys["KeyQ"]) {
-			this.spaceShip.barrelLeft(0.02 * speedModifier)
+			this.spaceShip.barrelLeft(0.01 * speedModifier)
 		}
 		if (this.keys["KeyE"]) {
-			this.spaceShip.barrelRight(0.02 * speedModifier)
+			this.spaceShip.barrelRight(0.01 * speedModifier)
 		}
 		if (this.keys["KeyS"]) {
-			this.spaceShip.pitchUp(0.01 * speedModifier)
+			this.spaceShip.pitchUp(0.005 * speedModifier)
 		}
 		if (this.keys["KeyW"]) {
-			this.spaceShip.pitchDown(0.01 * speedModifier)
+			this.spaceShip.pitchDown(0.005 * speedModifier)
 		}
 		if (this.keys["KeyG"]) {
 			this.speed = 0

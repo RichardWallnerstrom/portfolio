@@ -11,7 +11,7 @@ export default class Planet {
 		this.createModel()
 	}
 
-	createModel() {
+	async createModel() {
 		const radius = this.size
 		const segments = 32
 

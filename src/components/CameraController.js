@@ -4,9 +4,9 @@ export default class CameraController {
 		this.spaceShip = spaceShip
 		this.earth = earth
 		this.mars = mars
-		this.fov = 75
-		this.nearClipDistance = 0.1
-		this.farClipDistance = 99999
+		this.fov = 60
+		this.nearClipDistance = 0.01
+		this.farClipDistance = 999999999
 		this.isMouseOverEarth
 		this.isMouseOverMars
 
@@ -17,31 +17,6 @@ export default class CameraController {
 			this.farClipDistance
 		)
 		this.camera.position.set(25, 10, 25)
-
-		// const marsText = document.getElementById('mars-text')
-		// const earthText = document.getElementById('earth-text')
-
-		// const handlePlanetMouseHover = (planet) => { // Create master event for mouse overs
-
-		//     return {
-		//         mouseover: () => {
-		//             (planet.planet == "earth")
-		//             ? this.isMouseOverEarth = true
-		//             : this.isMouseOverMars = true
-
-		//         },
-		//         mouseout: () => {
-		//             this.isMouseOverEarth = false
-		//             this.isMouseOverMars = false
-		//         }
-		//     }
-		// }
-
-		// marsText.addEventListener('mouseover', handlePlanetMouseHover(this.mars).mouseover)
-		// marsText.addEventListener('mouseout', handlePlanetMouseHover(this.mars).mouseout)
-
-		// earthText.addEventListener('mouseover', handlePlanetMouseHover(this.earth).mouseover)
-		// earthText.addEventListener('mouseout', handlePlanetMouseHover(this.earth).mouseout)
 	}
 
 	placeCameraBehindShip() {
@@ -49,7 +24,7 @@ export default class CameraController {
 		// const bowVector = new THREE.Vector3(0, 10, 1)
 		// bowVector.applyQuaternion(this.spaceShip.model.quaternion) // Apply the ship's quaternion to the behindShipVector
 		// bowVector.multiplyScalar(cameraTarget.z)    // Multiply the vector by the negative of the z-component of the trailing offset
-		const trailingOffset = new THREE.Vector3(0, 0, 20)
+		const trailingOffset = new THREE.Vector3(0, 0, 0.07)
 		const sternVector = new THREE.Vector3(0, 0, -1) // Create a new vector (0, 0, -1) representing a direction behind the ship
 		sternVector.applyQuaternion(this.spaceShip.model.quaternion) // Apply the ship's quaternion to the sternVector
 		sternVector.multiplyScalar(-trailingOffset.z)

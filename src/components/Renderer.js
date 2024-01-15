@@ -4,10 +4,10 @@ export default class Renderer {
 	constructor() {
 		this.renderer = new THREE.WebGLRenderer()
 		this.renderer.setSize(innerWidth, innerHeight)
-		this.renderer.setPixelRatio(devicePixelRatio)
+		// this.renderer.setPixelRatio(devicePixelRatio)
 		document.body.appendChild(this.renderer.domElement)
 		this.renderer.setAnimationLoop(this.render)
-		window.addEventListener("resize", this.onWindowResize.bind(this), false)
+		// window.addEventListener("resize", this.onWindowResize.bind(this), false)
 	}
 
 	onWindowResize() {
@@ -17,6 +17,6 @@ export default class Renderer {
 		const height = window.innerHeight
 
 		this.renderer.setSize(width, height)
-		this.renderer.setPixelRatio(window.devicePixelRatio)
+		// this.renderer.setPixelRatio(window.devicePixelRatio)
 	}
 }

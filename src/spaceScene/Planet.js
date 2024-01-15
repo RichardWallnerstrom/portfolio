@@ -1,35 +1,65 @@
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"
+import * as THREE from "three"
 
 export default class Planet {
-	constructor(scene, planet, size, coordinates) {
+	constructor(name, scene, texturePath, size, coordinates) {
+		this.name = name
 		this.scene = scene
-		this.planet = planet
+		this.texturePath = texturePath
 		this.size = size
 		this.coordinates = coordinates
-		this.loadModel()
+		this.model = null
+		this.createModel()
 	}
 
-	loadModel() {
-		const loader = new GLTFLoader()
-		const { planet, size, coordinates } = this
-		loader.load(
-			`/assets/3d/${this.planet}/scene.gltf`,
-			(gltf) => {
-				this.model = gltf.scene
-				this.model.scale.set(this.size, this.size, this.size)
-				this.model.position.set(coordinates[0], coordinates[1], coordinates[2])
-				this.model.rotation.set(0, 20, 0)
-				this.scene.add(this.model)
-			},
-			(xhr) => {
-				console.log((xhr.loaded / xhr.total) * 100 + "% loaded")
-			},
-			(error) => {
-				console.error("ERROR: ", error)
-			}
-		)
+	createModel() {
+		const radius = this.size
+		const segments = 32
+
+		const loader = new THREE.TextureLoader()
+
+		const texturePromise = new Promise((resolve, reject) => {
+			loader.load(this.texturePath, resolve, undefined, reject)
+		})
+
+		texturePromise
+			.then((texture) => {
+				texture.generateMipmaps = true
+
+				texture.wrapS = texture.wrapT = THREE.RepeatWrapping
+				texture.magFilter = THREE.LinearFilter
+				texture.minFilter = THREE.LinearMipmapLinearFilter
+
+				const sphereGeometry = new THREE.SphereGeometry(
+					radius,
+					segments,
+					segments
+				)
+				const sphereMaterial = new THREE.MeshStandardMaterial({
+					map: texture,
+					metalness: 0.1,
+					roughness: 0.5,
+				})
+				this.model = new THREE.Mesh(sphereGeometry, sphereMaterial)
+
+				if (this.coordinates && this.coordinates.length === 3) {
+					this.model.position.set(
+						this.coordinates[0],
+						this.coordinates[1],
+						this.coordinates[2]
+					)
+					this.scene.add(this.model)
+				} else {
+					console.error("Invalid coordinates for creating the planet.")
+				}
+			})
+			.catch((error) => {
+				console.error("Error loading texture:", error)
+			})
 	}
+
 	rotate() {
-		this.model.rotation.y += 0.0001
+		if (this.model) {
+			this.model.rotation.y += 0.0001
+		}
 	}
 }

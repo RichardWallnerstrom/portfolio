@@ -10,9 +10,6 @@ export default class SpaceShipControls {
 			KeyS: false,
 			KeyD: false,
 		}
-		this.rocketSound = new Audio("audio/large-rocket-engine-86240.mp3")
-		this.rocketSound.loop = true
-		this.rocketSound.volume = 0.7
 
 		document.addEventListener(
 			"keydown",
@@ -32,46 +29,47 @@ export default class SpaceShipControls {
 			this.keys["KeyShift"] = true
 		}
 		this.keys[event.code] = true
-		// this.rocketSound.play();
 	}
 	onKeyUp(event) {
 		if (event.code === "ShiftLeft" || event.code === "ShiftRight") {
 			this.keys["KeyShift"] = false
 		}
 		this.keys[event.code] = false
-		// this.rocketSound.pause();
-		// this.rocketSound.currentTime = 0;
 	}
 	update() {
-		const speedModifier = this.keys["KeyShift"] ? 2 : 1
+		const speedModifier = this.keys["KeyShift"] ? 3 : 1
 		this.spaceShip.moveBackward(this.speed)
 
 		if (this.keys["KeyF"]) {
-			this.speed += 0.3 * speedModifier
+			if (this.speed < 70000) {
+				this.speed += 0.1 + this.speed * 0.1
+			}
 			if (this.hasMoved == false) {
 				document.getElementById("controlsHud").style.display = "none"
 			}
 		}
 		if (this.keys["KeyC"]) {
-			this.speed -= 0.3 * speedModifier
+			if (this.speed < 70000) {
+				this.speed -= 10
+			}
 		}
 		if (this.keys["KeyA"]) {
-			this.spaceShip.turnLeft(0.02 * speedModifier)
+			this.spaceShip.turnLeft(0.01 * speedModifier)
 		}
 		if (this.keys["KeyD"]) {
-			this.spaceShip.turnRight(0.02 * speedModifier)
+			this.spaceShip.turnRight(0.01 * speedModifier)
 		}
 		if (this.keys["KeyQ"]) {
-			this.spaceShip.barrelLeft(0.03 * speedModifier)
+			this.spaceShip.barrelLeft(0.02 * speedModifier)
 		}
 		if (this.keys["KeyE"]) {
-			this.spaceShip.barrelRight(0.03 * speedModifier)
+			this.spaceShip.barrelRight(0.02 * speedModifier)
 		}
 		if (this.keys["KeyS"]) {
-			this.spaceShip.pitchUp(0.02 * speedModifier)
+			this.spaceShip.pitchUp(0.01 * speedModifier)
 		}
 		if (this.keys["KeyW"]) {
-			this.spaceShip.pitchDown(0.02 * speedModifier)
+			this.spaceShip.pitchDown(0.01 * speedModifier)
 		}
 		if (this.keys["KeyG"]) {
 			this.speed = 0

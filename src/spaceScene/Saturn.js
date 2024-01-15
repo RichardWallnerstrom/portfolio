@@ -8,7 +8,7 @@ export default class Saturn extends Planet {
 
 	async createModel() {
 		const radius = this.size
-		const segments = 32
+		const segments = 64
 
 		const loader = new THREE.TextureLoader()
 
@@ -41,27 +41,30 @@ export default class Saturn extends Planet {
 				transparent: false,
 
 				opacity: 1,
-				metalness: 0.1,
+				metalness: 0.3,
 				roughness: 0.5,
 				// depthWrite: false,
 				side: THREE.FrontSide,
-				blending: THREE.NormalBlending, // Set blending mode
+				blending: THREE.NormalBlending,
+				emissive: 0x000000,
+				color: new THREE.Color(0xffffffff),
 			})
 			const tubularSegments = 2
 
 			const ringGeometry = new THREE.TorusGeometry(
-				radius * 1.8,
-				radius * 0.7,
+				radius * 2,
+				radius * 0.66,
 				tubularSegments,
-				segments
+				segments * 2
 			)
 			const ringMaterial = new THREE.MeshBasicMaterial({
 				map: ringsTexture,
 				transparent: true,
-				opacity: 0.9,
+				opacity: 0.6,
 				side: THREE.DoubleSide,
 				depthWrite: false,
-				blending: THREE.NormalBlending, // Set blending mode
+				blending: THREE.NormalBlending,
+				color: new THREE.Color(0xeeddbb),
 			})
 			ringsTexture.rotation = Math.PI / 2
 			const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial)

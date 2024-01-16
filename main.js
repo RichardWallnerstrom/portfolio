@@ -74,12 +74,15 @@ document.addEventListener("DOMContentLoaded", function () {
 		window.location.reload()
 	})
 	// Space settings hud
-	var checkboxes = document.querySelectorAll(".planetDistance")
-
+	var checkboxes = document.querySelectorAll(".planetDistance, .helperSetting")
+	// Make sure only one checkbox is ticked per row
 	checkboxes.forEach((checkbox) => {
 		checkbox.addEventListener("change", () => {
 			checkboxes.forEach((otherCheckbox) => {
-				if (otherCheckbox !== checkbox) {
+				if (
+					otherCheckbox !== checkbox &&
+					otherCheckbox.classList.contains(checkbox.classList[0])
+				) {
 					otherCheckbox.checked = false
 				}
 			})
@@ -89,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
 					checkbox.checked,
 					"value: " + checkbox.value
 				)
-				const customEvent = new CustomEvent("movePlanetsEvent", {
+				const customEvent = new CustomEvent("checkboxEvent", {
 					detail: checkbox.value,
 				})
 				document.dispatchEvent(customEvent)

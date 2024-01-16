@@ -23,7 +23,8 @@ export default class SpaceWorld {
 		this.lightController = new LightController(this.spaceScene.scene)
 		this.spaceShipControls = new SpaceShipControls(this.spaceShip)
 		this.createPlanets()
-		this.createRings()
+		this.listOfRings = []
+
 		this.cameraController = new CameraController(
 			this.spaceShip,
 			this.earth,
@@ -34,8 +35,9 @@ export default class SpaceWorld {
 			this.planets,
 			this.spaceShipControls
 		)
-		document.addEventListener("movePlanetsEvent", (arg) => {
+		document.addEventListener("checkboxEvent", (arg) => {
 			if (arg.detail.includes("spacing:")) this.movePlanets(arg.detail)
+			if (arg.detail.includes("helpers:")) this.createRings(arg.detail)
 		})
 	}
 	// Every unit is 10km
@@ -123,6 +125,7 @@ export default class SpaceWorld {
 		]
 	}
 	movePlanets(arg) {
+		this.deleteRings()
 		const short = 0.25
 		const standard = 1
 		const accurate = 10
@@ -159,19 +162,73 @@ export default class SpaceWorld {
 		}
 	}
 	teleportShip() {}
-	createRings() {
-		const amountOfRings = 5
-		const ringDiameter = 500000
-		this.listOfRings = []
-		const coordinatesArray = [
-			this.mars.coordinates,
+	deleteRings() {
+		for (const ring of this.listOfRings) {
+			this.spaceScene.scene.remove(ring.model)
+		}
+	}
+	createRings(arg) {
+		this.deleteRings()
+		if (arg.includes("0")) return
+		const amountOfRings = arg.includes("1") ? 4 : 9
 
-			this.jupiter.coordinates,
-			this.saturn.coordinates,
-			this.uranus.coordinates,
-			this.neptune.coordinates,
+		const ringDiameter = 500000
+		const coordinatesArray = [
+			[
+				this.mars.model.position.x,
+				this.mars.model.position.y,
+				this.mars.model.position.z,
+			],
+			[
+				this.jupiter.model.position.x,
+				this.jupiter.model.position.y,
+				this.jupiter.model.position.z,
+			],
+			[
+				this.saturn.model.position.x,
+				this.saturn.model.position.y,
+				this.saturn.model.position.z,
+			],
+			[
+				this.neptune.model.position.x,
+				this.neptune.model.position.y,
+				this.neptune.model.position.z,
+			],
+			[
+				this.earth.model.position.x,
+				this.earth.model.position.y,
+				this.earth.model.position.z,
+			],
+			[
+				this.mercury.model.position.x,
+				this.mercury.model.position.y,
+				this.mercury.model.position.z,
+			],
+			[
+				this.venus.model.position.x,
+				this.venus.model.position.y,
+				this.venus.model.position.z,
+			],
+			[
+				this.uranus.model.position.x,
+				this.uranus.model.position.y,
+				this.uranus.model.position.z,
+			],
+			[
+				this.uranus.model.position.x * 0.75, // Two extra helpers for the long distance
+				this.uranus.model.position.y,
+				this.uranus.model.position.z,
+			],
+			[
+				this.neptune.model.position.x * 0.75,
+				this.neptune.model.position.y,
+				this.neptune.model.position.z,
+			],
 		]
+
 		const rotationsArray = [
+			[Math.PI / 2, Math.PI / 2, Math.PI / 2],
+			[Math.PI / 2, Math.PI / 2, Math.PI / 2],
 			[Math.PI / 2, Math.PI / 2, Math.PI / 2],
 			[Math.PI / 2, Math.PI / 2, Math.PI / 2],
 			[Math.PI / 2, Math.PI / 2, Math.PI / 2],

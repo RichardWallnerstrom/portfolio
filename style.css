@@ -435,7 +435,7 @@ footer a {
 .dropDownContent {
 	display: none;
 	position: absolute;
-	min-width: 44vw;
+	min-width: 100vw;
 	z-index: 99999;
 	width: 95%;
 	min-height: 80%;

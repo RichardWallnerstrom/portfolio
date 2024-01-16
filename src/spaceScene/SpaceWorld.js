@@ -43,7 +43,12 @@ export default class SpaceWorld {
 		pauseMusic.addEventListener("click", () => this.audioManager.pauseMusic())
 		const stopMusic = document.getElementById("stopMusic")
 		stopMusic.addEventListener("click", () => this.audioManager.stopMusic())
-
+		const teleport = document.querySelectorAll(".teleport")
+		for (const btn of teleport) {
+			btn.addEventListener("click", (event) =>
+				this.teleportShip(event.target.value)
+			)
+		}
 		document.addEventListener("checkboxEvent", (arg) => {
 			if (arg.detail.includes("spacing:")) this.movePlanets(arg.detail)
 			if (arg.detail.includes("helpers:")) this.createRings(arg.detail)
@@ -170,7 +175,14 @@ export default class SpaceWorld {
 			)
 		}
 	}
-	teleportShip() {}
+	teleportShip(arg) {
+		const target = this.planets.find((planet) => planet.name === arg)
+		this.spaceShip.model.position.set(
+			target.model.position.x + target.size * 2.7,
+			target.model.position.y + target.size,
+			target.model.position.z + target.size / 10
+		)
+	}
 	deleteRings() {
 		for (const ring of this.listOfRings) {
 			this.spaceScene.scene.remove(ring.model)

@@ -75,19 +75,21 @@
 			</footer>
 		</div>
 		<!-- HUD ELEMENTS -->
-		<div id="settingsHud" style="display: none">
-			<!-- "-->
+		<div id="settingsHud">
+			<!-- style="display: none"-->
 			<button class="dropBtn">☰</button>
 			<div class="dropDownContent">
 				<h2>Settings</h2>
-				<p>Music player</p>
+				<p class="largeText">Music player</p>
 				<div class="musicButtons">
-					<button type="button" id="playMusic">▶</button>
-					<button type="button" id="pauseMusic"><b>||</b></button>
-					<button type="button" id="stopMusic">■</button>
+					<button type="button" class="musicButton" id="playMusic">▶</button>
+					<button type="button" class="musicButton" id="pauseMusic">
+						<b>||</b>
+					</button>
+					<button type="button" class="musicButton" id="stopMusic">■</button>
 				</div>
 
-				<p>Scale factor</p>
+				<p class="largeText">Scale factor</p>
 				<br />
 				<div class="checkBoxes">
 					<input
@@ -96,30 +98,30 @@
 						class="planetDistance"
 						name="distanceOption"
 						value="spacing:0" />
-					<label for="compareDistance">Compare (N/A)</label>
+					<label for="compareDistance">(N/A)</label>
 					<input
 						type="checkbox"
 						id="shortDistance"
 						class="planetDistance"
 						name="distanceOption"
 						value="spacing:1" />
-					<label for="shortDistance"> Narrow (1/40) </label>
+					<label for="shortDistance">(1/40) </label>
 					<input
 						type="checkbox"
 						id="normalDistance"
 						class="planetDistance"
 						name="distanceOption"
 						value="spacing:2" />
-					<label for="normalDistance">Standard (1/10) </label>
+					<label for="normalDistance">(1/10) </label>
 					<input
 						type="checkbox"
 						id="trueDistance"
 						class="planetDistance"
 						name="distanceOption"
 						value="spacing:3" />
-					<label for="trueDistance">True (1/1)</label>
+					<label for="trueDistance">(1/1)</label>
 				</div>
-				<p>Helpers</p>
+				<p class="largeText">Helpers</p>
 				<br />
 				<div class="checkBoxes">
 					<input
@@ -128,24 +130,40 @@
 						class="helperSetting"
 						name="distanceOption"
 						value="helpers:0" />
-					<label for="noHelper">No helpers</label>
+					<label for="noHelper">None</label>
 					<input
 						type="checkbox"
 						id="fewHelpers"
 						class="helperSetting"
 						name="distanceOption"
 						value="helpers:1" />
-					<label for="fewHelpers">Few helpers</label>
+					<label for="fewHelpers">Half</label>
 					<input
 						type="checkbox"
 						id="allHelpers"
 						class="helperSetting"
 						name="distanceOption"
 						value="helpers:2" />
-					<label for="allHelpers">All helpers</label>
+					<label for="allHelpers">All</label>
 				</div>
-				<!-- <h2>Cheats</h2>
-				<p>Teleport</p> -->
+				<h2>Cheats</h2>
+				<p class="largeText">Teleport to:</p>
+				<div id="teleportButtons">
+					<button type="button" value="mercury" class="teleport">
+						Mercury
+					</button>
+					<button type="button" value="venus" class="teleport">Venus</button>
+					<button type="button" value="earth" class="teleport">Earth</button>
+					<button type="button" value="mars" class="teleport">Mars</button>
+					<button type="button" value="jupiter" class="teleport">
+						Jupiter
+					</button>
+					<button type="button" value="saturn" class="teleport">Saturn</button>
+					<button type="button" value="uranus" class="teleport">Uranus</button>
+					<button type="button" value="neptune" class="teleport">
+						Neptune
+					</button>
+				</div>
 			</div>
 		</div>
 		<div

@@ -107,7 +107,6 @@ h6:hover {
 }
 #app3d {
 	/* Three JS Canvas */
-	/* margin: 3vw; */
 	width: 100%;
 	height: 100%;
 	margin: 0;
@@ -432,14 +431,17 @@ footer a {
 	display: inline-block;
 	z-index: 99999;
 }
+.largeText {
+	font-size: 1.3rem;
+}
 .dropDownContent {
 	display: none;
 	position: absolute;
-	min-width: 41vw;
+	min-width: 23vw;
 	z-index: 99999;
 	width: 95%;
 	min-height: 90vh;
-	font-size: 1.3vw;
+	font-size: 1.07rem;
 	background-color: rgba(55, 55, 55, 0.866);
 	color: rgba(255, 255, 255, 0.85);
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -451,21 +453,34 @@ footer a {
 	padding: 1rem;
 }
 .dropDownContent h2 {
-	margin: 1%;
+	margin: 3% 1% 1% 1%;
 }
 
 #settingsHud:hover .dropDownContent {
 	display: flex;
 	flex-direction: column;
 }
-
+.dropBtn {
+	background-color: #0a0093;
+	width: 3vw;
+}
 #settingsHud:hover .dropBtn {
-	background-color: #3e8e41;
+	background-color: #a54a00;
 }
 .checkBoxes {
 	display: flex;
 	flex-direction: row;
 	gap: 2%;
+}
+#teleportButtons {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.teleport,
+.musicButton {
+	width: 4vw;
+	background-color: black;
+	margin: 0.3rem;
 }
 #planetHud {
 	position: fixed;
@@ -496,10 +511,10 @@ footer a {
 	position: fixed;
 	display: flex;
 	box-sizing: border-box;
-	top: 8%;
-	left: 5%;
-	width: 20%;
-	height: 23%;
+	bottom: 3%;
+	right: 5%;
+	width: 19rem;
+	height: 11rem;
 	color: rgb(255, 217, 171);
 	background-color: rgba(124, 252, 166, 0.15);
 	background: radial-gradient(

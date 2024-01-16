@@ -41,6 +41,7 @@ export default class SpaceShipControls {
 		this.spaceShip.moveBackward(this.speed)
 
 		if (this.keys["KeyF"]) {
+			if (this.speed < 0) this.speed = 0
 			if (this.speed < 150000) {
 				this.speed += 0.1 + this.speed * 0.1
 			}

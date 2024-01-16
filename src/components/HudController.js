@@ -30,14 +30,17 @@ export default class HudController {
 		)
 		const nearestPlanetObject = this.planets.find(
 			(planet) => planet.name === nearestPlanet
-		) ///TODO fix dynamic interaction distance from radius
+		)
 		this.shipSpeed.innerHTML =
 			"Speed: " +
 			this.spaceShipControls.getSpeed().toFixed(2) * kilometers +
 			" km/h"
 		this.distanceToSun.innerHTML = "Nearest body: " + nearestPlanet
 		this.distanceToUranus.innerHTML =
-			"Distance: " + this.distancesToPlanets[nearestPlanet] * kilometers + " km"
+			"Distance: " +
+			this.distancesToPlanets[nearestPlanet].toFixed(1) *
+				kilometers.toFixed(1) +
+			" km"
 		if (
 			this.distancesToPlanets[nearestPlanet] <
 			nearestPlanetObject.size * 2.5

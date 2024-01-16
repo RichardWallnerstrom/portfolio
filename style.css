@@ -435,10 +435,10 @@ footer a {
 .dropDownContent {
 	display: none;
 	position: absolute;
-	min-width: 100vw;
+	min-width: 41vw;
 	z-index: 99999;
 	width: 95%;
-	min-height: 80%;
+	min-height: 90vh;
 	font-size: 1.3vw;
 	background-color: rgba(55, 55, 55, 0.866);
 	color: rgba(255, 255, 255, 0.85);

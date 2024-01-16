@@ -6,7 +6,6 @@ import Saturn from "./Saturn.js"
 import Planet from "./Planet.js"
 import SpaceShip from "./SpaceShip.js"
 import SpaceScene from "./SpaceScene.js"
-import PlanetText from "./PlanetText.js"
 import Renderer from "../components/Renderer.js"
 import LightController from "./LightController.js"
 import SpaceShipControls from "./SpaceShipControls.js"
@@ -23,6 +22,7 @@ export default class SpaceWorld {
 		this.lightController = new LightController(this.spaceScene.scene)
 		this.spaceShipControls = new SpaceShipControls(this.spaceShip)
 		this.createPlanets()
+		this.addListeners()
 		this.listOfRings = []
 
 		this.cameraController = new CameraController(
@@ -35,6 +35,15 @@ export default class SpaceWorld {
 			this.planets,
 			this.spaceShipControls
 		)
+	}
+	addListeners() {
+		const playMusic = document.getElementById("playMusic")
+		playMusic.addEventListener("click", () => this.audioManager.playMusic())
+		const pauseMusic = document.getElementById("pauseMusic")
+		pauseMusic.addEventListener("click", () => this.audioManager.pauseMusic())
+		const stopMusic = document.getElementById("stopMusic")
+		stopMusic.addEventListener("click", () => this.audioManager.stopMusic())
+
 		document.addEventListener("checkboxEvent", (arg) => {
 			if (arg.detail.includes("spacing:")) this.movePlanets(arg.detail)
 			if (arg.detail.includes("helpers:")) this.createRings(arg.detail)

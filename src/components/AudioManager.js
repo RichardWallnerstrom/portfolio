@@ -6,4 +6,11 @@ export default class AudioManager {
 	playMusic() {
 		this.audio.play()
 	}
+	pauseMusic() {
+		this.audio.pause()
+	}
+	stopMusic() {
+		this.audio.pause()
+		this.audio.currentTime = 0
+	}
 }

@@ -7,6 +7,8 @@ const runSpaceWorld = () => {
 	const reloadButton = document.getElementById("reloadPage")
 	const shipHud = document.getElementById("shipHud")
 	const app2d = document.getElementById("app2d")
+	const settings = document.getElementById("settingsHud")
+	settings.style.display = "inline-block"
 
 	div.style.display = "none" // Hide website
 	app2d.style.display = "none"
@@ -18,7 +20,6 @@ const runSpaceWorld = () => {
 	reloadButton.classList.remove("hidden")
 
 	const spaceWorld = new SpaceWorld()
-	spaceWorld.audioManager.playMusic()
 
 	const animate = () => {
 		requestAnimationFrame(animate)

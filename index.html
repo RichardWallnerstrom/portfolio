@@ -75,10 +75,18 @@
 			</footer>
 		</div>
 		<!-- HUD ELEMENTS -->
-		<div id="settingsHud">
+		<div id="settingsHud" style="display: none">
+			<!-- "-->
 			<button class="dropBtn">☰</button>
 			<div class="dropDownContent">
 				<h2>Settings</h2>
+				<p>Music player</p>
+				<div class="musicButtons">
+					<button type="button" id="playMusic">▶</button>
+					<button type="button" id="pauseMusic"><b>||</b></button>
+					<button type="button" id="stopMusic">■</button>
+				</div>
+
 				<p>Scale factor</p>
 				<br />
 				<div class="checkBoxes">
@@ -88,7 +96,7 @@
 						class="planetDistance"
 						name="distanceOption"
 						value="spacing:0" />
-					<label for="compareDistance">Comparison (N/A)</label>
+					<label for="compareDistance">Compare (N/A)</label>
 					<input
 						type="checkbox"
 						id="shortDistance"
@@ -109,7 +117,7 @@
 						class="planetDistance"
 						name="distanceOption"
 						value="spacing:3" />
-					<label for="trueDistance">True scale (1/1)</label>
+					<label for="trueDistance">True (1/1)</label>
 				</div>
 				<p>Helpers</p>
 				<br />
@@ -136,8 +144,8 @@
 						value="helpers:2" />
 					<label for="allHelpers">All helpers</label>
 				</div>
-				<h2>Cheats</h2>
-				<p>Teleport</p>
+				<!-- <h2>Cheats</h2>
+				<p>Teleport</p> -->
 			</div>
 		</div>
 		<div

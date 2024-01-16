@@ -73,6 +73,29 @@ document.addEventListener("DOMContentLoaded", function () {
 	reloadButton.addEventListener("click", function () {
 		window.location.reload()
 	})
+	// Space settings hud
+	var checkboxes = document.querySelectorAll(".planetDistance")
+
+	checkboxes.forEach((checkbox) => {
+		checkbox.addEventListener("change", () => {
+			checkboxes.forEach((otherCheckbox) => {
+				if (otherCheckbox !== checkbox) {
+					otherCheckbox.checked = false
+				}
+			})
+			if (checkbox.checked) {
+				console.log(
+					"Checkbox checked:",
+					checkbox.checked,
+					"value: " + checkbox.value
+				)
+				const customEvent = new CustomEvent("movePlanetsEvent", {
+					detail: checkbox.value,
+				})
+				document.dispatchEvent(customEvent)
+			}
+		})
+	})
 	function removeWelcomeMessage() {
 		helloMessage.classList.remove("animate__zoomIn")
 		helloMessage.classList.remove("custom-delay-10")

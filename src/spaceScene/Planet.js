@@ -7,6 +7,7 @@ export default class Planet {
 		this.texturePath = texturePath
 		this.size = size
 		this.coordinates = coordinates
+		this.originalCoord = coordinates
 		this.model = null
 		this.createModel()
 	}

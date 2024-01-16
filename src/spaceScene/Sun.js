@@ -29,14 +29,9 @@ export default class Sun extends Planet {
 				)
 				const sphereMaterial = new THREE.MeshBasicMaterial({
 					map: texture,
-
-					opacity: 1,
-					metalness: 0.3,
-					roughness: 0.5,
-					// depthWrite: false,
+					opacity: 0.7,
 					side: THREE.FrontSide,
-					emissive: 0xffffff,
-					color: new THREE.Color(0xffffff33),
+					color: new THREE.Color(0.4, 0.4, 0),
 				})
 				this.model = new THREE.Mesh(sphereGeometry, sphereMaterial)
 

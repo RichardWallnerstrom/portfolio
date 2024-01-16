@@ -3,7 +3,7 @@ export default class HudController {
 		this.spaceShip = spaceShip
 		this.spaceShipControls = spaceShipControls
 		this.planets = planets
-		this.smallHud = document.getElementById("smallHud")
+		this.planetHud = document.getElementById("planetHud")
 		this.bigHud = document.getElementById("bigHud")
 		this.shipHud = document.getElementById("shipHud")
 		this.shipSpeed = document.getElementById("shipSpeed")
@@ -43,10 +43,10 @@ export default class HudController {
 			nearestPlanetObject.size * 2.5
 		) {
 			this.shipHud.style.display = "none"
-			this.UpdateHud(`/pages/space/${nearestPlanet}.html`, this.smallHud)
+			this.UpdateHud(`/pages/space/${nearestPlanet}.html`, this.planetHud)
 		} else {
 			this.shipHud.style.display = "block"
-			this.smallHud.style.display = "none"
+			this.planetHud.style.display = "none"
 		}
 	}
 	UpdateHud(fetchedUrl, hud) {

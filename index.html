@@ -74,9 +74,81 @@
 				</a>
 			</footer>
 		</div>
-
+		<!-- HUD ELEMENTS -->
+		<div id="settingsHud">
+			<button class="dropBtn">☰</button>
+			<div class="dropDownContent">
+				<h2>Settings</h2>
+				<p>Scale factor</p>
+				<br />
+				<div class="checkBoxes">
+					<input
+						type="checkbox"
+						id="compareDistance"
+						class="planetDistance"
+						name="distanceOption"
+						value="spacing:0" />
+					<label for="compareDistance">Comparison (N/A)</label>
+					<input
+						type="checkbox"
+						id="shortDistance"
+						class="planetDistance"
+						name="distanceOption"
+						value="spacing:1" />
+					<label for="shortDistance"> Narrow (1/40) </label>
+					<input
+						type="checkbox"
+						id="normalDistance"
+						class="planetDistance"
+						name="distanceOption"
+						value="spacing:2" />
+					<label for="normalDistance">Standard (1/10) </label>
+					<input
+						type="checkbox"
+						id="trueDistance"
+						class="planetDistance"
+						name="distanceOption"
+						value="spacing:3" />
+					<label for="trueDistance">True scale (1/1)</label>
+				</div>
+				<p>Scale factor</p>
+				<br />
+				<div class="checkBoxes">
+					<input
+						type="checkbox"
+						id="compareDistance"
+						class="planetDistance"
+						name="distanceOption"
+						value="spacing:0" />
+					<label for="compareDistance">Comparison (N/A)</label>
+					<input
+						type="checkbox"
+						id="shortDistance"
+						class="planetDistance"
+						name="distanceOption"
+						value="spacing:1" />
+					<label for="shortDistance"> Narrow (1/40) </label>
+					<input
+						type="checkbox"
+						id="normalDistance"
+						class="planetDistance"
+						name="distanceOption"
+						value="spacing:2" />
+					<label for="normalDistance">Standard (1/10) </label>
+					<input
+						type="checkbox"
+						id="trueDistance"
+						class="planetDistance"
+						name="distanceOption"
+						value="spacing:3" />
+					<label for="trueDistance">True scale (1/1)</label>
+				</div>
+				<h2>Cheats</h2>
+				<p>Teleport</p>
+			</div>
+		</div>
 		<div
-			id="smallHud"
+			id="planetHud"
 			class="animate__animated animate__zoomIn"
 			style="display: none"></div>
 		<div
@@ -84,8 +156,8 @@
 			class="animate__animated animate__zoomIn"
 			style="display: none">
 			<p id="shipSpeed">Speed:</p>
-			<p id="distanceToSun">Distance to Sun:</p>
-			<p id="distanceToUranus">Distance to Uranus:</p>
+			<p id="distanceToSun">Nearest planet:</p>
+			<p id="distanceToUranus">Distance:</p>
 		</div>
 		<div
 			id="controlsHud"

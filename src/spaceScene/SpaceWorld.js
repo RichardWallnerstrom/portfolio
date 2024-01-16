@@ -34,6 +34,9 @@ export default class SpaceWorld {
 			this.planets,
 			this.spaceShipControls
 		)
+		document.addEventListener("movePlanetsEvent", (arg) => {
+			if (arg.detail.includes("spacing:")) this.movePlanets(arg.detail)
+		})
 	}
 	// Every unit is 10km
 	createPlanets() {
@@ -108,9 +111,9 @@ export default class SpaceWorld {
 			[45211797, 0, 0] //4.5b
 		)
 		this.planets = [
-			this.sun,
 			this.mercury,
 			this.venus,
+			this.moon,
 			this.earth,
 			this.mars,
 			this.jupiter,
@@ -119,6 +122,43 @@ export default class SpaceWorld {
 			this.neptune,
 		]
 	}
+	movePlanets(arg) {
+		const short = 0.25
+		const standard = 1
+		const accurate = 10
+		let setup = standard
+		// If not proportional distances
+		if (arg == "spacing:0") {
+			let totalLength = this.sun.size * 2
+			for (const planet of this.planets) {
+				planet.model.position.set(
+					totalLength,
+					planet.originalCoord[1],
+					planet.originalCoord[2]
+				)
+				totalLength += planet.size * 3
+				// Special cases
+				if (planet.name == "mars") totalLength += this.jupiter.size * 1.1
+				if (planet.name == "mercury") totalLength += planet.size * 3
+			}
+			return
+			// If proportional
+		} else if (arg == "spacing:1") {
+			setup = short
+		} else if (arg == "spacing:2") {
+			setup = standard
+		} else if (arg == "spacing:3") {
+			setup = accurate
+		}
+		for (const planet of this.planets) {
+			planet.model.position.set(
+				planet.originalCoord[0] * setup,
+				planet.originalCoord[1] * setup,
+				planet.originalCoord[2] * setup
+			)
+		}
+	}
+	teleportShip() {}
 	createRings() {
 		const amountOfRings = 5
 		const ringDiameter = 500000

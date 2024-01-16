@@ -178,8 +178,8 @@ export default class SpaceWorld {
 	teleportShip(arg) {
 		const target = this.planets.find((planet) => planet.name === arg)
 		this.spaceShip.model.position.set(
-			target.model.position.x + target.size * 2.7,
-			target.model.position.y + target.size,
+			target.model.position.x + target.size * 2.6,
+			target.model.position.y + target.size * 1,
 			target.model.position.z + target.size / 10
 		)
 	}

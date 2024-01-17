@@ -34,7 +34,7 @@ export default class HudController {
 		this.shipSpeed.innerHTML =
 			"Speed: " +
 			this.spaceShipControls.getSpeed().toFixed(2) * kilometers +
-			" km/h"
+			" u/h"
 		this.distanceToSun.innerHTML = "Nearest body: " + nearestPlanet
 		this.distanceToUranus.innerHTML =
 			"Distance: " +

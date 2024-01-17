@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	const fullstackMessage = document.getElementById("magicLine")
 	const profilePicture = document.getElementById("profileDiv")
 
-	const spaceButtonTest = document.getElementById("playSpaceEngineTest") // Testing ONly
-	spaceButtonTest.addEventListener("click", runSpaceWorld)
+	// const spaceButtonTest = document.getElementById("playSpaceEngineTest") // Testing ONly
+	// spaceButtonTest.addEventListener("click", runSpaceWorld)
 	reloadButton.classList.add("hidden")
 
 	projectsMenuElement.addEventListener("click", function () {

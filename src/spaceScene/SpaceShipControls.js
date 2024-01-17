@@ -42,7 +42,7 @@ export default class SpaceShipControls {
 
 		if (this.keys["KeyF"]) {
 			if (this.speed < 0) this.speed = 0
-			if (this.speed < 350000) {
+			if (this.speed < 23237) {
 				this.speed += 0.1 + this.speed * 0.1
 			}
 			if (this.hasMoved == false) {

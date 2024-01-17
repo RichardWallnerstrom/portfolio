@@ -33,7 +33,7 @@
 					Hi. I'm Richard!
 				</h1>
 			</div>
-			<button type="button" id="playSpaceEngineTest">▶</button>
+			<!-- <button type="button" id="playSpaceEngineTest">▶</button> -->
 			<div
 				id="profileDiv"
 				class="collidable breakable animate__animated animate__rollIn custom-delay-10">
@@ -75,8 +75,8 @@
 			</footer>
 		</div>
 		<!-- HUD ELEMENTS -->
-		<div id="settingsHud">
-			<!-- style="display: none"-->
+		<div id="settingsHud" style="display: none">
+			<!-- -->
 			<button class="dropBtn">☰</button>
 			<div class="dropDownContent">
 				<h2>Settings</h2>
@@ -111,7 +111,8 @@
 						id="normalDistance"
 						class="planetDistance"
 						name="distanceOption"
-						value="spacing:2" />
+						value="spacing:2"
+						checked />
 					<label for="normalDistance">(1/10) </label>
 					<input
 						type="checkbox"
@@ -129,7 +130,8 @@
 						id="noHelper"
 						class="helperSetting"
 						name="distanceOption"
-						value="helpers:0" />
+						value="helpers:0"
+						checked />
 					<label for="noHelper">None</label>
 					<input
 						type="checkbox"
@@ -185,10 +187,10 @@
 			<h2>Controls</h2>
 			<p>
 				W/S for pitch. <br />
-				A/D for turning <br />
-				Q/E for barrelling <br />
-				F/C for acceleration <br />
-				G for stopping
+				A/D for yaw <br />
+				Q/E for roll <br />
+				F/C for throttle <br />
+				G for break
 			</p>
 		</div>
 		<script type="module" src="/main.js"></script>

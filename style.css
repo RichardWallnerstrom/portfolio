@@ -279,8 +279,8 @@ button {
 	display: inline-block;
 	width: 2vw;
 	height: 3vh;
-	background-color: #d25f00;
-	color: #000;
+	background-color: #000000;
+	color: #ffffff;
 	text-shadow: 1px 1px 2px #853c00;
 	box-shadow: -1px 1px 6px 1px #000;
 	border: 1px solid #583800;
@@ -440,7 +440,7 @@ footer a {
 	min-width: 23vw;
 	z-index: 99999;
 	width: 95%;
-	min-height: 90vh;
+	min-height: 66vh;
 	font-size: 1.07rem;
 	background-color: rgba(55, 55, 55, 0.866);
 	color: rgba(255, 255, 255, 0.85);
@@ -461,11 +461,11 @@ footer a {
 	flex-direction: column;
 }
 .dropBtn {
-	background-color: #0a0093;
+	background-color: #06005f90;
 	width: 3vw;
 }
 #settingsHud:hover .dropBtn {
-	background-color: #a54a00;
+	background-color: #a54a0088;
 }
 .checkBoxes {
 	display: flex;

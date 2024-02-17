@@ -5,6 +5,7 @@ export default class SpaceShip {
 	constructor(scene) {
 		this.model = null
 		this.scene = scene
+		this.isVisible = true
 		this.xAxis = new THREE.Vector3(1, 0, 0)
 		this.yAxis = new THREE.Vector3(0, 1, 0)
 		this.zAxis = new THREE.Vector3(0, 0, -1)
@@ -81,5 +82,9 @@ export default class SpaceShip {
 
 	pitchDown(speed) {
 		this.model.rotateOnAxis(this.xAxis, -speed)
+	}
+	toggleVisibility() {
+		this.isVisible = !this.isVisible
+		this.model.visible = this.isVisible
 	}
 }

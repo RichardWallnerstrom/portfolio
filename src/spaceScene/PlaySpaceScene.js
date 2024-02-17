@@ -20,6 +20,7 @@ const runSpaceWorld = () => {
 	reloadButton.classList.remove("hidden")
 
 	const spaceWorld = new SpaceWorld()
+	window.spaceWorld = spaceWorld
 
 	const animate = () => {
 		requestAnimationFrame(animate)

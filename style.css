@@ -58,7 +58,6 @@ h1 {
 	font-size: 3vw;
 	line-height: 0;
 	height: 0.5vh;
-	text-align: center;
 	justify-content: center;
 	color: rgba(0, 0, 0, 0.925);
 	text-shadow: 2px 2px 2px #ccc, -2px -2px 2px #ccc, 2px -2px 2px #ccc,
@@ -168,15 +167,17 @@ h6:hover {
 	background-size: cover;
 	text-align: center;
 }
+/* mainContainer contains all elements except space*/
 #mainContainer {
 	position: fixed;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	top: 0;
 	margin: 6vh 4vw;
 	padding: 0px 0px 30px 0px;
-	width: 95%;
-	min-width: 95%;
+	width: 90vw;
+	min-width: 90vw;
 	min-height: 80%;
 	font-size: 1.3vw;
 	background-color: rgba(55, 55, 55, 0.866);
@@ -191,17 +192,22 @@ h6:hover {
 
 .headerContainer {
 	display: flex;
+	width: 100%;
+	min-width: 100%;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	margin: 3vh 0 0 0;
 }
-.bottomContainer {
+/* .bottomContainer {
 	display: flex;
 	justify-content: center;
-	flex-direction: row;
+	flex-direction: row-reverse;
 	height: 60%;
 	width: 100%;
+} */
+.menu > div > .collidable {
+	margin: 5vh 0 10vh 0;
 }
 #menuContainer {
 	display: flex;
@@ -214,6 +220,7 @@ h6:hover {
 	width: 10%;
 	box-sizing: border-box;
 	margin: 0 0 0 2vw;
+	height: 50%;
 }
 #menuContainer div {
 	display: flex;
@@ -233,6 +240,8 @@ h6:hover {
 	padding: 0;
 }
 #contentContainer {
+	flex-direction: row-reverse;
+	display: flex;
 	position: fixed;
 	top: 13vh;
 	right: 6.3vw;
@@ -313,10 +322,11 @@ button {
 	margin: 0;
 }
 .artsPage {
-	margin: 0;
+	margin: 0.7vh 5vw;
 	display: grid;
-	grid-template-columns: 55% 55%;
+	grid-template-columns: 50% 50%;
 	gap: 1%;
+	justify-content: center;
 }
 .artsPage h2 {
 	margin: 0;
@@ -342,11 +352,12 @@ button {
 #soundcloudPlayers {
 	display: grid;
 	justify-content: center;
-	grid-template-columns: 14vw 14vw;
-	grid-template-rows: 23vh 23vh;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 50% 50%;
 	width: 90%;
 	margin: 0 0 0 0;
 	gap: 1rem;
+	bottom: 0;
 }
 iframe {
 	border: 3px solid rgb(159, 80, 0);
@@ -369,7 +380,7 @@ iframe {
 	height: 14vh;
 }
 .collidable {
-	z-index: 999;
+	z-index: 99999;
 }
 .hidden {
 	visibility: hidden;
@@ -430,6 +441,24 @@ footer a {
 	position: fixed;
 	display: inline-block;
 	z-index: 99999;
+}
+#controllerButtons {
+	position: fixed;
+	left: 6%;
+	top: 80%;
+	display: grid;
+	grid-template-rows: repeat(3, 1fr) repeat(3, 1fr);
+	grid-template-columns: repeat(3, 1fr);
+	z-index: 99999;
+	gap: 5%;
+}
+#controllerButtons button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5em;
+	width: 2.3rem;
+	height: 2.3rem;
 }
 .largeText {
 	font-size: 1.3rem;
@@ -570,6 +599,7 @@ footer a {
 	justify-content: center;
 	flex-direction: column;
 	width: 100%;
+	margin: 10% 0;
 }
 #planetPage > div:nth-of-type(2) {
 	display: grid;
@@ -587,46 +617,139 @@ footer a {
 }
 /* Small Screen */
 @media only screen and (max-width: 1000px) {
+	.bottomContainer {
+		width: 100%;
+		height: 100%;
+	}
+	#menuContainer {
+		display: flex;
+		flex-direction: row;
+		margin: 0;
+		width: 90vw;
+		height: 50%;
+	}
+	#contentContainer {
+		position: absolute;
+		margin: 0;
+		top: 0;
+		left: 0;
+		width: 90vw;
+		z-index: 1;
+	}
+	#artsContainer {
+		position: absolute;
+		left: 0;
+		width: 100vw;
+	}
+	.menu {
+		height: 70vh;
+		width: 90vw;
+		display: flex;
+		position: fixed;
+		bottom: 10vh;
+		gap: 0;
+	}
+	.bottomMenu {
+	}
+	.menu > div > .collidable {
+		margin: 0 0 11vh 0;
+	}
+	.menu .collidable {
+		display: inline-block;
+		margin: 30vh 10px; /* Adjust the margin as needed */
+	}
+	#menuContainer {
+		width: 90vw;
+	}
+	#menuContainer div {
+		position: fixed;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		bottom: 1vh;
+		/* left: 23vw; */
+		gap: 10px;
+	}
+	#menuContainer > div > div {
+		margin: 10%;
+		gap: 20vw;
+	}
+
+	nav {
+		gap: 10vw;
+	}
 	p,
 	li,
 	a {
 		font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-		font-size: 2.3vw;
-		line-height: 1.6vh;
+		font-size: 2.1vw;
+		line-height: 1.9vh;
 	}
 	footer {
-		margin: 1vw 0 0 30vw;
+		position: absolute;
+		top: -4vh;
+		margin: 0 0 0vh 23vw;
+		height: 10vh;
+	}
+	h1 {
+		font-size: 2.3rem;
+		/* width: 100%; */
+		margin: 16vh 3vw;
+		line-height: 2.3rem;
 	}
 	h2 {
 		line-height: 2.3vh;
+		font-size: 1.3rem;
+		margin: 6vh 23vw 0 3vw;
 	}
 	h3,
 	h4,
 	h5,
 	h6 {
-		font-size: 3.2vw;
+		display: inline-block;
+		margin: 2vh 0;
+		padding: 0;
+		font-family: "Iceland", "Times New Roman", sans-serif;
+		cursor: pointer;
+		border-radius: 40%;
+		width: 19vw;
+		font-size: 2.3vw;
+		line-height: 0;
+		height: 0.7vh;
+		text-align: center;
+		color: rgba(0, 0, 0, 0.925);
+		text-shadow: 2px 2px 2px #ccc, -2px -2px 2px #ccc, 2px -2px 2px #ccc,
+			-2px 2px 2px #ccc;
+		box-shadow: 2px 2px 8px 8px #ccc;
+		background-color: #242424;
 	}
 	.right-div {
 		display: none;
 	}
-	#profile-picture {
+	#profileDiv {
 		margin: 3vh 0 0 0;
-		width: 33vw;
+		width: 23vw;
 		display: block;
 		height: auto;
-		border-radius: 40%;
-		border: 4px solid black;
-		box-shadow: 1px 1px 20px 15px black;
+	}
+	th,
+	td {
+		margin: 0;
+		padding: 0.1rem;
+		height: auto;
+		padding: 0;
 	}
 	#planetHud {
 		position: fixed;
 		display: flex;
 		box-sizing: border-box;
 		gap: 3vw;
-		margin: 7vw;
+		margin: 17vw 7vh;
 		padding-top: 2%;
-		width: 90%;
-		height: 90%;
+		width: 75%;
+		height: 50%;
 		color: rgb(255, 217, 171);
 		background-color: rgba(124, 252, 166, 0.15);
 		background: radial-gradient(
@@ -644,13 +767,29 @@ footer a {
 	}
 	#q3maps {
 		display: grid;
-		grid-template-columns: 100%;
+		grid-template-columns: 1fr;
 		grid-template-rows: 13vh 13vh 13vh 13vh;
 	}
+
 	#soundcloudPlayers {
 		grid-template-columns: 100%;
 		grid-template-rows: 13vh 13vh 13vh 13vh;
 		gap: 0.5rem;
+	}
+
+	/* Space settings */
+	#controlsHud {
+		width: 23%;
+	}
+	.dropBtn {
+		background-color: #06005f90;
+		width: 6vw;
+	}
+	#shipHud {
+		bottom: 3%;
+		right: 5%;
+		width: 10rem;
+		height: 8rem;
 	}
 }
 

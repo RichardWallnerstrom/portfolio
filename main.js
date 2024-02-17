@@ -47,15 +47,15 @@ async function loadContent(url) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-	const projectsMenuElement = document.getElementById("projectsMenu") // work menu
-	const aboutMenuElement = document.getElementById("aboutMenu") // about menu
+	const projectsMenuElement = document.getElementById("projectsMenu")
+	const aboutMenuElement = document.getElementById("aboutMenu")
 	const reloadButton = document.getElementById("reloadPage")
 	const helloMessage = document.getElementById("hello")
 	const fullstackMessage = document.getElementById("magicLine")
 	const profilePicture = document.getElementById("profileDiv")
 
-	// const spaceButtonTest = document.getElementById("playSpaceEngineTest") // Testing ONly
-	// spaceButtonTest.addEventListener("click", runSpaceWorld)
+	const pictureButton = document.getElementById("profileDiv") // quick link to solar system
+	pictureButton.addEventListener("click", runSpaceWorld)
 	reloadButton.classList.add("hidden")
 
 	projectsMenuElement.addEventListener("click", function () {
@@ -74,7 +74,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		window.location.reload()
 	})
 	// Space settings hud
-	var checkboxes = document.querySelectorAll(".planetDistance, .helperSetting")
+	var checkboxes = document.querySelectorAll(
+		".planetDistance, .helperSetting, .controllerSetting"
+	)
 	// Make sure only one checkbox is ticked per row
 	checkboxes.forEach((checkbox) => {
 		checkbox.addEventListener("change", () => {
@@ -87,11 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
 				}
 			})
 			if (checkbox.checked) {
-				console.log(
-					"Checkbox checked:",
-					checkbox.checked,
-					"value: " + checkbox.value
-				)
 				const customEvent = new CustomEvent("checkboxEvent", {
 					detail: checkbox.value,
 				})

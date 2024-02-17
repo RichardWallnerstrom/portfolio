@@ -39,7 +39,6 @@ export default class Canvas {
 		const onLoad = () => {
 			loadedImages++
 			if (loadedImages === this.backgroundImages.length) {
-				console.log("All images loaded")
 				this.draw()
 			}
 		}

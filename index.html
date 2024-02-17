@@ -14,9 +14,9 @@
 	<body>
 		<div id="frame-hud">
 			<nav>
-				<h5 id="projectsMenu" class="collidable menu">Projects</h5>
+				<h5 id="projectsMenu" class="collidable bottomMenu">Projects</h5>
 				<h5 id="reloadPage">Back to Site</h5>
-				<h4 id="aboutMenu" class="collidable menu">About</h4>
+				<h4 id="aboutMenu" class="collidable bottomMenu">About</h4>
 			</nav>
 		</div>
 		<div id="app3d"></div>
@@ -74,12 +74,30 @@
 				</a>
 			</footer>
 		</div>
-		<!-- HUD ELEMENTS -->
+		<!-- SPACE HUD ELEMENTS -->
 		<div id="settingsHud" style="display: none">
 			<!-- -->
 			<button class="dropBtn">☰</button>
 			<div class="dropDownContent">
 				<h2>Settings</h2>
+				<p class="largeText">Controller</p>
+				<br />
+				<div class="checkBoxes">
+					<input
+						type="checkbox"
+						id="visibility"
+						class="displaySetting"
+						name="distanceOption"
+						value="visibility:0" />
+					<label for="noShip">Hide ship</label>
+					<input
+						type="checkbox"
+						id="controller"
+						class="displaySetting"
+						name="distanceOption"
+						value="controller:0" />
+					<label for="controller">Controller</label>
+				</div>
 				<p class="largeText">Music player</p>
 				<div class="musicButtons">
 					<button type="button" class="musicButton" id="playMusic">▶</button>
@@ -193,6 +211,63 @@
 				G for break
 			</p>
 		</div>
+		<div id="controllerButtons" style="display: none">
+			<button
+				id="yawLeft"
+				onmousedown="spaceWorld.pressButton('KeyQ')"
+				onmouseup="spaceWorld.releaseButton('KeyQ')">
+				&#8635;
+			</button>
+			<button
+				id="pitchUp"
+				onmousedown="spaceWorld.pressButton('KeyS')"
+				onmouseup="spaceWorld.releaseButton('KeyS')">
+				&#8593;
+			</button>
+			<button
+				id="yawRight"
+				onmousedown="spaceWorld.pressButton('KeyE')"
+				onmouseup="spaceWorld.releaseButton('KeyE')">
+				&#8634;
+			</button>
+			<button
+				id="strafeLeft"
+				onmousedown="spaceWorld.pressButton('KeyA')"
+				onmouseup="spaceWorld.releaseButton('KeyA')">
+				&#8592;
+			</button>
+			<button
+				id="emergencyStop"
+				onmousedown="spaceWorld.pressButton('KeyG')"
+				onmouseup="spaceWorld.releaseButton('KeyG')">
+				■
+			</button>
+			<button
+				id="strafeRight"
+				onmousedown="spaceWorld.pressButton('KeyD')"
+				onmouseup="spaceWorld.releaseButton('KeyD')">
+				&#8594;
+			</button>
+			<button
+				id="throttleDown"
+				onmousedown="spaceWorld.pressButton('KeyC')"
+				onmouseup="spaceWorld.releaseButton('KeyC')">
+				➖
+			</button>
+			<button
+				id="pitchDown"
+				onmousedown="spaceWorld.pressButton('KeyW')"
+				onmouseup="spaceWorld.releaseButton('KeyW')">
+				&#8595;
+			</button>
+			<button
+				id="throttleUp"
+				onmousedown="spaceWorld.pressButton('KeyF')"
+				onmouseup="spaceWorld.releaseButton('KeyF')">
+				➕
+			</button>
+		</div>
+
 		<script type="module" src="/main.js"></script>
 		<script type="module" src="/src/spaceScene/PlaySpaceScene.js"></script>
 		<script type="module" src="/src/retroScene/PlayRetroScene.js"></script>

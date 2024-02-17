@@ -18,6 +18,13 @@ export default class SpaceShipControls {
 		)
 		document.addEventListener("keyup", (event) => this.onKeyUp(event), false)
 	}
+	// HUD BUTTON methods
+	pressButton(key) {
+		this.keys[key] = true
+	}
+	releaseButton(key) {
+		this.keys[key] = false
+	}
 	getSpeed() {
 		return this.speed
 	}
@@ -72,7 +79,8 @@ export default class SpaceShipControls {
 		if (this.keys["KeyW"]) {
 			this.spaceShip.pitchDown(0.005 * speedModifier)
 		}
-		if (this.keys["KeyG"]) {
+		if (this.keys["KeyG"] && this.speed != 0) {
+			console.log("HOLDING G BUTTON")
 			this.speed = 0
 		}
 	}

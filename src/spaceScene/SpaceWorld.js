@@ -37,6 +37,7 @@ export default class SpaceWorld {
 		)
 	}
 	addListeners() {
+		window.addEventListener("resize", this.onWindowResize.bind(this), false)
 		const playMusic = document.getElementById("playMusic")
 		playMusic.addEventListener("click", () => this.audioManager.playMusic())
 		const pauseMusic = document.getElementById("pauseMusic")
@@ -53,6 +54,17 @@ export default class SpaceWorld {
 			if (arg.detail.includes("spacing:")) this.movePlanets(arg.detail)
 			if (arg.detail.includes("helpers:")) this.createRings(arg.detail)
 		})
+		document
+			.getElementById("controller")
+			.addEventListener("change", (event) => {
+				const showController = event.target.checked
+				if (showController) {
+					document.getElementById("controllerButtons").style.display = "grid"
+					this.spaceShip.toggleVisibility()
+				} else {
+					document.getElementById("controllerButtons").style.display = "none"
+				}
+			})
 	}
 	// Every unit is 10km
 	createPlanets() {
@@ -268,6 +280,25 @@ export default class SpaceWorld {
 				rotationsArray[i]
 			)
 			this.listOfRings.push(newRing)
+		}
+	}
+	pressButton(key) {
+		this.spaceShipControls.pressButton(key)
+	}
+
+	releaseButton(key) {
+		this.spaceShipControls.releaseButton(key)
+	}
+	onWindowResize() {
+		console.log("window resized!!!")
+		const width = window.innerWidth
+		const height = window.innerHeight
+
+		this.renderer.setSize(width, height)
+		this.renderer.setPixelRatio(window.devicePixelRatio)
+		if (this.cameraController) {
+			this.cameraController.aspect = width / height
+			this.cameraController.updateProjectionMatrix()
 		}
 	}
 	animate() {

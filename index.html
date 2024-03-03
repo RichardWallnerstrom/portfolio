@@ -33,7 +33,6 @@
 					Hi. I'm Richard!
 				</h1>
 			</div>
-			<!-- <button type="button" id="playSpaceEngineTest">▶</button> -->
 			<div
 				id="profileDiv"
 				class="collidable breakable animate__animated animate__rollIn custom-delay-10">
@@ -80,7 +79,6 @@
 			<button class="dropBtn">☰</button>
 			<div class="dropDownContent">
 				<h2>Settings</h2>
-				<p class="largeText">Visibility</p>
 				<br />
 				<div class="checkBoxes">
 					<input
@@ -159,7 +157,6 @@
 						value="helpers:2" />
 					<label for="allHelpers">All</label>
 				</div>
-				<h2>Cheats</h2>
 				<p class="largeText">Teleport to:</p>
 				<div id="teleportButtons">
 					<button type="button" value="mercury" class="teleport">
@@ -208,55 +205,73 @@
 			<button
 				id="yawLeft"
 				onmousedown="spaceWorld.pressButton('KeyQ')"
-				onmouseup="spaceWorld.releaseButton('KeyQ')">
+				ontouchstart="spaceWorld.pressButton('KeyQ')"
+				onmouseup="spaceWorld.releaseButton('KeyQ')"
+				ontouchend="spaceWorld.releaseButton('KeyQ')">
 				&#8635;
 			</button>
 			<button
 				id="pitchUp"
 				onmousedown="spaceWorld.pressButton('KeyS')"
-				onmouseup="spaceWorld.releaseButton('KeyS')">
+				ontouchstart="spaceWorld.pressButton('KeyS')"
+				onmouseup="spaceWorld.releaseButton('KeyS')"
+				ontouchend="spaceWorld.releaseButton('KeyS')">
 				&#8593;
 			</button>
 			<button
 				id="yawRight"
 				onmousedown="spaceWorld.pressButton('KeyE')"
-				onmouseup="spaceWorld.releaseButton('KeyE')">
+				ontouchstart="spaceWorld.pressButton('KeyE')"
+				onmouseup="spaceWorld.releaseButton('KeyE')"
+				ontouchend="spaceWorld.releaseButton('KeyE')">
 				&#8634;
 			</button>
 			<button
 				id="strafeLeft"
 				onmousedown="spaceWorld.pressButton('KeyA')"
-				onmouseup="spaceWorld.releaseButton('KeyA')">
+				ontouchstart="spaceWorld.pressButton('KeyA')"
+				onmouseup="spaceWorld.releaseButton('KeyA')"
+				ontouchend="spaceWorld.releaseButton('KeyA')">
 				&#8592;
 			</button>
 			<button
 				id="emergencyStop"
 				onmousedown="spaceWorld.pressButton('KeyG')"
-				onmouseup="spaceWorld.releaseButton('KeyG')">
+				ontouchstart="spaceWorld.pressButton('KeyG')"
+				onmouseup="spaceWorld.releaseButton('KeyG')"
+				ontouchend="spaceWorld.releaseButton('KeyG')">
 				■
 			</button>
 			<button
 				id="strafeRight"
 				onmousedown="spaceWorld.pressButton('KeyD')"
-				onmouseup="spaceWorld.releaseButton('KeyD')">
+				ontouchstart="spaceWorld.pressButton('KeyD')"
+				onmouseup="spaceWorld.releaseButton('KeyD')"
+				ontouchend="spaceWorld.releaseButton('KeyD')">
 				&#8594;
 			</button>
 			<button
 				id="throttleDown"
 				onmousedown="spaceWorld.pressButton('KeyC')"
-				onmouseup="spaceWorld.releaseButton('KeyC')">
+				ontouchstart="spaceWorld.pressButton('KeyC')"
+				onmouseup="spaceWorld.releaseButton('KeyC')"
+				ontouchend="spaceWorld.releaseButton('KeyC')">
 				➖
 			</button>
 			<button
 				id="pitchDown"
 				onmousedown="spaceWorld.pressButton('KeyW')"
-				onmouseup="spaceWorld.releaseButton('KeyW')">
+				ontouchstart="spaceWorld.pressButton('KeyW')"
+				onmouseup="spaceWorld.releaseButton('KeyW')"
+				ontouchend="spaceWorld.releaseButton('KeyW')">
 				&#8595;
 			</button>
 			<button
 				id="throttleUp"
 				onmousedown="spaceWorld.pressButton('KeyF')"
-				onmouseup="spaceWorld.releaseButton('KeyF')">
+				ontouchstart="spaceWorld.pressButton('KeyF')"
+				onmouseup="spaceWorld.releaseButton('KeyF')"
+				ontouchend="spaceWorld.releaseButton('KeyF')">
 				➕
 			</button>
 		</div>

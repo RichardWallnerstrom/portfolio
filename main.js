@@ -74,9 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		window.location.reload()
 	})
 	// Space settings hud
-	var checkboxes = document.querySelectorAll(
-		".planetDistance, .helperSetting, .controllerSetting"
-	)
+	var checkboxes = document.querySelectorAll(".planetDistance, .helperSetting")
 	// Make sure only one checkbox is ticked per row
 	checkboxes.forEach((checkbox) => {
 		checkbox.addEventListener("change", () => {

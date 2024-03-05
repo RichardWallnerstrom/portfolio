@@ -138,6 +138,16 @@ export default class SpaceWorld {
 			4924.4, // diameter
 			[45211797, 0, 0] //4.5b
 		)
+		this.woh_g64 = new Sun(
+			"woh_g64",
+			this.spaceScene.scene,
+			"../../textures/space/8k_sun.jpg",
+			2142756, // diameter
+			// 214275600, // diameter
+
+			[-90000, 0, 0]
+		)
+		console.log("woh g64 created at: " + this.woh_g64.coordinates[0])
 		this.planets = [
 			this.mercury,
 			this.venus,

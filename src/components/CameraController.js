@@ -6,7 +6,7 @@ export default class CameraController {
 		this.mars = mars
 		this.fov = 60
 		this.nearClipDistance = 0.01
-		this.farClipDistance = 999999999
+		this.farClipDistance = 9999999999
 		this.isMouseOverEarth
 		this.isMouseOverMars
 
